@@ -21,10 +21,17 @@ module.exports = {
       {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",
-      }
+      },
+      { test: /\.json$/, loader: 'json-loader' }
     ],
     resolve: {
       extensions: ['', '.js', '.jsx']
+    },
+    node: {
+      console: 'true',
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty'
     }
   }
 };
