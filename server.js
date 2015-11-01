@@ -8,9 +8,13 @@ app.get('/', function (req, res) {
   res.send("putYahooAPIResponseHere");
 });
 
-app.get('/AAPL', function (req, res) {
+app.get('/:symbol', function (req, res) {
+  console.log("in symbol path");
+  var symbol=req.params.symbol;
+  console.log("symbol: ", symbol);
+  console.log('http://finance.yahoo.com/webservice/v1/symbols/'+symbol+'/quote?format=json&view=detail');
 var options = {
-  uri: 'http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail',
+  uri: 'http://finance.yahoo.com/webservice/v1/symbols/'+symbol+'/quote?format=json&view=detail',
   json:true
 };
   requestPromise(options)
