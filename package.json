@@ -26,7 +26,8 @@
     "webpack": "^1.12.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "webpack && node server.js;"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,9 @@
 import React from "react";
 
-var MyComponent = React.createClass({
+var StockList = React.createClass({
   render: function() {
-    return <div>Stock List</div>;
+    return <h1>Stock List</h1>;
   }
 });
+
+export default StockList

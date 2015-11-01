@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "public";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -60,7 +60,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_StockList2.default, null), document.body);
+	_reactDom2.default.render(_react2.default.createElement(_StockList2.default, null), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -19644,21 +19644,27 @@
 
 	"use strict";
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var MyComponent = _react2.default.createClass({
+	var StockList = _react2.default.createClass({
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
+	      "h1",
 	      null,
 	      "Stock List"
 	    );
 	  }
 	});
+
+	exports.default = StockList;
 
 /***/ }
 /******/ ]);

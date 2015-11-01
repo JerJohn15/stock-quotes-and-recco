@@ -1,3 +1,5 @@
+var path = require('path')
+
 module.exports = {
   context: __dirname + "/src",
   entry: {
@@ -5,8 +7,9 @@ module.exports = {
     html: "./index.html",
   },
   output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
+    path: path.join(__dirname, 'public'),
+    filename: "bundle.js",
+    publicPath: 'public'
   },
   module: {
     loaders: [
