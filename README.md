@@ -1,8 +1,11 @@
 # stock-quotes-and-recco
 
 #Project Setup
+make sure node (with npm) is installed.
 
-From terminal/command line run:
+Then, from terminal/command line run:
+git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
+cd stock-quotes-and-recco &&
 npm install && npm start
 
 #Description
