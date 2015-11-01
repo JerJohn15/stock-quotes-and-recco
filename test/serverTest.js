@@ -46,7 +46,6 @@ describe('/', function () {
       res.on('end', function() {
         assert.equal('AAPL', JSON.parse(data).symbol);
         assert.equal('Apple Inc.', JSON.parse(data).issuer);
-        done();
       })
     })
     http.get('http://localhost:8080/YHOO', function (res){
