@@ -19654,12 +19654,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var stocks = ["AAPL", "GOOGL", "YHOO"];
+
 	var StockList = _react2.default.createClass({
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "h1",
+	      "div",
 	      null,
-	      "Stock List"
+	      _react2.default.createElement(
+	        "h1",
+	        null,
+	        "Stock List"
+	      ),
+	      _react2.default.createElement(
+	        "ul",
+	        null,
+	        stocks.map(function (stock) {
+	          return _react2.default.createElement(
+	            "li",
+	            { key: stock },
+	            stock
+	          );
+	        })
+	      )
 	    );
 	  }
 	});
