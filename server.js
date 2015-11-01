@@ -1,12 +1,14 @@
 var express = require('express');
 var app = express();
-
+var React = require('React');
+var path = require('path');
+var bodyParser = require('body-parser');
 var requestPromise = require('request-promise');
 
 //Routes
-app.get('/', function (req, res) {
-  res.send("putYahooAPIResponseHere");
-});
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/:symbol', function (req, res) {
   var symbol=req.params.symbol;
@@ -31,8 +33,7 @@ var relevantStockResources = resp.list.resources.filter(function(resource){
 });
 
 var server = app.listen(8080, function () {
-  var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Example app available at: http://localhost:%s', port);
 });

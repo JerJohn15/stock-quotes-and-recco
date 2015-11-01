@@ -1,20 +1,27 @@
-var path = require('path');
-
-module.exports = {  
-  entry: path.resolve(__dirname, '../src/client/scripts/client.js'),
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+module.exports = {
+  context: __dirname + "/src",
+  entry: {
+    javascript: "./js/app.js",
+    html: "./index.html",
   },
-
+  output: {
+    filename: "app.js",
+    path: __dirname + "/dist",
+  },
   module: {
     loaders: [
-      {
-        test: /src\/.+.js$/,
+      { test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: "babel",
+        query:{presets:['es2015','react']}
+      },
+      {
+        test: /\.html$/,
+        loader: "file?name=[name].[ext]",
       }
-    ]
+    ],
+    resolve: {
+      extensions: ['', '.js', '.jsx']
+    }
   }
 };
-

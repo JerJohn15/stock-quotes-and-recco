@@ -22,7 +22,7 @@ describe('/', function () {
     });
   });
 
-  it('should say putYahooAPIResponseHere', function (done) {
+  it('title should be Stock Toy', function (done) {
     http.get('http://localhost:8080', function (res) {
       var data = '';
 
@@ -31,7 +31,7 @@ describe('/', function () {
       });
 
       res.on('end', function () {
-        assert.equal('putYahooAPIResponseHere', data);
+        assert(data.indexOf("Stock Toy")!=-1);
         done();
       });
     });
