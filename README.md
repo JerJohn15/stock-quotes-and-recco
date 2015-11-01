@@ -2,10 +2,8 @@
 
 #Project Setup
 
-npm install
-
-
-npm start
+From terminal/command line run:
+npm install && npm start
 
 #Description
 
