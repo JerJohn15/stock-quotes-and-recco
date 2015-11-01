@@ -1,0 +1,36 @@
+{
+  "description": "An application for reading and analyzing stock informatin from the Yahoo Finance API",
+  "dependencies": {
+    "babel-core": "^6.0.14",
+    "babel-loader": "^6.0.0",
+    "express": "^4.13.3",
+    "mocha": "^2.3.3",
+    "request-promise": "^1.0.2",
+    "webpack": "^1.12.2"
+  },
+  "name": "stock-pricing-and-recco-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rkiouak/stock-quotes-and-recco.git"
+  },
+  "keywords": [
+    "stocks"
+  ],
+  "author": "mrkiouak",
+  "license": "CPAL-1.0",
+  "bugs": {
+    "url": "https://github.com/Rkiouak/stock-quotes-and-recco/issues"
+  },
+  "homepage": "https://github.com/Rkiouak/stock-quotes-and-recco#readme"
+}
