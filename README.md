@@ -6,3 +6,5 @@ Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http:/
 date ranges, eventually bring in d3 graphing of historical data.
 
 2nd stage query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
+
+Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
