@@ -1,5 +1,12 @@
 # stock-quotes-and-recco
 
+#Project Setup
+
+From terminal/command line run:
+npm install && npm start
+
+#Description
+
 Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
 
 1st stage/initial to-do build single page with form + results display that allows for querying stocks by symbol, issuer_name and various
