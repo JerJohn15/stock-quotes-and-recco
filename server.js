@@ -15,8 +15,13 @@ var options = {
 };
   requestPromise(options)
   .then(function (resp){
-    console.log(resp.resources.filter(function(resource){return resource.symbol=="AAPL"}).symbol);
-    res.send(resp.body);
+
+var relevantStockResources = resp.list.resources.filter(function(resource){
+  return resource.resource.fields.symbol=="AAPL";}).map(function(resource){
+    return {symbol:resource.resource.fields.symbol, price:resource.resource.fields.price, issuer:resource.resource.fields.issuer_name};
+  })
+
+    res.send(relevantStockResources[0]);
   })
   .catch(function (err) {
     console.log(err);

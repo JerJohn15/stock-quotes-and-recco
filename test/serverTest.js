@@ -36,4 +36,18 @@ describe('/', function () {
       });
     });
   });
+
+  it('should show AAPL and day quote', function(done) {
+    http.get('http://localhost:8080/AAPL', function (res){
+      var data = '';
+      res.on('data', function (chunk){
+        data+=chunk;
+      });
+      res.on('end', function() {
+        assert.equal('AAPL', JSON.parse(data).symbol);
+        assert.equal('Apple Inc.', JSON.parse(data).issuer);
+        done();
+      })
+    })
+  })
 });
