@@ -1,6 +1,6 @@
 # stock-quotes-and-recco
 
-Live demo app available at: rkiouak.com
+Live demo app available at: http://rkiouak.com
 
 #Project Setup
 make sure node (with npm) is installed.
