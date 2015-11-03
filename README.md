@@ -1,9 +1,19 @@
 # stock-quotes-and-recco
 
 #Project Setup
+make sure node (with npm) is installed.
 
-From terminal/command line run:
+Then, from terminal/command line run:
+
+git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
+
+cd stock-quotes-and-recco &&
+
 npm install && npm start
+
+Give the server a few minutes to download npm dependencies depending on your connection speed, you will eventually see a message saying 'Example app available at: http://localhost:8080'. This means you've pulled the project successfully and you can check the app at http://localhost:8080 from your browser.
+
+Tests can be run with mocha installed via the cmd 'mocha' in the root directory of the project.
 
 #Description
 
