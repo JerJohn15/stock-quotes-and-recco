@@ -1,5 +1,7 @@
 # stock-quotes-and-recco
 
+Live app available at: http://45.55.46.66:8080/
+
 #Project Setup
 make sure node (with npm) is installed.
 
