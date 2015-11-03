@@ -1,5 +1,5 @@
 import React from "react";
-import request from "request";
+import request from "superagent";
 import { Accordion, Panel, Table, Label, Jumbotron } from 'react-bootstrap';
 const stocks = ["AAPL", "GOOGL", "YHOO"];
 
@@ -17,10 +17,10 @@ var StockList = React.createClass({
     if(this.state.selectedStockInfo.symbol!==stock){
     var symbol=stock;
     console.log(symbol);
-        var stockData = request("http://localhost:8080/"+symbol, function (error, response, body) {
-      if(!error && response.statusCode ==200){
-        console.log(JSON.stringify(body));
-        this.setState({selectedStockInfo:JSON.parse(body)});
+        var stockData = request.get("/"+symbol).send().end( function (error, resp, body) {
+      if(!error && resp.statusCode ==200){
+        console.log(JSON.stringify(resp.body));
+        this.setState({selectedStockInfo:resp.body});
       }
       else{
         alert('Http request to yahoo threw error');
