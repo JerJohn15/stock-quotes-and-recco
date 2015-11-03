@@ -1,6 +1,6 @@
 import React from "react";
 import request from "request";
-
+import { Accordion, Panel, Table, Label, Jumbotron } from 'react-bootstrap';
 const stocks = ["AAPL", "GOOGL", "YHOO"];
 
 
@@ -13,32 +13,53 @@ var StockList = React.createClass({
   gotStockData: function(stockData){
     this.setState({selectedStockInfo:stockData});
   },
-  getSymbolDetails: function(event) {
-
-    var symbol=event.target.id;
-    var stockData = request("http://localhost:8080/"+symbol, function (error, response, body) {
+  getSymbolDetails: function(stock) {
+    if(this.state.selectedStockInfo.symbol!==stock){
+    var symbol=stock;
+    console.log(symbol);
+        var stockData = request("http://localhost:8080/"+symbol, function (error, response, body) {
       if(!error && response.statusCode ==200){
         console.log(JSON.stringify(body));
-        this.setState({selectedStockInfo:body});
+        this.setState({selectedStockInfo:JSON.parse(body)});
       }
       else{
         alert('Http request to yahoo threw error');
       }
     }.bind(this));
-    console.log("setState: ", stockData);
-    //this.setState({selectedStockInfo:stockData.response.body});
+  }
+  else{
+    return;
+  }
   },
 
   render(){
+    console.log(this.state.selectedStockInfo.symbol);
+    console.log(this.state.selectedStockInfo.symbol==stocks[0]);
     return (
-      <div>
-        <h1>Stock List</h1>
-        <ul>
-          {stocks.map(stock =>
-            <li key={stock} id={stock} onClick={this.getSymbolDetails}>{stock}</li>)}
-            </ul>
-            <h4>{JSON.stringify(this.state.selectedStockInfo)}</h4>
-          </div>
+          <Jumbotron>
+            <h2><Label bsStyle="primary">Stock List</Label></h2>
+          {
+            stocks.map((stock, count) =>
+            <Panel header={stock} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
+              {this.state.selectedStockInfo.symbol==stock?(
+                <Table bordered>
+                  <thead>
+                    <tr>
+                      <th>Issuer</th>
+                      <th>Symbol</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{this.state.selectedStockInfo.issuer}</td>
+                      <td>{this.state.selectedStockInfo.symbol}</td>
+                      <td>{this.state.selectedStockInfo.price}</td>
+                    </tr>
+                  </tbody>
+                </Table>):""}
+            </Panel>)}
+        </Jumbotron>
         )
       }
     });
