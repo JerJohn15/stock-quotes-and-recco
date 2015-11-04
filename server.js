@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var React = require('React');
 var path = require('path');
 var bodyParser = require('body-parser');
 var requestPromise = require('request-promise');
