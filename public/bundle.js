@@ -42122,14 +42122,14 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var dark = 'hsl(200, 20%, 20%)';
+	var blue = '#337ab7';
 	var light = '#fff';
 	var styles = {};
 
 	styles.wrapper = {
 	  padding: '10px 20px',
 	  overflow: 'hidden',
-	  background: dark,
+	  background: blue,
 	  color: light
 	};
 
@@ -42144,7 +42144,7 @@
 	  color: light,
 	  fontWeight: 200,
 	  background: light,
-	  color: dark
+	  color: blue
 	};
 
 	var NavigationBar = (function (_React$Component) {

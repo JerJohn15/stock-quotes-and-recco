@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const dark = 'hsl(200, 20%, 20%)'
+const blue = '#337ab7'
 const light = '#fff'
 const styles = {}
 
 styles.wrapper = {
   padding: '10px 20px',
   overflow: 'hidden',
-  background: dark,
+  background: blue,
   color: light
 }
 
@@ -23,7 +23,7 @@ styles.activeLink = {
   color: light,
   fontWeight: 200,
   background: light,
-  color: dark
+  color: blue
 }
 
 class NavigationBar extends React.Component {
