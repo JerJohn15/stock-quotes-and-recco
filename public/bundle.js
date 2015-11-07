@@ -19716,7 +19716,7 @@
 	    console.log(this.state.selectedStockInfo.symbol);
 	    console.log(this.state.selectedStockInfo.symbol == stocks[0]);
 	    return _react2.default.createElement(
-	      _reactBootstrap.Jumbotron,
+	      "div",
 	      null,
 	      _react2.default.createElement(
 	        "h2",

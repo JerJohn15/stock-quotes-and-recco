@@ -36,8 +36,8 @@ var StockList = React.createClass({
     console.log(this.state.selectedStockInfo.symbol);
     console.log(this.state.selectedStockInfo.symbol==stocks[0]);
     return (
-          <Jumbotron>
-            <h2><Label bsStyle="primary">Stock List</Label></h2>
+      <div>
+      <h2><Label bsStyle="primary">Stock List</Label></h2>
           {
             stocks.map((stock, count) =>
             <Panel header={stock} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
@@ -59,7 +59,7 @@ var StockList = React.createClass({
                   </tbody>
                 </Table>):""}
             </Panel>)}
-        </Jumbotron>
+        </div>
         )
       }
     });
