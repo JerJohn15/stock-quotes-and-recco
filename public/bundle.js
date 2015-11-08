@@ -19686,7 +19686,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var stocks = ["AAPL", "GOOGL", "YHOO"];
+	var stocks = ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT", "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM", "ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "YHOO"];
 
 	var StockList = _react2.default.createClass({
 
@@ -19795,11 +19795,7 @@
 	                _react2.default.createElement(
 	                  "tr",
 	                  null,
-	                  _react2.default.createElement(
-	                    "td",
-	                    null,
-	                    _this.state.selectedStockInfo.issuer
-	                  ),
+	                  _react2.default.createElement("td", { dangerouslySetInnerHTML: { __html: _this.state.selectedStockInfo.issuer } }),
 	                  _react2.default.createElement(
 	                    "td",
 	                    null,

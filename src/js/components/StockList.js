@@ -3,7 +3,9 @@ import request from "superagent";
 import { Button, ButtonToolbar, Accordion, Panel, Table, PageHeader } from 'react-bootstrap';
 import Sparkline from 'd3-react-sparkline';
 
-const stocks = ["AAPL", "GOOGL", "YHOO"];
+const stocks = ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT",
+"GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
+"ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "YHOO"];
 
 
 var StockList = React.createClass({
@@ -64,7 +66,7 @@ var StockList = React.createClass({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{this.state.selectedStockInfo.issuer}</td>
+                      <td dangerouslySetInnerHTML={{__html: this.state.selectedStockInfo.issuer}}></td>
                       <td>{this.state.selectedStockInfo.symbol}</td>
                       <td>{this.state.selectedStockInfo.price}</td>
                     </tr>

@@ -33,7 +33,6 @@ var relevantStockResources = resp.list.resources.filter(function(resource){
 
 app.get('/:symbol/historical', function (req, res) {
 var symbol=req.params.symbol;
-console.log("symbol: ", symbol);
 superagent.get('http://query.yahooapis.com/v1/public/yql')
 .query({//q:'SELECT * FROM yahoo.finance.historicaldata WHERE symbol='+symbol+' AND startDate="2015-01-01" AND endDate="2015-12-31";',
  q:'SELECT * FROM yahoo.finance.historicaldata WHERE symbol in ("'+symbol+'") AND startDate="2014-12-31" AND endDate="2015-12-31";',
