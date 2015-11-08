@@ -2,10 +2,11 @@ import React from "react";
 import request from "superagent";
 import { Button, ButtonToolbar, Accordion, Panel, Table, PageHeader } from 'react-bootstrap';
 import Sparkline from 'd3-react-sparkline';
+import NavigationBar from './NavigationBar';
 
 const stocks = ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT",
 "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
-"ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "YHOO"];
+"ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"];
 
 
 var StockList = React.createClass({
@@ -45,10 +46,11 @@ var StockList = React.createClass({
 
     return (
       <div>
+        <NavigationBar/>
         <h4>Stock List</h4>
         <h6>Select:</h6><ButtonToolbar>
           {stocks.map(stock =>
-            <Button bsSize="small" key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
+            <Button bsSize="small" style={{marginBottom:'2px'}} key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
           )}
         </ButtonToolbar>
         <br/>
@@ -72,7 +74,7 @@ var StockList = React.createClass({
                     </tr>
                   </tbody>
                 </Table>
-                {this.state.selectedStockHistorical.stock==stock?(
+                {this.state.selectedStockHistorical.stock==stock&&this.state.selectedStockHistorical.data.length!=0?(
                   <Sparkline data={this.state.selectedStockHistorical.data.reverse()}
                     width={785}
                     height={240}>

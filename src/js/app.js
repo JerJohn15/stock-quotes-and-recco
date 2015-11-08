@@ -6,7 +6,6 @@ import App from './components/App';
 
 ReactDOM.render(
   <Router>
-    <Route path="/" component={App}>
-      <Route path="stocks" component={StockList} />
-    </Route>
+    <Route path="/" component={App}/>
+    <Route path="stocks" component={StockList} />
   </Router>, document.getElementById('root'));

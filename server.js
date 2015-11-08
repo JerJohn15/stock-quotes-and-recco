@@ -43,8 +43,13 @@ superagent.get('http://query.yahooapis.com/v1/public/yql')
     res.send({error:err});
   }
   else{
+    if(JSON.parse(response.text).query.results){
     var graphData = JSON.parse(response.text).query.results.quote.map(singleQuote=>(singleQuote.Close))
-    res.send(graphData);
+    res.send(graphData);}
+    else{
+      console.log("no quote info. Response was: ", response.text);
+      res.send([]);
+    }
   }
 })
 

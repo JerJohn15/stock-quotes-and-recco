@@ -8,6 +8,7 @@ class App extends React.Component {
         <NavigationBar />
         <div style={{ padding: 20 }}>
           {this.props.children}
+          <h3 style={{fontFamily:'Abril Fatface'}}> Matt Rkiouak</h3>
         </div>
       </div>
     )
