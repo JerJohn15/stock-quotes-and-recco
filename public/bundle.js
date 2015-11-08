@@ -19721,8 +19721,6 @@
 	  render: function render() {
 	    var _this = this;
 
-	    console.log(this.state.selectedStockInfo.symbol);
-	    console.log(this.state.selectedStockInfo.symbol == stocks[0]);
 	    return _react2.default.createElement(
 	      "div",
 	      null,
@@ -19757,11 +19755,11 @@
 	      stocks.map(function (stock, count) {
 	        return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
 	          _reactBootstrap.Panel,
-	          { header: _react2.default.createElement(
+	          { ref: stock, header: _react2.default.createElement(
 	              "a",
 	              null,
 	              stock
-	            ), key: stock, id: stock, eventKey: count },
+	            ), key: stock, id: stock, eventKey: count, style: { width: 820 } },
 	          _react2.default.createElement(
 	            "div",
 	            null,
@@ -19816,7 +19814,7 @@
 	              )
 	            ),
 	            _this.state.selectedStockHistorical.stock == stock ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data.reverse(),
-	              width: 400,
+	              width: 785,
 	              height: 240 }) : ""
 	          )
 	        ) : "";

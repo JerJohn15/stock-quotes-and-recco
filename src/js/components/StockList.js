@@ -40,8 +40,7 @@ var StockList = React.createClass({
   },
 
   render(){
-    console.log(this.state.selectedStockInfo.symbol);
-    console.log(this.state.selectedStockInfo.symbol==stocks[0]);
+
     return (
       <div>
         <h4>Stock List</h4>
@@ -53,7 +52,7 @@ var StockList = React.createClass({
         <br/>
         {stocks.map((stock, count) =>
         this.state.selectedStockInfo.symbol==stock?(
-          <Panel header={<a>{stock}</a>} key={stock} id={stock} eventKey={count}>
+          <Panel ref={stock} header={<a>{stock}</a>} key={stock} id={stock} eventKey={count} style={{width:820}}>
               <div>
                 <Table bordered>
                   <thead>
@@ -73,7 +72,7 @@ var StockList = React.createClass({
                 </Table>
                 {this.state.selectedStockHistorical.stock==stock?(
                   <Sparkline data={this.state.selectedStockHistorical.data.reverse()}
-                    width={400}
+                    width={785}
                     height={240}>
                   </Sparkline>):""}
                 </div>
