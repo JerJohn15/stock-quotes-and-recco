@@ -19735,6 +19735,20 @@
 	          "Stock List"
 	        )
 	      ),
+	      _react2.default.createElement(
+	        _reactBootstrap.ButtonToolbar,
+	        null,
+	        stocks.map(function (stock) {
+	          return _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { bsStyle: "primary", bsSize: "small", onClick: function onClick() {
+	                _this.getSymbolDetails(stock);
+	              } },
+	            stock
+	          );
+	        })
+	      ),
+	      _react2.default.createElement("br", null),
 	      stocks.map(function (stock, count) {
 	        return _react2.default.createElement(
 	          _reactBootstrap.Panel,
