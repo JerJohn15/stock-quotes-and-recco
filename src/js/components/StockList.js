@@ -1,6 +1,6 @@
 import React from "react";
 import request from "superagent";
-import { Button, ButtonToolbar, Accordion, Panel, Table, Label, Jumbotron } from 'react-bootstrap';
+import { Button, ButtonToolbar, Accordion, Panel, Table, PageHeader } from 'react-bootstrap';
 import Sparkline from 'd3-react-sparkline';
 
 const stocks = ["AAPL", "GOOGL", "YHOO"];
@@ -44,15 +44,15 @@ var StockList = React.createClass({
     console.log(this.state.selectedStockInfo.symbol==stocks[0]);
     return (
       <div>
-        <h2><Label bsStyle="primary">Stock List</Label></h2>
-        <ButtonToolbar>
+        <h4>Stock List</h4>
+        <h6>Select:</h6><ButtonToolbar>
           {stocks.map(stock =>
-            <Button bsStyle="primary" bsSize="small" onClick={()=>{this.getSymbolDetails(stock)}}>{stock}</Button>
+            <Button bsSize="small" onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
           )}
         </ButtonToolbar>
         <br/>
         {stocks.map((stock, count) =>
-          <Panel header={stock} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
+          <Panel header={<a>{stock}</a>} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
             {this.state.selectedStockInfo.symbol==stock?(
               <div>
                 <Table bordered>

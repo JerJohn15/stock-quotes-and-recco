@@ -19727,13 +19727,14 @@
 	      "div",
 	      null,
 	      _react2.default.createElement(
-	        "h2",
+	        "h4",
 	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Label,
-	          { bsStyle: "primary" },
-	          "Stock List"
-	        )
+	        "Stock List"
+	      ),
+	      _react2.default.createElement(
+	        "h6",
+	        null,
+	        "Select:"
 	      ),
 	      _react2.default.createElement(
 	        _reactBootstrap.ButtonToolbar,
@@ -19741,10 +19742,14 @@
 	        stocks.map(function (stock) {
 	          return _react2.default.createElement(
 	            _reactBootstrap.Button,
-	            { bsStyle: "primary", bsSize: "small", onClick: function onClick() {
+	            { bsSize: "small", onClick: function onClick() {
 	                _this.getSymbolDetails(stock);
 	              } },
-	            stock
+	            _react2.default.createElement(
+	              "a",
+	              null,
+	              stock
+	            )
 	          );
 	        })
 	      ),
@@ -19752,7 +19757,11 @@
 	      stocks.map(function (stock, count) {
 	        return _react2.default.createElement(
 	          _reactBootstrap.Panel,
-	          { header: stock, key: stock, id: stock, eventKey: count, onClick: function onClick() {
+	          { header: _react2.default.createElement(
+	              "a",
+	              null,
+	              stock
+	            ), key: stock, id: stock, eventKey: count, onClick: function onClick() {
 	              _this.getSymbolDetails(stock);
 	            } },
 	          _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
