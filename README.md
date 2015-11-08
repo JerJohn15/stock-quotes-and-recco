@@ -5,6 +5,8 @@ Live demo app available at: http://rkiouak.com
 #Project Setup
 make sure node (with npm) is installed.
 
+Install webpack globally: npm install webpack -g
+
 Then, from terminal/command line run:
 
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
