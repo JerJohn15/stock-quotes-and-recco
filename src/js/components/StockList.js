@@ -47,8 +47,9 @@ var StockList = React.createClass({
     return (
       <div>
         <NavigationBar/>
-        <h4>Stock List</h4>
-        <h6>Select:</h6><ButtonToolbar>
+        <div style={{ padding: 20, paddingTop:10 }}>
+        <h3 style={{fontFamily:'Abril Fatface'}}>Stock List</h3>
+        <h6 style={{fontFamily:'Abril Fatface'}}>Select:</h6><ButtonToolbar>
           {stocks.map(stock =>
             <Button bsSize="small" style={{marginBottom:'2px'}} key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
           )}
@@ -56,9 +57,9 @@ var StockList = React.createClass({
         <br/>
         {stocks.map((stock, count) =>
         this.state.selectedStockInfo.symbol==stock?(
-          <Panel ref={stock} header={<a>{stock}</a>} key={stock} id={stock} eventKey={count} style={{width:820}}>
+          <Panel header={stock} key={stock} style={{width:820, fontFamily:'Abril Fatface'}}>
               <div>
-                <Table bordered>
+                <Table bordered style={{fontFamily:'Arial'}}>
                   <thead>
                     <tr>
                       <th>Issuer</th>
@@ -82,6 +83,7 @@ var StockList = React.createClass({
                 </div>
             </Panel>):"")}
           </div>
+        </div>
         )
       }
     });

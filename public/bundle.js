@@ -19727,96 +19727,96 @@
 	      null,
 	      _react2.default.createElement(_NavigationBar2.default, null),
 	      _react2.default.createElement(
-	        "h4",
-	        null,
-	        "Stock List"
-	      ),
-	      _react2.default.createElement(
-	        "h6",
-	        null,
-	        "Select:"
-	      ),
-	      _react2.default.createElement(
-	        _reactBootstrap.ButtonToolbar,
-	        null,
-	        stocks.map(function (stock) {
-	          return _react2.default.createElement(
-	            _reactBootstrap.Button,
-	            { bsSize: "small", style: { marginBottom: '2px' }, key: stock, onClick: function onClick() {
-	                _this.getSymbolDetails(stock);
-	              } },
-	            _react2.default.createElement(
-	              "a",
-	              null,
-	              stock
-	            )
-	          );
-	        })
-	      ),
-	      _react2.default.createElement("br", null),
-	      stocks.map(function (stock, count) {
-	        return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { ref: stock, header: _react2.default.createElement(
-	              "a",
-	              null,
-	              stock
-	            ), key: stock, id: stock, eventKey: count, style: { width: 820 } },
-	          _react2.default.createElement(
-	            "div",
-	            null,
-	            _react2.default.createElement(
-	              _reactBootstrap.Table,
-	              { bordered: true },
+	        "div",
+	        { style: { padding: 20, paddingTop: 10 } },
+	        _react2.default.createElement(
+	          "h3",
+	          { style: { fontFamily: 'Abril Fatface' } },
+	          "Stock List"
+	        ),
+	        _react2.default.createElement(
+	          "h6",
+	          { style: { fontFamily: 'Abril Fatface' } },
+	          "Select:"
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.ButtonToolbar,
+	          null,
+	          stocks.map(function (stock) {
+	            return _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { bsSize: "small", style: { marginBottom: '2px' }, key: stock, onClick: function onClick() {
+	                  _this.getSymbolDetails(stock);
+	                } },
 	              _react2.default.createElement(
-	                "thead",
+	                "a",
 	                null,
+	                stock
+	              )
+	            );
+	          })
+	        ),
+	        _react2.default.createElement("br", null),
+	        stocks.map(function (stock, count) {
+	          return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
+	            _reactBootstrap.Panel,
+	            { header: stock, key: stock, style: { width: 820, fontFamily: 'Abril Fatface' } },
+	            _react2.default.createElement(
+	              "div",
+	              null,
+	              _react2.default.createElement(
+	                _reactBootstrap.Table,
+	                { bordered: true, style: { fontFamily: 'Arial' } },
 	                _react2.default.createElement(
-	                  "tr",
+	                  "thead",
 	                  null,
 	                  _react2.default.createElement(
-	                    "th",
+	                    "tr",
 	                    null,
-	                    "Issuer"
-	                  ),
+	                    _react2.default.createElement(
+	                      "th",
+	                      null,
+	                      "Issuer"
+	                    ),
+	                    _react2.default.createElement(
+	                      "th",
+	                      null,
+	                      "Symbol"
+	                    ),
+	                    _react2.default.createElement(
+	                      "th",
+	                      null,
+	                      "Price"
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "tbody",
+	                  null,
 	                  _react2.default.createElement(
-	                    "th",
+	                    "tr",
 	                    null,
-	                    "Symbol"
-	                  ),
-	                  _react2.default.createElement(
-	                    "th",
-	                    null,
-	                    "Price"
+	                    _react2.default.createElement("td", { dangerouslySetInnerHTML: { __html: _this.state.selectedStockInfo.issuer } }),
+	                    _react2.default.createElement(
+	                      "td",
+	                      null,
+	                      _this.state.selectedStockInfo.symbol
+	                    ),
+	                    _react2.default.createElement(
+	                      "td",
+	                      null,
+	                      _this.state.selectedStockInfo.price
+	                    )
 	                  )
 	                )
 	              ),
-	              _react2.default.createElement(
-	                "tbody",
-	                null,
-	                _react2.default.createElement(
-	                  "tr",
-	                  null,
-	                  _react2.default.createElement("td", { dangerouslySetInnerHTML: { __html: _this.state.selectedStockInfo.issuer } }),
-	                  _react2.default.createElement(
-	                    "td",
-	                    null,
-	                    _this.state.selectedStockInfo.symbol
-	                  ),
-	                  _react2.default.createElement(
-	                    "td",
-	                    null,
-	                    _this.state.selectedStockInfo.price
-	                  )
-	                )
-	              )
-	            ),
-	            _this.state.selectedStockHistorical.stock == stock && _this.state.selectedStockHistorical.data.length != 0 ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data.reverse(),
-	              width: 785,
-	              height: 240 }) : ""
-	          )
-	        ) : "";
-	      })
+	              _this.state.selectedStockHistorical.stock == stock && _this.state.selectedStockHistorical.data.length != 0 ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data.reverse(),
+	                width: 785,
+	                height: 240 }) : ""
+	            )
+	          ) : "";
+	        })
+	      )
 	    );
 	  }
 	});
@@ -56243,7 +56243,7 @@
 	        _react2.default.createElement(_NavigationBar2.default, null),
 	        _react2.default.createElement(
 	          'div',
-	          { style: { padding: 20 } },
+	          { style: { padding: 20, paddingTop: 10 } },
 	          this.props.children,
 	          _react2.default.createElement(
 	            'h3',
