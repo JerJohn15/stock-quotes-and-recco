@@ -19742,7 +19742,7 @@
 	        stocks.map(function (stock) {
 	          return _react2.default.createElement(
 	            _reactBootstrap.Button,
-	            { bsSize: "small", onClick: function onClick() {
+	            { bsSize: "small", key: stock, onClick: function onClick() {
 	                _this.getSymbolDetails(stock);
 	              } },
 	            _react2.default.createElement(
@@ -19755,16 +19755,14 @@
 	      ),
 	      _react2.default.createElement("br", null),
 	      stocks.map(function (stock, count) {
-	        return _react2.default.createElement(
+	        return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
 	          _reactBootstrap.Panel,
 	          { header: _react2.default.createElement(
 	              "a",
 	              null,
 	              stock
-	            ), key: stock, id: stock, eventKey: count, onClick: function onClick() {
-	              _this.getSymbolDetails(stock);
-	            } },
-	          _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
+	            ), key: stock, id: stock, eventKey: count },
+	          _react2.default.createElement(
 	            "div",
 	            null,
 	            _react2.default.createElement(
@@ -19820,8 +19818,8 @@
 	            _this.state.selectedStockHistorical.stock == stock ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data.reverse(),
 	              width: 400,
 	              height: 240 }) : ""
-	          ) : ""
-	        );
+	          )
+	        ) : "";
 	      })
 	    );
 	  }

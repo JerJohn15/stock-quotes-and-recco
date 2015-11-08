@@ -47,13 +47,13 @@ var StockList = React.createClass({
         <h4>Stock List</h4>
         <h6>Select:</h6><ButtonToolbar>
           {stocks.map(stock =>
-            <Button bsSize="small" onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
+            <Button bsSize="small" key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
           )}
         </ButtonToolbar>
         <br/>
         {stocks.map((stock, count) =>
-          <Panel header={<a>{stock}</a>} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
-            {this.state.selectedStockInfo.symbol==stock?(
+        this.state.selectedStockInfo.symbol==stock?(
+          <Panel header={<a>{stock}</a>} key={stock} id={stock} eventKey={count}>
               <div>
                 <Table bordered>
                   <thead>
@@ -77,8 +77,7 @@ var StockList = React.createClass({
                     height={240}>
                   </Sparkline>):""}
                 </div>
-              ):""}
-            </Panel>)}
+            </Panel>):"")}
           </div>
         )
       }
