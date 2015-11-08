@@ -1,6 +1,8 @@
 import React from "react";
 import request from "superagent";
 import { Accordion, Panel, Table, Label, Jumbotron } from 'react-bootstrap';
+import Sparkline from 'd3-react-sparkline';
+
 const stocks = ["AAPL", "GOOGL", "YHOO"];
 
 
@@ -10,9 +12,6 @@ var StockList = React.createClass({
     return {selectedStockInfo:"none"}
   },
 
-  gotStockData: function(stockData){
-    this.setState({selectedStockInfo:stockData});
-  },
   getSymbolDetails: function(stock) {
     if(this.state.selectedStockInfo.symbol!==stock){
     var symbol=stock;
@@ -55,6 +54,10 @@ var StockList = React.createClass({
                       <td>{this.state.selectedStockInfo.issuer}</td>
                       <td>{this.state.selectedStockInfo.symbol}</td>
                       <td>{this.state.selectedStockInfo.price}</td>
+                      <Sparkline data={data}
+                        width={180}
+                        height={60}
+                        />
                     </tr>
                   </tbody>
                 </Table>):""}
