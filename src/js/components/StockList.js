@@ -9,20 +9,28 @@ const stocks = ["AAPL", "GOOGL", "YHOO"];
 var StockList = React.createClass({
 
   getInitialState: function() {
-    return {selectedStockInfo:"none"}
+    return {selectedStockSymbol:"",selectedStockInfo:"none", selectedStockHistorical:[]}
   },
 
   getSymbolDetails: function(stock) {
     if(this.state.selectedStockInfo.symbol!==stock){
-    var symbol=stock;
-    console.log(symbol);
-        var stockData = request.get("/"+symbol).send().end( function (error, resp, body) {
+    request.get("/"+stock).send().end( function (error, resp, body) {
       if(!error && resp.statusCode ==200){
         console.log(JSON.stringify(resp.body));
-        this.setState({selectedStockInfo:resp.body});
+        this.setState({selectedStockSymbol:stock,selectedStockInfo:resp.body});
       }
       else{
         alert('Http request to yahoo threw error');
+      }
+    }.bind(this));
+
+    request.get("/"+stock+"/historical").send().end(function (error, resp, body){
+      if(!error && resp.statusCode==200){
+        this.setState({selectedStockHistorical:{data:resp.body, stock:stock}});
+      }
+      else{
+        console.log("error: ", error);
+        alert("historical endpoint failed");
       }
     }.bind(this));
   }
@@ -41,6 +49,7 @@ var StockList = React.createClass({
             stocks.map((stock, count) =>
             <Panel header={stock} key={stock} id={stock} eventKey={count} onClick={()=>{this.getSymbolDetails(stock)}}>
               {this.state.selectedStockInfo.symbol==stock?(
+              <div>
                 <Table bordered>
                   <thead>
                     <tr>
@@ -54,13 +63,16 @@ var StockList = React.createClass({
                       <td>{this.state.selectedStockInfo.issuer}</td>
                       <td>{this.state.selectedStockInfo.symbol}</td>
                       <td>{this.state.selectedStockInfo.price}</td>
-                      <Sparkline data={data}
-                        width={180}
-                        height={60}
-                        />
                     </tr>
                   </tbody>
-                </Table>):""}
+                </Table>
+                {this.state.selectedStockHistorical.stock==stock?(
+                <Sparkline data={this.state.selectedStockHistorical.data.reverse()}
+                  width={400}
+                  height={240}>
+                </Sparkline>):""}
+              </div>
+              ):""}
             </Panel>)}
         </div>
         )
