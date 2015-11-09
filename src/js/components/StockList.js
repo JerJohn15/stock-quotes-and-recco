@@ -9,9 +9,9 @@ var StockList = React.createClass({
   getInitialState: function() {
     return {selectedStockSymbol:"",
             selectedStockInfo:{},
-            stocks:["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT",
-            "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
-            "ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"],
+            stocks:["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "WFC", "WMT",
+            "GE", "PG", "JPM", "VZ", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
+            "ABT", "ABBV", "ATVI", "ADBE", "ADT", "AAP", "STT", "RVBD", "YHOO"],
             selectedStockHistorical:[],
             haveStockData:false}
   },
