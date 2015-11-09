@@ -4,23 +4,30 @@ import { Button, ButtonToolbar, Accordion, Panel, Table, PageHeader } from 'reac
 import Sparkline from 'd3-react-sparkline';
 import NavigationBar from './NavigationBar';
 
-const stocks = ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT",
-"GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
-"ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"];
-
-
 var StockList = React.createClass({
 
   getInitialState: function() {
-    return {selectedStockSymbol:"",selectedStockInfo:"none", selectedStockHistorical:[]}
+    return {selectedStockSymbol:"",
+            selectedStockInfo:{},
+            stocks:["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT",
+            "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM",
+            "ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"],
+            selectedStockHistorical:[],
+            haveStockData:false}
+  },
+
+  removeSymbol: function(stockToRemove) {
+    var stocks = this.state.stocks.filter(stock=>stock!=stockToRemove);
+    this.setState({stocks:stocks});
   },
 
   getSymbolDetails: function(stock) {
+    this.setState({selectedStockSymbol:stock, haveStockData:false});
     if(this.state.selectedStockInfo.symbol!==stock){
       request.get("/"+stock).send().end( function (error, resp, body) {
         if(!error && resp.statusCode ==200){
           console.log(JSON.stringify(resp.body));
-          this.setState({selectedStockSymbol:stock,selectedStockInfo:resp.body});
+          this.setState({selectedStockInfo:resp.body?resp.body:{}, haveStockData:true});
         }
         else{
           alert('Http request to yahoo threw error');
@@ -42,6 +49,13 @@ var StockList = React.createClass({
     }
   },
 
+  handleBuy: function(){
+    var stocks = this.state.stocks.slice(0)
+    stocks.push(this.refs.buySymbol.value.trim());
+    this.setState({stocks:stocks});
+    this.refs.buySymbol.value="";
+  },
+
   render(){
 
     return (
@@ -49,16 +63,33 @@ var StockList = React.createClass({
         <NavigationBar/>
         <div style={{ padding: 20, paddingTop:10 }}>
         <h3 style={{fontFamily:'Abril Fatface'}}>Stock List</h3>
+        <form onSubmit={this.handleBuy}>
+          <input type="text" ref="buySymbol"></input>
+          <Button type="submit" style={{marginLeft:'3px'}} bsSize="xsmall" bsStyle="success">Buy</Button>
+        </form>
         <h6 style={{fontFamily:'Abril Fatface'}}>Select:</h6><ButtonToolbar>
-          {stocks.map(stock =>
+          {this.state.stocks.map(stock =>
             <Button bsSize="small" style={{marginBottom:'2px'}} key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
           )}
         </ButtonToolbar>
         <br/>
-        {stocks.map((stock, count) =>
+        {
+          !this.state.selectedStockInfo.price&&
+          this.state.haveStockData&&
+          this.state.stocks.filter(stock=>stock==this.state.selectedStockSymbol).length>0?(
+          <div>
+            <Button bsStyle="danger" bsSize="xsmall"
+            onClick={()=>{this.removeSymbol(this.state.selectedStockSymbol)}}
+            style={{marginBottom:'4px'}}>Sell</Button>
+            <h5>No Such Stock</h5>
+        </div>):(
+        this.state.stocks.map((stock, count) =>
         this.state.selectedStockInfo.symbol==stock?(
           <Panel header={stock} key={stock} style={{width:820, fontFamily:'Abril Fatface'}}>
               <div>
+                <Button bsStyle="danger" bsSize="xsmall"
+                  onClick={()=>{this.removeSymbol(stock)}}
+                  style={{marginBottom:'4px'}}>Sell</Button>
                 <Table bordered style={{fontFamily:'Arial'}}>
                   <thead>
                     <tr>
@@ -76,12 +107,12 @@ var StockList = React.createClass({
                   </tbody>
                 </Table>
                 {this.state.selectedStockHistorical.stock==stock&&this.state.selectedStockHistorical.data.length!=0?(
-                  <Sparkline data={this.state.selectedStockHistorical.data.reverse()}
+                  <Sparkline data={this.state.selectedStockHistorical.data}
                     width={785}
                     height={240}>
                   </Sparkline>):""}
                 </div>
-            </Panel>):"")}
+            </Panel>):""))}
           </div>
         </div>
         )

@@ -19687,20 +19687,30 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var stocks = ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT", "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM", "ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"];
-
 	var StockList = _react2.default.createClass({
 
 	  getInitialState: function getInitialState() {
-	    return { selectedStockSymbol: "", selectedStockInfo: "none", selectedStockHistorical: [] };
+	    return { selectedStockSymbol: "",
+	      selectedStockInfo: {},
+	      stocks: ["AAPL", "XOM", "MSFT", "GOOGL", "GOOG", "JNJ", "WFC", "WMT", "GE", "PG", "JPM", "CVX", "VZ", "FB", "KO", "PFE", "T", "ORCL", "BAC", "MMM", "ABT", "ABBV", "ACN", "ACE", "ATVI", "ADBE", "ADT", "AAP", "AES", "STT", "RVBD", "YHOO"],
+	      selectedStockHistorical: [],
+	      haveStockData: false };
+	  },
+
+	  removeSymbol: function removeSymbol(stockToRemove) {
+	    var stocks = this.state.stocks.filter(function (stock) {
+	      return stock != stockToRemove;
+	    });
+	    this.setState({ stocks: stocks });
 	  },
 
 	  getSymbolDetails: function getSymbolDetails(stock) {
+	    this.setState({ selectedStockSymbol: stock, haveStockData: false });
 	    if (this.state.selectedStockInfo.symbol !== stock) {
 	      _superagent2.default.get("/" + stock).send().end((function (error, resp, body) {
 	        if (!error && resp.statusCode == 200) {
 	          console.log(JSON.stringify(resp.body));
-	          this.setState({ selectedStockSymbol: stock, selectedStockInfo: resp.body });
+	          this.setState({ selectedStockInfo: resp.body ? resp.body : {}, haveStockData: true });
 	        } else {
 	          alert('Http request to yahoo threw error');
 	        }
@@ -19719,6 +19729,13 @@
 	    }
 	  },
 
+	  handleBuy: function handleBuy() {
+	    var stocks = this.state.stocks.slice(0);
+	    stocks.push(this.refs.buySymbol.value.trim());
+	    this.setState({ stocks: stocks });
+	    this.refs.buySymbol.value = "";
+	  },
+
 	  render: function render() {
 	    var _this = this;
 
@@ -19735,6 +19752,16 @@
 	          "Stock List"
 	        ),
 	        _react2.default.createElement(
+	          "form",
+	          { onSubmit: this.handleBuy },
+	          _react2.default.createElement("input", { type: "text", ref: "buySymbol" }),
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { type: "submit", style: { marginLeft: '3px' }, bsSize: "xsmall", bsStyle: "success" },
+	            "Buy"
+	          )
+	        ),
+	        _react2.default.createElement(
 	          "h6",
 	          { style: { fontFamily: 'Abril Fatface' } },
 	          "Select:"
@@ -19742,7 +19769,7 @@
 	        _react2.default.createElement(
 	          _reactBootstrap.ButtonToolbar,
 	          null,
-	          stocks.map(function (stock) {
+	          this.state.stocks.map(function (stock) {
 	            return _react2.default.createElement(
 	              _reactBootstrap.Button,
 	              { bsSize: "small", style: { marginBottom: '2px' }, key: stock, onClick: function onClick() {
@@ -19757,13 +19784,41 @@
 	          })
 	        ),
 	        _react2.default.createElement("br", null),
-	        stocks.map(function (stock, count) {
+	        !this.state.selectedStockInfo.price && this.state.haveStockData && this.state.stocks.filter(function (stock) {
+	          return stock == _this.state.selectedStockSymbol;
+	        }).length > 0 ? _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { bsStyle: "danger", bsSize: "xsmall",
+	              onClick: function onClick() {
+	                _this.removeSymbol(_this.state.selectedStockSymbol);
+	              },
+	              style: { marginBottom: '4px' } },
+	            "Sell"
+	          ),
+	          _react2.default.createElement(
+	            "h5",
+	            null,
+	            "No Such Stock"
+	          )
+	        ) : this.state.stocks.map(function (stock, count) {
 	          return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
 	            _reactBootstrap.Panel,
 	            { header: stock, key: stock, style: { width: 820, fontFamily: 'Abril Fatface' } },
 	            _react2.default.createElement(
 	              "div",
 	              null,
+	              _react2.default.createElement(
+	                _reactBootstrap.Button,
+	                { bsStyle: "danger", bsSize: "xsmall",
+	                  onClick: function onClick() {
+	                    _this.removeSymbol(stock);
+	                  },
+	                  style: { marginBottom: '4px' } },
+	                "Sell"
+	              ),
 	              _react2.default.createElement(
 	                _reactBootstrap.Table,
 	                { bordered: true, style: { fontFamily: 'Arial' } },
@@ -19810,7 +19865,7 @@
 	                  )
 	                )
 	              ),
-	              _this.state.selectedStockHistorical.stock == stock && _this.state.selectedStockHistorical.data.length != 0 ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data.reverse(),
+	              _this.state.selectedStockHistorical.stock == stock && _this.state.selectedStockHistorical.data.length != 0 ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data,
 	                width: 785,
 	                height: 240 }) : ""
 	            )
