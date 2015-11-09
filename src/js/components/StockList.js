@@ -108,7 +108,7 @@ var StockList = React.createClass({
                 {this.state.selectedStockHistorical.stock==stock&&this.state.selectedStockHistorical.data.length!=0?(
                   <Sparkline data={this.state.selectedStockHistorical.data}
                     width={785}
-                    height={240}>
+                    height={155}>
                   </Sparkline>):""}
                 </div>
             </Panel>):""))}

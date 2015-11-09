@@ -19864,7 +19864,7 @@
 	              ),
 	              _this.state.selectedStockHistorical.stock == stock && _this.state.selectedStockHistorical.data.length != 0 ? _react2.default.createElement(_d3ReactSparkline2.default, { data: _this.state.selectedStockHistorical.data,
 	                width: 785,
-	                height: 240 }) : ""
+	                height: 155 }) : ""
 	            )
 	          ) : "";
 	        })
