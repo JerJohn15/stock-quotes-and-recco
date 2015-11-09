@@ -19730,6 +19730,7 @@
 	  },
 
 	  handleBuy: function handleBuy() {
+	    event.preventDefault();
 	    var stocks = this.state.stocks.slice(0);
 	    stocks.push(this.refs.buySymbol.value.trim());
 	    this.setState({ stocks: stocks });
@@ -19751,15 +19752,11 @@
 	          { style: { fontFamily: 'Abril Fatface' } },
 	          "Stock List"
 	        ),
+	        _react2.default.createElement("input", { type: "text", ref: "buySymbol" }),
 	        _react2.default.createElement(
-	          "form",
-	          { onSubmit: this.handleBuy },
-	          _react2.default.createElement("input", { type: "text", ref: "buySymbol" }),
-	          _react2.default.createElement(
-	            _reactBootstrap.Button,
-	            { type: "submit", style: { marginLeft: '3px' }, bsSize: "xsmall", bsStyle: "success" },
-	            "Buy"
-	          )
+	          _reactBootstrap.Button,
+	          { type: "submit", style: { marginLeft: '3px' }, onClick: this.handleBuy, bsSize: "xsmall", bsStyle: "success" },
+	          "Buy"
 	        ),
 	        _react2.default.createElement(
 	          "h6",

@@ -50,6 +50,7 @@ var StockList = React.createClass({
   },
 
   handleBuy: function(){
+    event.preventDefault();
     var stocks = this.state.stocks.slice(0)
     stocks.push(this.refs.buySymbol.value.trim());
     this.setState({stocks:stocks});
@@ -63,10 +64,8 @@ var StockList = React.createClass({
         <NavigationBar/>
         <div style={{ padding: 20, paddingTop:10 }}>
         <h3 style={{fontFamily:'Abril Fatface'}}>Stock List</h3>
-        <form onSubmit={this.handleBuy}>
-          <input type="text" ref="buySymbol"></input>
-          <Button type="submit" style={{marginLeft:'3px'}} bsSize="xsmall" bsStyle="success">Buy</Button>
-        </form>
+        <input type="text" ref="buySymbol"></input>
+        <Button type="submit" style={{marginLeft:'3px'}} onClick={this.handleBuy} bsSize="xsmall" bsStyle="success">Buy</Button>
         <h6 style={{fontFamily:'Abril Fatface'}}>Select:</h6><ButtonToolbar>
           {this.state.stocks.map(stock =>
             <Button bsSize="small" style={{marginBottom:'2px'}} key={stock} onClick={()=>{this.getSymbolDetails(stock)}}><a>{stock}</a></Button>
