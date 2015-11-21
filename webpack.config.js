@@ -18,6 +18,13 @@ module.exports = {
         loader: "babel",
         query:{presets:['es2015','react', 'stage-0']}
       },
+      //Put all node_modules requiring imports etc in the below loader 'include'
+      {
+        test: /\.js?$/,
+        include: /d3-react-sparkline/,
+        loader: 'babel',
+        query:{presets:['es2015','react', 'stage-0']}
+      },
       {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",

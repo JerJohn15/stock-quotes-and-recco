@@ -1,0 +1,49 @@
+
+> stock-pricing-and-recco-project@1.0.0 start /root/stock-quotes-and-recco
+> webpack && node server.js;
+
+Hash: 44f75d3c63655f426ddb
+Version: webpack 1.12.2
+Time: 14661ms
+     Asset       Size  Chunks             Chunk Names
+index.html  447 bytes          [emitted]  
+ bundle.js     1.3 MB    0, 1  [emitted]  html, javascript
+    + 449 hidden modules
+
+ERROR in ./js/components/StockList.js
+Module not found: Error: Cannot resolve module 'd3-react-sparkline' in /root/stock-quotes-and-recco/src/js/components
+ @ ./js/components/StockList.js 17:24-53
+
+/root/stock-quotes-and-recco/server.js:47
+ata = JSON.parse(response.text).query.results.quote.map(singleQuote=>(singleQu
+                                                                    ^
+SyntaxError: Unexpected token >
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:935:3
+
+npm ERR! stock-pricing-and-recco-project@1.0.0 start: `webpack && node server.js;`
+npm ERR! Exit status 8
+npm ERR! 
+npm ERR! Failed at the stock-pricing-and-recco-project@1.0.0 start script.
+npm ERR! This is most likely a problem with the stock-pricing-and-recco-project package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     webpack && node server.js;
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls stock-pricing-and-recco-project
+npm ERR! There is likely additional logging output above.
+npm ERR! System Linux 3.19.0-22-generic
+npm ERR! command "/usr/bin/node" "/usr/bin/npm" "start"
+npm ERR! cwd /root/stock-quotes-and-recco
+npm ERR! node -v v0.10.40
+npm ERR! npm -v 1.4.28
+npm ERR! code ELIFECYCLE
+npm ERR! 
+npm ERR! Additional logging details can be found in:
+npm ERR!     /root/stock-quotes-and-recco/npm-debug.log
+npm ERR! not ok code 0
