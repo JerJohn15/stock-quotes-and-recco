@@ -3,17 +3,22 @@
 Live demo app available at: http://rkiouak.com
 
 #Project Setup
+
 make sure node (with npm) is installed.
 
 Install webpack globally: npm install webpack -g
 
-Then, from terminal/command line run:
+ Then, from terminal/command line run:
 
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
 
 cd stock-quotes-and-recco &&
 
 npm install && npm start
+
+
+**Note**: Windows users might have to run 'webpack && node server.js', as an alternative,  instead of 'npm start', if your get
+a 'Error: Cannot find module ... server.js' error message.
 
 Give the server a few minutes to download npm dependencies depending on your connection speed, you will eventually see a message saying 'Example app available at: http://localhost:8080'. This means you've pulled the project successfully and you can check the app at http://localhost:8080 from your browser.
 
