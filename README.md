@@ -6,11 +6,11 @@ Live demo app available at: http://rkiouak.com
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
 
-* [Eloquent Javascript](http://eloquentjavascript.net/) - *If your new to Javascript, this Ebook is a great way to get started as it covers basic Javascript fundamentals as well as introduces Node JS and React JS. The website also contains the source code of all of the examples within the book, as well as the ability to download the book as a pdf for offline use. 
+* [Eloquent Javascript](http://eloquentjavascript.net/) - *If your new to Javascript, this Ebook is a great way to get started as it covers basic Javascript fundamentals as well as introduces Node JS and React JS. The website also contains the source code of all of the examples within the book, as well as the ability to download the book as a pdf for offline use.* 
 
-* [Build with React](http://buildwithreact.com/)  - This website goes through the basic fundamentals and contains pratice exercises with solutions.
+* [Build with React](http://buildwithreact.com/)  - *This website goes through the basic fundamentals and contains pratice exercises with solutions.*
 
-* [Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) - Like Build with React, this website has a series of tutorials on React fundamentals, but towards the end of the series, it walks you through building larger applications like a basic mobile app using Reapp.  
+* [Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) - *Like Build with React, this website has a series of tutorials on React fundamentals, but towards the end of the series, it walks you through building larger applications like a basic mobile app using Reapp.*
 
 * [Official React Getting Started Tutorial](https://facebook.github.io/react/docs/tutorial.html)
 
