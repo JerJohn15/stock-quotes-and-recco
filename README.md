@@ -37,7 +37,7 @@ git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
 >
 cd stock-quotes-and-recco &&
 
-**Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) 
+**Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. (For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) )
 >
 npm install && npm start
 
