@@ -20,7 +20,7 @@ This project currently supports the following languages: Javascript, React JS, N
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/). 
 
-You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like many IDEs, Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'Edit -> Settings -> Packages' and type in and install 'browser-plus'.
+You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like many IDEs, Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'File -> Settings -> Packages' and type in and install 'browser-plus'.
 
 
 
