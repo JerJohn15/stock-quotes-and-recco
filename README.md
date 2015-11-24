@@ -2,17 +2,39 @@
 
 Live demo app available at: http://rkiouak.com
 
+#Recommended Readings
+
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
+
+[Eloquent Javascript](http://eloquentjavascript.net/)
+[Build with React](http://buildwithreact.com/)
+[Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
+[Official React Getting Started Tutorial](https://facebook.github.io/react/docs/tutorial.html)
+
+
+
+#Required Tools
+
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/). 
+
+You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like many IDEs, Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'Edit -> Settings -> Packages' and type in and install 'browser-plus'.
+
+
+
+
 #Project Setup
 
 1) make sure [node](https://nodejs.org/en/) (with npm) is installed.
 
 2) Install webpack globally: npm install webpack -g
 
-3)  Then, from terminal/command line run:
+3)  Then, from terminal/command line 'cd' to your desired project location and run:
 >
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
 >
 cd stock-quotes-and-recco &&
+
+**Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) 
 >
 npm install && npm start
 
