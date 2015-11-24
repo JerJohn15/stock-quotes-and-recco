@@ -6,10 +6,13 @@ Live demo app available at: http://rkiouak.com
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
 
-[Eloquent Javascript](http://eloquentjavascript.net/)
-[Build with React](http://buildwithreact.com/)
-[Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
-[Official React Getting Started Tutorial](https://facebook.github.io/react/docs/tutorial.html)
+-[Eloquent Javascript](http://eloquentjavascript.net/)
+
+-[Build with React](http://buildwithreact.com/)
+
+-[Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
+
+-[Official React Getting Started Tutorial](https://facebook.github.io/react/docs/tutorial.html)
 
 
 
