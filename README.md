@@ -11,9 +11,9 @@ Live demo app available at: http://rkiouak.com
 3)  Then, from terminal/command line run:
 >
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
-
+>
 cd stock-quotes-and-recco &&
-
+>
 npm install && npm start
 
 
