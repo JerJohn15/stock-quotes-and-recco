@@ -12,6 +12,7 @@ styles.wrapper = {
   color: light
 }
 
+
 styles.link = {
   padding: 11,
   color: light,
@@ -54,7 +55,7 @@ class NavigationBar extends React.Component {
           <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logOut}>log out</button>
+          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logIn}>log in</button>
         </div>
       </div>
     )
