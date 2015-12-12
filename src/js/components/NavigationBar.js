@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react';
+import { Link } from 'react-router';
 
 const blue = '#337ab7'
 const light = '#fff'
@@ -53,9 +53,10 @@ class NavigationBar extends React.Component {
         <div style={{ float: 'left' }}>
           <Link to="/" style={styles.link}>Home</Link>{' '}
           <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
+          <Link to="/ExRates" style={styles.link} activeStyle={styles.activeLink}>Exchange Rates</Link>{' '}
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logIn}>log in</button>
+          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logOut}>log in</button>
         </div>
       </div>
     )

@@ -58,9 +58,13 @@
 
 	var _StockList2 = _interopRequireDefault(_StockList);
 
+	var _ExchangeRates = __webpack_require__(482);
+
+	var _ExchangeRates2 = _interopRequireDefault(_ExchangeRates);
+
 	var _reactRouter = __webpack_require__(431);
 
-	var _App = __webpack_require__(482);
+	var _App = __webpack_require__(483);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -70,7 +74,8 @@
 	  _reactRouter.Router,
 	  null,
 	  _react2.default.createElement(_reactRouter.Route, { path: "/", component: _App2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "ExRates", component: _ExchangeRates2.default })
 	), document.getElementById('root'));
 
 /***/ },
@@ -51471,11 +51476,6 @@
 	  color: light
 	};
 
-	styles.title = {
-	  color: 'black',
-	  fontFamily: 'Abril Fatface'
-	};
-
 	styles.link = {
 	  padding: 11,
 	  color: light,
@@ -51529,6 +51529,12 @@
 	            { to: '/stocks', style: styles.link, activeStyle: styles.activeLink },
 	            'Stocks'
 	          ),
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
+	            'Exchange Rates'
+	          ),
 	          ' '
 	        ),
 	        _react2.default.createElement(
@@ -51542,7 +51548,7 @@
 	          ' ',
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: this.logIn },
+	            { onClick: this.logOut },
 	            'log in'
 	          )
 	        )
@@ -56375,6 +56381,56 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavigationBar = __webpack_require__(430);
+
+	var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//var body = "b"
+
+	/**
+	*
+	This class handles all of the exchange rate information
+	@author - JerJohn15
+	*
+	*/
+
+	var ExchangeRates = _react2.default.createClass({
+	  displayName: 'ExchangeRates',
+
+	  render: function render() {
+
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(_NavigationBar2.default, null),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        ' You\'ve made it to the exchange rates page '
+	      )
+	    );
+	  }
+
+	});
+
+	exports.default = ExchangeRates;
+
+/***/ },
+/* 483 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	Object.defineProperty(exports, "__esModule", {
@@ -56397,9 +56453,14 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	//Added in welcome message
-	//@author - JerJohn15
-	var bodyText = "Welcome! Please Login or create an account.";
+	/**
+	*
+	Placed CSS elements in classes.
+	Added in a body text.
+	@author - JerJohn15
+	*/
+
+	var bodyText = "Welcome! Please Login or create an account here.";
 
 	var styles = {};
 
@@ -56410,7 +56471,6 @@
 
 	styles.title = {
 	  fontFamily: 'Abril Fatface'
-
 	};
 
 	styles.body = {
