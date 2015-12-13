@@ -8,7 +8,7 @@ This project currently supports the following languages: Javascript, React JS, N
 
 * [Eloquent Javascript](http://eloquentjavascript.net/) - *If your new to Javascript, this Ebook is a great way to get started as it covers basic Javascript fundamentals as well as introduces Node JS and React JS. The website also contains the source code of all of the examples within the book, as well as the ability to download the book as a pdf for offline use.* 
 
-* [Build with React](http://buildwithreact.com/)  - *This website goes through the basic fundamentals and contains pratice exercises with solutions.*
+* [Build with React](http://buildwithreact.com/)  - *This website goes through the basic fundamentals and contains practice exercises with solutions.*
 
 * [Learning React JS](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) - *Like Build with React, this website has a series of tutorials on React fundamentals, but towards the end of the series, it walks you through building larger applications like a basic mobile app using Reapp.*
 
@@ -42,10 +42,12 @@ cd stock-quotes-and-recco &&
 npm install && npm start
 
 
-**Note**: Windows users might have to run 'webpack && node server.js', as an alternative,  instead of 'npm start', if your get
-a 'Error: Cannot find module ... server.js' error message.
+**Note**: Windows users might have to run 'webpack && node server.js', as an alternative,  instead of 'npm start', if you get
+a  cannot find module error message.
 
 Give the server a few minutes to download npm dependencies depending on your connection speed, you will eventually see a message saying 'Example app available at: http://localhost:8080'. This means you've pulled the project successfully and you can check the app at http://localhost:8080 from your browser.
+
+**Note**: You'll need to run the above command each time you want to test out changes you've made to the project.  
 
 Tests can be run with mocha installed via the cmd 'mocha' in the root directory of the project.
 
