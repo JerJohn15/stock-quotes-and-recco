@@ -56282,6 +56282,8 @@
 
 	var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
 
+	var _reactBootstrap = __webpack_require__(163);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var StudyTracker = _react2.default.createClass({
@@ -56292,7 +56294,13 @@
 	    };
 	  },
 
+	  overRideSetState: function overRideSetState(param) {
+	    this.setState({ hoursStudying: param + 1 });
+	  },
+
 	  render: function render() {
+	    var _this = this;
+
 	    var date = new Date();
 
 	    return _react2.default.createElement(
@@ -56318,6 +56326,15 @@
 	          "h3",
 	          null,
 	          date.toISOString().slice(0, 10)
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Button,
+	          { bsSize: "medium",
+	            onClick: function onClick() {
+	              _this.setState({ hoursStudying: _this.state.hoursStudying + 1 });
+	            },
+	            style: { marginBottom: '4px' } },
+	          "Log Hour"
 	        )
 	      )
 	    );
