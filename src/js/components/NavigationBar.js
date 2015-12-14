@@ -52,6 +52,7 @@ class NavigationBar extends React.Component {
         <div style={{ float: 'left' }}>
           <Link to="/" style={styles.link}>Home</Link>{' '}
           <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
+          <Link to="/study" style={styles.link} activeStyle={styles.activeLink}>Study</Link>{' '}
         </div>
         <div style={{ float: 'right' }}>
           <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logOut}>log out</button>

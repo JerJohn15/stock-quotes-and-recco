@@ -58,9 +58,13 @@
 
 	var _StockList2 = _interopRequireDefault(_StockList);
 
+	var _StudyTracker = __webpack_require__(481);
+
+	var _StudyTracker2 = _interopRequireDefault(_StudyTracker);
+
 	var _reactRouter = __webpack_require__(431);
 
-	var _App = __webpack_require__(481);
+	var _App = __webpack_require__(482);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -70,7 +74,8 @@
 	  _reactRouter.Router,
 	  null,
 	  _react2.default.createElement(_reactRouter.Route, { path: "/", component: _App2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "study", component: _StudyTracker2.default })
 	), document.getElementById('root'));
 
 /***/ },
@@ -51482,6 +51487,12 @@
 	            { to: '/stocks', style: styles.link, activeStyle: styles.activeLink },
 	            'Stocks'
 	          ),
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/study', style: styles.link, activeStyle: styles.activeLink },
+	            'Study'
+	          ),
 	          ' '
 	        ),
 	        _react2.default.createElement(
@@ -56251,6 +56262,72 @@
 
 /***/ },
 /* 481 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _superagent = __webpack_require__(160);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _NavigationBar = __webpack_require__(430);
+
+	var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var StudyTracker = _react2.default.createClass({
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      hoursStudying: 1
+	    };
+	  },
+
+	  render: function render() {
+	    var date = new Date();
+
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement(_NavigationBar2.default, null),
+	      _react2.default.createElement(
+	        "div",
+	        { style: { margin: 10 } },
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Hours spent studying:"
+	        ),
+	        _react2.default.createElement(
+	          "h2",
+	          null,
+	          " ",
+	          this.state.hoursStudying,
+	          " "
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          date.toISOString().slice(0, 10)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	exports.default = StudyTracker;
+
+/***/ },
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
