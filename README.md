@@ -33,7 +33,7 @@ You can use any IDE you want to code this project in, but I recommend [Atom](htt
 
 1) make sure [node](https://nodejs.org/en/) (with npm) is installed.
 
-2) Install webpack globally: npm install webpack -g
+2) Install webpack globally:```npm npm install webpack -g```
 
 3)  Then, from terminal/command line 'cd' to your desired project location and run:
 ```npm
