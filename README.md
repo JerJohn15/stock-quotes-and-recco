@@ -22,8 +22,12 @@ This project currently supports the following languages: Javascript, React JS, N
 
 You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like many IDEs, Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'File -> Settings -> Packages' and type in and install 'browser-plus'.
 
+#Required Node Packages
 
+- This section will include each required node packages that are needed to run each feature using node js.
 
+* [money.js](https://www.npmjs.com/package/money) 
+* [accounting js] (https://www.npmjs.com/package/accounting)
 
 #Project Setup
 
@@ -61,3 +65,11 @@ date ranges, eventually bring in d3 graphing of historical data.
 2nd stage query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
 
 Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
+
+#Releases 
+
+- New Release features will be updated here.
+
+##Upcoming Changes
+
+*- Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
