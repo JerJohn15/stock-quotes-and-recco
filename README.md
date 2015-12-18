@@ -70,6 +70,6 @@ Run tests from root directory with Mocha, run express server (e.g. local dev mod
 
 - New Release features will be updated here.
 
-##Upcoming Changes
+####Upcoming Changes
 
 - Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
