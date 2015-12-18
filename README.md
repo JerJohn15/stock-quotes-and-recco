@@ -24,7 +24,7 @@ You can use any IDE you want to code this project in, but I recommend [Atom](htt
 
 #Required Node Packages
 
-- This section will include each required node packages that are needed to run each feature using node js.
+*This section will include each required node packages that are needed to run each feature using node js.*
 
 * [money.js](https://www.npmjs.com/package/money) 
 * [accounting js] (https://www.npmjs.com/package/accounting)
@@ -72,4 +72,4 @@ Run tests from root directory with Mocha, run express server (e.g. local dev mod
 
 ##Upcoming Changes
 
-*- Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
+- Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
