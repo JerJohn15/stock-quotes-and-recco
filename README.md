@@ -36,15 +36,15 @@ You can use any IDE you want to code this project in, but I recommend [Atom](htt
 2) Install webpack globally: npm install webpack -g
 
 3)  Then, from terminal/command line 'cd' to your desired project location and run:
->
+```npm
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
->
+
 cd stock-quotes-and-recco &&
-
+```
 **Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. (For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) )
->
+```npm
 npm install && npm start
-
+```
 
 **Note**: Windows users might have to run 'webpack && node server.js', as an alternative,  instead of 'npm start', if you get
 a  cannot find module error message.
