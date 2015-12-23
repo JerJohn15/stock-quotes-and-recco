@@ -68,8 +68,10 @@ Run tests from root directory with Mocha, run express server (e.g. local dev mod
 
 #Releases 
 
-- New Release features will be updated here.
+New Release features will be updated here.
+- **Update:** Currency converter doesn't currently work. I working version should be up and running soon.
 
-####Upcoming Changes
+
+####Todo List
 
 - Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
