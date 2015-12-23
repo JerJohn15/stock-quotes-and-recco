@@ -56414,6 +56414,8 @@
 	// CSS for Exchange Rates page
 	var styles = {};
 
+	//var url = 'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c';
+
 	styles.body = {
 
 	  backgroundcolor: '#00ff00'
@@ -56433,12 +56435,13 @@
 	};
 	fx.rates = {
 
-	  "USDEUR": 0.9202,
-	  "USDGBP": 0.6715,
-	  "USDJPY": 121.1400
+	  "EUR": 0.916333, //0.9202,
+	  "GBP": 0.670885, //0.6715,
+	  "JPY": 121.164, //121.1400,
+	  "USD": 1
 
 	};
-
+	// currency account settings
 	accounting.settings = {
 	  currency: {
 	    symbol: "$",
@@ -56456,46 +56459,67 @@
 	var ExchangeRates = _react2.default.createClass({
 	  displayName: 'ExchangeRates',
 
-	  accessAPI: function accessAPI() {
-	    $.getJSON(
+	  getInitialState: function getInitialState() {
+	    return { USDvalue: ' ',
+	      rateType: ' ',
+	      convertedCurrency: ' '
+	    };
+	  },
+	  getRateState: function getRateState() {
+	    return this.state.rateType;
+	  },
+	  getUSDState: function getUSDState() {
+	    return this.state.USDvalue;
+	  },
+	  componentDidMount: function componentDidMount() {
+	    //set state of currencyType
+	    $.getJSON( //this.props.url
 	    //  using yahoo finance api
-
-	    //  'http://openexchangerates.org/latest.json',
-	    'http://finance.yahoo.com/d/quotes.csv?e=.csv&f=sl1d1t1&s=USDINR=X', function (data) {
+	    // 'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c',
+	    this.props.url, function (data) {
 	      // Check money.js has finished loading:
 	      if (typeof fx !== "undefined" && fx.rates) {
+
+	        //the base and the rates here
 	        fx.rates = data.rates;
-	        fx.base = data.base;
+	        this.state.setState({ rateType: fx.rates });
+	        //  fx.base = data.base;
 	      } else {
-	        // If not, apply to fxSetup global:
-	        var fxSetup = {
-	          rates: data.rates,
-	          base: data.base
-	        };
-	      }
+	          // If not, apply to fxSetup global:
+	          var fxSetup = {
+	            rates: data.rates,
+	            base: data.base
+	          };
+	          this.state.setState({ rateType: fx.rates });
+	        }
+	      //calculate converted currency here
+	      //  if(getUSDState){
+
+	      //Set rates value in API -Hide this
+	      //      var currency = fx.convert(this.getUSDState, {to: fx.rates});
+	      //    this.setState({convertedCurrency: currency});
+	      //  }else{
+	      //  alert("Please enter a value!");
+	      //  }
 	    });
 	  },
-	  getInitialState: function getInitialState() {
-	    return { moneyValue: ' ',
-	      currencyType: ' ',
-	      convertedCurrency: ' ' };
-	  },
 
-	  //sets the amount
+	  //sets the amount - USD
 	  setAmount: function setAmount(event) {
 	    this.setState({ moneyValue: event.target.value });
 	  },
 
+	  // Check if amount has been inputted by user, and get the converted currency. Otherwise, show error.
 	  calculateRates: function calculateRates(event) {
-	    if (this.state.moneyValue) {
-	      //check if amount has been inputed by user
-	      //  this.amount = accounting.formatNumber(this.amount);
-	      //alert(this.state.moneyValue);
-	      this.setState({ currencyType: event.target.value });
-	      // alert(this.state.currencyType);//fix this error
-	      var currency = fx.convert(this.state.moneyValue, { to: this.state.currencyType });
-	      this.setState({ convertedCurrency: currency }); //sets converted currency
-	      //alert(this.currency);
+	    if (this.getUSDState) {
+	      //selected currency "EUR, GBP, JPY"
+	      //this.setState({rateType: event.target.value});
+
+	      var currency = fx.convert(this.getUSDState, { to: this.getRateState });
+	      this.setState({ convertedCurrency: currency });
+
+	      //  var currency = fx.convert(getUSDState, {to: getRateState});
+	      //this.setState({convertedCurrency: currency});//set amount of converted currency to be displayed
 	    } else {
 	        alert("Please enter a value!");
 	      }
@@ -56539,11 +56563,11 @@
 	              ' '
 	            ),
 	            _react2.default.createElement('input', { type: 'text', id: 'money',
-	              defaultValue: this.state.moneyValue, onChange: this.setAmount }),
+	              defaultValue: this.state.USDvalue, onChange: this.setAmount }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              'select',
-	              { id: 'selection', defaultValue: this.state.currencyType, onChange: this.calculateRates },
+	              { id: 'selection', defaultValue: this.state.rateType, onChange: this.calculateRates },
 	              _react2.default.createElement(
 	                'option',
 	                { value: '' },
@@ -56551,17 +56575,17 @@
 	              ),
 	              _react2.default.createElement(
 	                'option',
-	                { value: 'USDEUR' },
+	                { value: 'EUR' },
 	                'US-Euro'
 	              ),
 	              _react2.default.createElement(
 	                'option',
-	                { value: 'USDGBP' },
+	                { value: 'GBP' },
 	                'US-Pound'
 	              ),
 	              _react2.default.createElement(
 	                'option',
-	                { value: 'USDJPY' },
+	                { value: 'JPY' },
 	                'US-Yuan'
 	              )
 	            ),
@@ -56575,6 +56599,8 @@
 	  }
 
 	});
+
+	_react2.default.render(_react2.default.createElement(ExchangeRates, { url: 'https://openexchangerates.org/api/latest.json?\r\napp_id=f7beb6b41bde4fabaa01f5bd5e459d8c' }), document.body);
 
 	exports.default = ExchangeRates;
 
