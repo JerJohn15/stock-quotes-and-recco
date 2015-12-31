@@ -10,7 +10,7 @@ US currency to foreign currency (vice-versa).
 import React from 'react';
 import NavigationBar from './NavigationBar';
 var fx = require("money");
-var accounting = require("accounting");
+//Not using yet - var accounting = require("accounting");
 // CSS for Exchange Rates page
 const styles = {}
 
@@ -43,7 +43,9 @@ fx.rates = {
 "USD" : 1
 
 };
-// currency account settings
+// NOT YET IMPLEMENTING - currency account settings
+/**
+
 accounting.settings = {
 currency: {
   symbol: "$",
@@ -58,54 +60,55 @@ number: {
 
 };
 
+*/
+
+
 var ratesAPI = React.createClass({
 
-//get data from api url here
 getInitialState: function(){
-  return {rateType: ' ',
-        link: 'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c'
+  return {rt: ' '
       };
 },
-getRateState: function(){
-  return this.state.rateType;
+getRtState: function(){
+  return this.state.rt;
 },
-componentDidMount: function (){
- $.getJSON(
-       //  using yahoo finance api
-        //'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c',
-         this.state.url,function(data) {
-             // Check money.js has finished loading:
-             if ( typeof fx !== "undefined" && fx.rates ) {
 
-               //the base and the rates here
-                 fx.rates = data.rates;
-                 this.state.setState({rateType: fx.rates});
-               //  fx.base = data.base;
-             } else {
-                 // If not, apply to fxSetup global:
-                 var fxSetup = {
-                     rates : data.rates,
-                     base : data.base
-                 }
-                 this.state.setState({rateType: fx.rates});
-             }
-             //calculate converted currency here
-           //  if(getUSDState){
 
-               //Set rates value in API -Hide this
-         //      var currency = fx.convert(this.getUSDState, {to: fx.rates});
-           //    this.setState({convertedCurrency: currency});
-           //  }else{
-             //  alert("Please enter a value!");
-           //  }
-         }
-     );
+//sends out the request from the API and retrieves its data
+handleRequest: function(type){
+
+
+  $.getJSON(
+        //  using yahoo finance api
+         'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c',
+        function(data) {
+              // Check money.js has finished loading:
+              if ( typeof fx !== "undefined" && fx.rates ) {
+
+                //the base and the rates here
+                  fx.rates = data.rates.type;
+                  this.state.setState({rt: fx.rates});
+                //  fx.base = data.base;
+              } else {
+                  // If not, apply to fxSetup global:
+                  var fxSetup = {
+                      rates : data.rates.type,
+                      base : data.base
+                  }
+                  this.state.setState({rt: fx.rates});
+              }
+
+          }.bind(this)
+      );
+
+
 },
-//pass data into child component
+//passes the parent function, to be used as the callback, and the rate to child component
 render: function(){
   return (
 
- <ExchangeRates data = {this.componentDidMount}/>
+
+ <ExchangeRates sendRequest = {this.handleRequest} rate = {this.state.rt}/>
 
   );
 }
@@ -113,12 +116,16 @@ render: function(){
 
 });
 
+/**
+This component handles the data used to convert the currency from
+US to foriegn
+*/
 
 var ExchangeRates = React.createClass({
-
   getInitialState: function(){
     return {USDvalue: ' ',
           convertedCurrency: ' ',
+          rtname: ' '
         };
   },
   getUSDState: function(){
@@ -129,25 +136,22 @@ var ExchangeRates = React.createClass({
 setAmount: function(event){
    this.setState({USDvalue: event.target.value});
 },
-
 // Check if amount has been inputted by user, and get the converted currency. Otherwise, show error.
-calculateRates: function (event){
+calculateRates: function (e){
+//set rate of rt equal to whatever the rateType is selected from the user
 if(this.getUSDState){
 //selected currency "EUR, GBP, JPY"
-   //this.setState({rateType: event.target.value});
 
-   var currency = fx.convert(this.getUSDState, {to: this.getRateState});
+   //callback function that retrieves data from API
+   this.props.sendRequest({rtname: e.target.value});
+   var currency = fx.convert(this.getUSDState, {to: this.props.rate});
+   //the state to be displayed when rendered
    this.setState({convertedCurrency: currency});
 
-
-
-//  var currency = fx.convert(getUSDState, {to: getRateState});
-  //this.setState({convertedCurrency: currency});//set amount of converted currency to be displayed
 }else{
   alert("Please enter a value!");
 }
 },
-
 
 render: function(){
 
@@ -159,8 +163,8 @@ var currency = this.state.convertedCurrency;
 return (
   <div>
 <NavigationBar/>
-    <br>
-    </br>
+<br>
+</br>
   <div>
   <form>
     <fieldset>
@@ -175,7 +179,7 @@ return (
     <br>
     </br>
       <select id ="selection" defaultValue =
-        {this.state.rateType} onChange={this.calculateRates}>
+        {this.props.rate} onChange={this.calculateRates}>
           <option value = "">select currency</option>
       <option value = "EUR">US-Euro</option>
           <option value = "GBP">US-Pound</option>
@@ -200,8 +204,6 @@ return (
 
 });
 
-//React.render(<ExchangeRates url = 'https://openexchangerates.org/api/latest.json?
-//app_id=f7beb6b41bde4fabaa01f5bd5e459d8c'/>
-//, document.body);
+
 
 export default ExchangeRates
