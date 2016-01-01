@@ -58,23 +58,17 @@
 
 	var _StockList2 = _interopRequireDefault(_StockList);
 
-<<<<<<< HEAD
 	var _ExchangeRates = __webpack_require__(482);
 
 	var _ExchangeRates2 = _interopRequireDefault(_ExchangeRates);
 
 	var _reactRouter = __webpack_require__(431);
 
-	var _App = __webpack_require__(484);
-=======
-	var _StudyTracker = __webpack_require__(481);
+	var _StudyTracker = __webpack_require__(484);
 
 	var _StudyTracker2 = _interopRequireDefault(_StudyTracker);
 
-	var _reactRouter = __webpack_require__(431);
-
-	var _App = __webpack_require__(482);
->>>>>>> refs/remotes/Rkiouak/master
+	var _App = __webpack_require__(485);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -83,24 +77,19 @@
 	/**
 	*@author - JerJohn15
 	@details - Added in routing for exchange rates page.
-	*added-IndexRouting so that a parent component can pass a props to its child
-	route path is parent
-	index route is child
+	*and IndexRouting for child component of ratesAPI
 	*/
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRouter.Router,
 	  null,
 	  _react2.default.createElement(_reactRouter.Route, { path: "/", component: _App2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default }),
-<<<<<<< HEAD
+	  _react2.default.createElement(_reactRouter.Route, { path: "study", component: _StudyTracker2.default }),
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: "ExRates", component: _ExchangeRates2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ExchangeRates2.default })
 	  )
-=======
-	  _react2.default.createElement(_reactRouter.Route, { path: "study", component: _StudyTracker2.default })
->>>>>>> refs/remotes/Rkiouak/master
 	), document.getElementById('root'));
 
 /***/ },
@@ -51557,13 +51546,14 @@
 	          ' ',
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-<<<<<<< HEAD
-	            { to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
-	            'Exchange Rates'
-=======
 	            { to: '/study', style: styles.link, activeStyle: styles.activeLink },
 	            'Study'
->>>>>>> refs/remotes/Rkiouak/master
+	          ),
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
+	            'Exchange Rates'
 	          ),
 	          ' '
 	        ),
@@ -56495,33 +56485,7 @@
 	  getRtState: function getRtState() {
 	    return this.state.rt;
 	  },
-	  /**
-	  *
-	  
-	  
-	  */
-	  handleInitialRequest: function handleInitialRequest() {
 
-	    $.getJSON(
-	    //  using yahoo finance api
-	    'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c', (function (data) {
-	      // Check money.js has finished loading:
-	      if (typeof fx !== "undefined" && fx.rates) {
-
-	        //the base and the rates here
-	        fx.rates = data.rates;
-	        this.state.setState({ rt: fx.rates });
-	        //  fx.base = data.base;
-	      } else {
-	          // If not, apply to fxSetup global:
-	          var fxSetup = {
-	            rates: data.rates,
-	            base: data.base
-	          };
-	          this.state.setState({ rt: fx.rates });
-	        }
-	    }).bind(this));
-	  },
 	  //sends out the request from the API and retrieves its data
 	  handleRequest: function handleRequest(type) {
 
@@ -56544,19 +56508,9 @@
 	          this.state.setState({ rt: fx.rates });
 	        }
 	    }).bind(this));
-	  }, //call this method and then load the data
-	  /*
-	  *
-	  
-	  */
-	  componentDidMount: function componentDidMount() {
-	    this.handleInitialRequest;
 	  },
-	  //pass data into child component
-
+	  //passes the parent function, to be used as the callback, and the rate to child component
 	  render: function render() {
-	    //passes the parent function, to be used as the callback, and the rate to child component
-
 	    return _react2.default.createElement(ExchangeRates, { sendRequest: this.handleRequest, rate: this.state.rt });
 	  }
 
@@ -56876,6 +56830,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var StudyTracker = _react2.default.createClass({
+	  displayName: "StudyTracker",
 
 	  getInitialState: function getInitialState() {
 	    return {
@@ -56933,7 +56888,7 @@
 	exports.default = StudyTracker;
 
 /***/ },
-/* 482 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
