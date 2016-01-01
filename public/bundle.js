@@ -58,6 +58,7 @@
 
 	var _StockList2 = _interopRequireDefault(_StockList);
 
+<<<<<<< HEAD
 	var _ExchangeRates = __webpack_require__(482);
 
 	var _ExchangeRates2 = _interopRequireDefault(_ExchangeRates);
@@ -65,6 +66,15 @@
 	var _reactRouter = __webpack_require__(431);
 
 	var _App = __webpack_require__(484);
+=======
+	var _StudyTracker = __webpack_require__(481);
+
+	var _StudyTracker2 = _interopRequireDefault(_StudyTracker);
+
+	var _reactRouter = __webpack_require__(431);
+
+	var _App = __webpack_require__(482);
+>>>>>>> refs/remotes/Rkiouak/master
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -82,11 +92,15 @@
 	  null,
 	  _react2.default.createElement(_reactRouter.Route, { path: "/", component: _App2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default }),
+<<<<<<< HEAD
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: "ExRates", component: _ExchangeRates2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ExchangeRates2.default })
 	  )
+=======
+	  _react2.default.createElement(_reactRouter.Route, { path: "study", component: _StudyTracker2.default })
+>>>>>>> refs/remotes/Rkiouak/master
 	), document.getElementById('root'));
 
 /***/ },
@@ -51543,8 +51557,13 @@
 	          ' ',
 	          _react2.default.createElement(
 	            _reactRouter.Link,
+<<<<<<< HEAD
 	            { to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
 	            'Exchange Rates'
+=======
+	            { to: '/study', style: styles.link, activeStyle: styles.activeLink },
+	            'Study'
+>>>>>>> refs/remotes/Rkiouak/master
 	          ),
 	          ' '
 	        ),
@@ -56832,6 +56851,89 @@
 
 /***/ },
 /* 484 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _superagent = __webpack_require__(160);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _NavigationBar = __webpack_require__(430);
+
+	var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
+
+	var _reactBootstrap = __webpack_require__(163);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var StudyTracker = _react2.default.createClass({
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      hoursStudying: 1
+	    };
+	  },
+
+	  overRideSetState: function overRideSetState(param) {
+	    this.setState({ hoursStudying: param + 1 });
+	  },
+
+	  render: function render() {
+	    var _this = this;
+
+	    var date = new Date();
+
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement(_NavigationBar2.default, null),
+	      _react2.default.createElement(
+	        "div",
+	        { style: { margin: 10 } },
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Hours spent studying:"
+	        ),
+	        _react2.default.createElement(
+	          "h2",
+	          null,
+	          " ",
+	          this.state.hoursStudying,
+	          " "
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          date.toISOString().slice(0, 10)
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Button,
+	          { bsSize: "medium",
+	            onClick: function onClick() {
+	              _this.setState({ hoursStudying: _this.state.hoursStudying + 1 });
+	            },
+	            style: { marginBottom: '4px' } },
+	          "Log Hour"
+	        )
+	      )
+	    );
+	  }
+	});
+
+	exports.default = StudyTracker;
+
+/***/ },
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

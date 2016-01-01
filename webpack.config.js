@@ -1,6 +1,7 @@
 var path = require('path')
+var webpack = require('webpack');
 
-module.exports = {
+var config = {
   context: __dirname + "/src",
   entry: {
     javascript: "./js/app.js",
@@ -16,7 +17,7 @@ module.exports = {
       { test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel",
-        query:{presets:['es2015','react', 'stage-0']}
+        query:{presets:['es2015','react', 'stage-0'], plugins:[]}
       },
       //Put all node_modules requiring imports etc in the below loader 'include'
       {
@@ -40,5 +41,19 @@ module.exports = {
       net: 'empty',
       tls: 'empty'
     }
-  }
-};
+  },
+  plugins:[]
+}
+
+// config.devtool = 'eval'; // Speed up incremental builds
+// config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+// config.module.loaders[0].query.plugins.push('react-transform');
+// config.module.loaders[0].query.extra = {
+//   'react-transform': [{
+//     target: 'react-transform-hmr',
+//     imports: ['react-native'],
+//     locals: ['module']
+//   }]
+// };
+
+module.exports = config;

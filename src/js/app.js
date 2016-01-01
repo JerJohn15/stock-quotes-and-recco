@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import StockList from "./components/StockList";
 import ExchangeRates from "./components/ExchangeRates";
 import ratesAPI from "./components/ExchangeRates";
-import {Router, Route,IndexRoute,RouteHandler} from 'react-router';
+import {Router, Route, IndexRoute} from 'react-router';
+import StudyTracker from "./components/StudyTracker";
+
+
 import App from './components/App';
 /**
 *@author - JerJohn15
@@ -14,7 +17,9 @@ ReactDOM.render(
   <Router>
     <Route path="/" component={App}/>
       <Route path="stocks" component={StockList} />
+      <Route path="study" component={StudyTracker} />
         <Route path = "ExRates" component={ratesAPI} >
               <IndexRoute  component={ExchangeRates} />
               </Route>
+
   </Router>, document.getElementById('root'));
