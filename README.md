@@ -1,12 +1,13 @@
 # stock-quotes-and-recco
 
 Live demo app available at: http://rkiouak.com
+Test your own demo at: http://localhost:8080
 
 #Recommended Readings
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
 
-* [Eloquent Javascript](http://eloquentjavascript.net/) - *If your new to Javascript, this Ebook is a great way to get started as it covers basic Javascript fundamentals as well as introduces Node JS and React JS. The website also contains the source code of all of the examples within the book, as well as the ability to download the book as a pdf for offline use.* 
+* [Eloquent Javascript](http://eloquentjavascript.net/) - *If your new to Javascript, this Ebook is a great way to get started as it covers basic Javascript fundamentals as well as introduces Node JS and React JS. The website also contains the source code of all of the examples within the book, as well as the ability to download the book as a pdf for offline use.*
 
 * [Build with React](http://buildwithreact.com/)  - *This website goes through the basic fundamentals and contains practice exercises with solutions.*
 
@@ -18,16 +19,17 @@ This project currently supports the following languages: Javascript, React JS, N
 
 #Required Tools
 
-This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/). 
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
 
-You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like many IDEs, Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'File -> Settings -> Packages' and type in and install 'browser-plus'.
+You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like other popular IDEs (Eclipse, Netbeans, ..., etc.), Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'File -> Settings -> Packages' and type in and install 'browser-plus'.
 
 #Required Node Packages
 
 *This section will include each required node packages that are needed to run each feature using node js.*
 
-* [money.js](https://www.npmjs.com/package/money) 
+* [money.js](https://www.npmjs.com/package/money)
 * [accounting js] (https://www.npmjs.com/package/accounting)
+* [jquery] (https://www.npmjs.com/package/jquery)
 
 #Project Setup
 
@@ -66,12 +68,12 @@ date ranges, eventually bring in d3 graphing of historical data.
 
 Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
 
-#Releases 
+#Releases
 
 New Release features will be updated here.
-- **Update:** Currency converter doesn't currently work. I working version should be up and running soon.
+- **Update:** Working version of currency converter is up.
 
 
 ####Todo List
 
-- Fix 'Exchange Currency' section to properly convert US currency into foriegn currency.
+- Beautify Exchange Rates page
