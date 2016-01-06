@@ -1,7 +1,8 @@
 # stock-quotes-and-recco
 
 Live demo app available at: http://rkiouak.com
-Test your own demo at: http://localhost:8080
+
+Test your own version at: http://localhost:8080
 
 #Recommended Readings
 
@@ -21,15 +22,8 @@ This project currently supports the following languages: Javascript, React JS, N
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
 
-You can use any IDE you want to code this project in, but I recommend [Atom](https://atom.io/). Like other popular IDEs (Eclipse, Netbeans, ..., etc.), Atom comes with the ability to view a browser screen from within the program. To do this in Atom, go to 'File -> Settings -> Packages' and type in and install 'browser-plus'.
+You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/). 
 
-#Required Node Packages
-
-*This section will include each required node packages that are needed to run each feature using node js.*
-
-* [money.js](https://www.npmjs.com/package/money)
-* [accounting js] (https://www.npmjs.com/package/accounting)
-* [jquery] (https://www.npmjs.com/package/jquery)
 
 #Project Setup
 
@@ -76,4 +70,4 @@ New Release features will be updated here.
 
 ####Todo List
 
-- Beautify Exchange Rates page
+- Add some flux or redux 
