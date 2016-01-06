@@ -56428,6 +56428,27 @@
 	// CSS for Exchange Rates page
 	var styles = {};
 
+	styles.outerBox = {
+	  paddingTop: '100px',
+	  paddingBottom: '200px',
+	  paddingRight: '900px',
+	  paddingLeft: '100px'
+
+	};
+
+	styles.exchangeBox = {
+
+	  margin: 'auto',
+	  position: 'fixed',
+	  width: '250px',
+	  paddingLeft: '50px',
+	  paddingRight: '50px',
+	  height: '180px',
+	  border: '1px solid black',
+	  backgroundColor: '#C0C0C0'
+
+	};
+
 	styles.body = {
 
 	  backgroundcolor: '#00ff00'
@@ -56435,16 +56456,34 @@
 
 	styles.title = {
 
-	  padding: '20px',
-	  paddingTop: '10px',
-	  fontFamily: 'Abril Fatface'
+	  fontFamily: 'Abril Fatface',
+	  textAlign: 'left',
+	  paddingLeft: '30px',
+	  paddingTop: '10px'
 	};
-	//set the base and converted currency before loading money js
+
+	styles.descript = {
+
+	  fontFamily: 'fantasy, cursive, Arial',
+	  textAlign: 'left',
+	  padding: '20px',
+	  paddingTop: '10px'
+	};
+
+	styles.dropMenu = {
+
+	  paddingLeft: '15px',
+	  paddingRight: '15px'
+
+	};
+	/**
+	Money JS settings for the base currency and rates
+	*/
 	var fxSetup = {
 
 	  base: "USD",
 	  rates: {
-
+	    //these rate values will be loaded if ones from server don't work.
 	    "EUR": 0.916333,
 	    "GBP": 0.670885,
 	    "JPY": 121.164,
@@ -56456,26 +56495,6 @@
 	fx.settings = {
 	  from: "USD"
 	};
-
-	// Implementing accounting js later
-	/**
-
-
-	accounting.settings = {
-	currency: {
-	  symbol: "$",
-	  format: "$s%v",
-	  precision: 2
-
-	},
-	number: {
-	  precision: 0,
-	  decimal: "."
-	}
-
-	};
-
-	*/
 
 	/**
 	This component handles the data displays the user interface for this page
@@ -56518,7 +56537,7 @@
 	        this.setState({ rtname: fx.rates });
 	      }
 	      var currency = fx.convert(this.state.USDvalue, { to: this.state.rtname });
-	      //the state to be displayed when rendered
+	      //the converted currency to be  displayed to the user
 	      this.setState({ convertedCurrency: currency });
 	    }).bind(this));
 	  },
@@ -56546,58 +56565,74 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'form',
-	          null,
+	          'h3',
+	          { style: styles.title },
+	          'Currency Exchange'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { style: styles.descript },
+	          ' ',
+	          description
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { style: styles.outerBox },
+	        _react2.default.createElement(
+	          'div',
+	          { style: styles.exchangeBox },
 	          _react2.default.createElement(
-	            'fieldset',
+	            'form',
 	            null,
 	            _react2.default.createElement(
-	              'legend',
-	              { styles: styles.title },
-	              'Currency Exchange'
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'p',
+	              'fieldset',
 	              null,
-	              ' ',
-	              description
-	            ),
-	            _react2.default.createElement(
-	              'label',
-	              { className: 'Enter Price Here' },
-	              ' '
-	            ),
-	            _react2.default.createElement('input', { type: 'text', id: 'money',
-	              defaultValue: this.state.USDvalue, onChange: this.setAmount }),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'select',
-	              { id: 'selection', defaultValue: this.state.rtname, onChange: this.calculateRates },
 	              _react2.default.createElement(
-	                'option',
-	                { value: '' },
-	                'select currency'
+	                'label',
+	                null,
+	                ' Enter US Price Here'
+	              ),
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement('input', { type: 'text', id: 'money',
+	                defaultValue: this.state.USDvalue, onChange: this.setAmount }),
+	              _react2.default.createElement(
+	                'br',
+	                null,
+	                ' '
 	              ),
 	              _react2.default.createElement(
-	                'option',
-	                { value: 'EUR' },
-	                'US-Euro'
+	                'select',
+	                { id: 'selection', style: styles.dropMenu, defaultValue: this.state.rtname,
+	                  onChange: this.calculateRates },
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '' },
+	                  'select currency'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'EUR' },
+	                  'US-Euro'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'GBP' },
+	                  'US-Pound'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'JPY' },
+	                  'US-Yuan'
+	                )
 	              ),
 	              _react2.default.createElement(
-	                'option',
-	                { value: 'GBP' },
-	                'US-Pound'
+	                'br',
+	                null,
+	                ' '
 	              ),
-	              _react2.default.createElement(
-	                'option',
-	                { value: 'JPY' },
-	                'US-Yuan'
-	              )
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('input', { type: 'text', id: 'foreign', value: this.state.convertedCurrency }),
-	            _react2.default.createElement('br', null)
+	              _react2.default.createElement('input', { type: 'text', id: 'foreign', value: this.state.convertedCurrency })
+	            )
 	          )
 	        )
 	      )
@@ -66129,7 +66164,8 @@
 	};
 
 	styles.body = {
-	  marginLeft: '80px'
+	  marginLeft: '80px',
+	  fontFamily: 'cursive'
 	};
 
 	var App = (function (_React$Component) {

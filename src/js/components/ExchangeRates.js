@@ -17,6 +17,26 @@ var $ = require("jquery");
 // CSS for Exchange Rates page
 const styles = {}
 
+styles.outerBox = {
+  paddingTop: '100px',
+  paddingBottom: '200px',
+  paddingRight: '900px',
+  paddingLeft: '100px'
+
+}
+
+styles.exchangeBox = {
+
+margin: 'auto',
+position: 'fixed',
+width: '250px',
+paddingLeft: '50px',
+paddingRight: '50px',
+height: '180px',
+border: '1px solid black',
+backgroundColor: '#C0C0C0'
+
+}
 
 styles.body = {
 
@@ -25,16 +45,34 @@ styles.body = {
 
 styles.title  = {
 
-  padding: '20px',
+  fontFamily:'Abril Fatface',
+  textAlign: 'left',
+  paddingLeft: '30px',
   paddingTop:'10px',
-  fontFamily:'Abril Fatface'
 }
-//set the base and converted currency before loading money js
+
+styles.descript = {
+
+fontFamily: 'fantasy, cursive, Arial',
+textAlign: 'left',
+padding: '20px',
+paddingTop:'10px'
+}
+
+styles.dropMenu = {
+
+paddingLeft: '15px',
+ paddingRight: '15px'
+
+}
+/**
+Money JS settings for the base currency and rates
+*/
 var fxSetup = {
 
 base: "USD",
 rates: {
-
+//these rate values will be loaded if ones from server don't work.
 "EUR" :  0.916333,
 "GBP" :  0.670885,
 "JPY" : 121.164,
@@ -48,26 +86,6 @@ fx.settings = {
   from: "USD"
 };
 
-
-// Implementing accounting js later
-/**
-
-
-accounting.settings = {
-currency: {
-  symbol: "$",
-  format: "$s%v",
-  precision: 2
-
-},
-number: {
-  precision: 0,
-  decimal: "."
-}
-
-};
-
-*/
 
 
 /**
@@ -112,7 +130,7 @@ handleRequest: function(type){
                   this.setState({rtname: fx.rates});
               }
               var currency = fx.convert(this.state.USDvalue, {to: this.state.rtname});
-              //the converted currency to be  displayed to the user 
+              //the converted currency to be  displayed to the user
               this.setState({convertedCurrency: currency});
           }.bind(this)
       );
@@ -142,36 +160,32 @@ return (
 <NavigationBar/>
 <br>
 </br>
-  <div>
+<div>
+  <h3 style = {styles.title}>Currency Exchange</h3>
+
+    <p style = {styles.descript}> {description}</p>
+</div>
+<div style = {styles.outerBox}>
+  <div  style = {styles.exchangeBox}>
   <form>
     <fieldset>
-      <legend styles = {styles.title}>Currency Exchange</legend>
-        <br>
-        </br>
-        <p> {description}</p>
-      <label className = "Enter Price Here"> </label>
+      <label > Enter US Price Here</label><br></br>
     <input  type = "text" id = "money"
       defaultValue = {this.state.USDvalue} onChange = {this.setAmount}>
     </input>
-    <br>
-    </br>
-      <select id ="selection" defaultValue =
-        {this.state.rtname} onChange={this.calculateRates}>
+    <br> </br>
+      <select id ="selection" style = {styles.dropMenu}defaultValue ={this.state.rtname}
+         onChange={this.calculateRates}>
           <option value = "">select currency</option>
       <option value = "EUR">US-Euro</option>
           <option value = "GBP">US-Pound</option>
               <option value = "JPY">US-Yuan</option>
                   </select>
-        <br>
-        </br>
-
+                  <br> </br>
 <input type ="text" id = "foreign" value = {this.state.convertedCurrency}></input>
-
-        <br>
-        </br>
-
     </fieldset>
   </form>
+  </div>
   </div>
 </div>
 );

@@ -4,7 +4,8 @@ import NavigationBar from './NavigationBar'
 /**
 *
 Placed CSS elements in classes.
-Added in a body text.
+*Added in a body text.
+*Changed title name 
 @author - JerJohn15
 */
 
@@ -23,7 +24,8 @@ fontFamily:'Abril Fatface'
 
 styles.body =
 {
-  marginLeft: '80px'
+  marginLeft: '80px',
+  fontFamily: 'cursive'
 }
 
 class App extends React.Component {
@@ -33,7 +35,7 @@ class App extends React.Component {
         <NavigationBar />
         <div style={styles.titleBox}>
           {this.props.children}
-          <h3 style={styles.title}> Jeremiahs Version</h3>
+          <h3 style={styles.title}> Matt Rkiouak && Jeremiah Johnson</h3>
         </div>,
         <div style = {styles.body}>{bodyText}</div>
 
