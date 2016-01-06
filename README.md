@@ -51,6 +51,22 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 Tests can be run with mocha installed via the cmd 'mocha' in the root directory of the project.
 
+#Layout of Project
+
+Below is the layout of the main parts of the project.
+
+```javascript
+js/
+---- components/
+-------- App.js//Home page
+--------ExchangeRates.js//a currency converter 
+--------NavigationBar.js//Menu for the website
+--------StockList.js//buy and sell stocks 
+--------StudyTracker.js//logs amount of hours spent studying
+app.js//routing paths for each component
+index.html
+```
+
 #Description
 
 Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
