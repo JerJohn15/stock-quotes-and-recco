@@ -10,6 +10,8 @@ The exchange rates are taken from the open exchange rates API. - https://openexc
 
 import React from 'react';
 import NavigationBar from './NavigationBar';
+//var React = require('react');
+//var NavigationBar = require('./NavigationBar');
 var fx = require("money");
 var $ = require("jquery");
 //Not using yet - var accounting = require("accounting");

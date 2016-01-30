@@ -4,7 +4,7 @@ Live demo app available at: http://rkiouak.com
 
 Test your own version at: http://localhost:8080
 
-#Recommended Readings
+#Suggested Readings
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
 
@@ -22,7 +22,8 @@ This project currently supports the following languages: Javascript, React JS, N
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
 
-You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/). 
+You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/). Not only is it light, but you can install plugins (via packages)
+to accommedate to your working environment.
 
 
 #Project Setup
@@ -33,9 +34,9 @@ You can use any software you want to code this project in, but I recommend the t
 
 3)  Then, from terminal/command line 'cd' to your desired project location and run:
 ```npm
-git clone https://github.com/Rkiouak/stock-quotes-and-recco.git &&
+git clone https://github.com/Rkiouak/stock-quotes-and-recco.git
 
-cd stock-quotes-and-recco &&
+cd stock-quotes-and-recco
 ```
 **Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. (For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) )
 ```npm
@@ -56,15 +57,19 @@ Tests can be run with mocha installed via the cmd 'mocha' in the root directory 
 Below is the layout of the main parts of the project.
 
 ```javascript
+stock-quotes-and-recco
 js/
 ---- components/
 -------- App.js//Home page
---------ExchangeRates.js//a currency converter 
+--------ExchangeRates.js//a currency converter
 --------NavigationBar.js//Menu for the website
---------StockList.js//buy and sell stocks 
+--------StockList.js//buy and sell stocks
 --------StudyTracker.js//logs amount of hours spent studying
 app.js//routing paths for each component
 index.html
+test/
+--------exchangeTest.js//tests for exchange rates
+--------serverTest.js//tests for server
 ```
 
 #Description
@@ -81,9 +86,28 @@ Run tests from root directory with Mocha, run express server (e.g. local dev mod
 #Releases
 
 New Release features will be updated here.
-- **Update:** Working version of currency converter is up.
+
+###Release v1.1
+- Added a test with mocha, for checking data from open exchange rates api (see bottom
+  of serverTest.js file).
+
+![exrates test1](http://s14.postimg.org/4dm6wj3fl/exchange_Rates_test1_Passed.png)
+
+
+**Note:** Future tests as described in *Mocha Tests#2* are coming in a future update.
+An unfinished version can be seen in the *tests* folder.  
+
+###Release v1
+- **Update:** Working version of currency converter is up. ([view demo](http://i.giphy.com/l2JIbDg204EtIA33W.gif)).
 
 
 ####Todo List
 
-- Add some flux or redux 
+- Add some flux or redux
+- Update tests using mocha
+ * Perform tests for the Exchange Rate's component using mocha and the recent Babel 6 release.
+ *Mocha Tests#2*
+ 1) Check if component, *Exchange Rates* exists.
+ 2) A value has been inputted in the *input field*.
+ 3) A value has been selected from the selection menu.
+ 4) Data from the API has been displayed on the screen.

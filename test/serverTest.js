@@ -12,7 +12,8 @@ describe('server', function () {
 
 
 var assert = require('assert'),
-    http = require('http');
+    http = require('http'),
+    https = require('https');
 
 describe('/', function () {
   it('should return 200', function (done) {
@@ -60,4 +61,23 @@ describe('/', function () {
       })
     })
   })
+  //JerJohn15 - Checks for base and rates from open exchange api
+  it('should retrieve open exchange rates api data', function(done){
+    https.get(
+      'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c'
+    ,
+    function(res){
+      var data = '';
+      res.on('data', function(chunk){
+        data+=chunk;
+      });
+      res.on('end', function(){
+        assert.equal('USD', JSON.parse(data).base);
+        assert(JSON.parse(data).rates.EUR);
+        assert(JSON.parse(data).rates.JPY);
+        assert(JSON.parse(data).rates.GBP);
+        done();
+      })
+    })
+})
 });

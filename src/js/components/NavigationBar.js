@@ -32,9 +32,9 @@ class NavigationBar extends React.Component {
   static defaultProps = {
     user: {
       id: 1,
-      name: 'A User'
+     name: 'A User'
     }
-  }
+  };
 
   constructor(props, context) {
     super(props, context)
