@@ -106,8 +106,9 @@ An unfinished version can be seen in the *tests* folder.
 - Add some flux or redux
 - Update tests using mocha
  * Perform tests for the Exchange Rate's component using mocha and the recent Babel 6 release.
- *Mocha Tests#2*
- 1) Check if component, *Exchange Rates* exists.
- 2) A value has been inputted in the *input field*.
- 3) A value has been selected from the selection menu.
- 4) Data from the API has been displayed on the screen.
+ 
+**Mocha Tests#2**
+  * Check if component, *Exchange Rates* exists.
+  * A value has been inputted in the *input field*.
+  * A value has been selected from the selection menu.
+  * Data from the API has been displayed on the screen.
