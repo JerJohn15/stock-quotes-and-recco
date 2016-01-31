@@ -4,6 +4,17 @@ Live demo app available at: http://rkiouak.com
 
 Test your own version at: http://localhost:8080
 
+#Description
+
+A portfolio application designed to showcase features utilizing React JS and Node JS. 
+
+Current features include:
+- A Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
+
+- A currency converter using the [Open Exchange Rates Data REST API](https://openexchangerates.org/) with [money js](https://www.npmjs.com/package/money)
+
+- A study tracker that increments the amount of hours spent studying upon clicking a button.
+ 
 #Suggested Readings
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. If your unfamilar with Javascript, React, and Node, I suggest the following resources:
@@ -22,8 +33,7 @@ This project currently supports the following languages: Javascript, React JS, N
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
 
-You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/). Not only is it light, but you can install plugins (via packages)
-to accommedate to your working environment.
+You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/). 
 
 
 #Project Setup
@@ -72,17 +82,6 @@ test/
 --------serverTest.js//tests for server
 ```
 
-#Description
-
-Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
-
-1st stage/initial to-do build single page with form + results display that allows for querying stocks by symbol, issuer_name and various
-date ranges, eventually bring in d3 graphing of historical data.
-
-2nd stage query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
-
-Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
-
 #Releases
 
 New Release features will be updated here.
@@ -102,6 +101,12 @@ An unfinished version can be seen in the *tests* folder.
 
 
 ####Todo List
+
+-1st stage/initial to-do build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
+
+-2nd stage query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
+
+-Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
 
 - Add some flux or redux
 - Update tests using mocha
