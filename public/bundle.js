@@ -51694,6 +51694,14 @@
 	var NavigationBar = function (_React$Component) {
 	  _inherits(NavigationBar, _React$Component);
 
+	  //convert this to javascript
+	  //static defaultProps = {
+	  //  user: {
+	  //  id: 1,
+	  //   name: 'A User'
+	  //    }
+	  //  }
+
 	  function NavigationBar(props, context) {
 	    _classCallCheck(this, NavigationBar);
 
@@ -51766,12 +51774,6 @@
 	  return NavigationBar;
 	}(_react2.default.Component);
 
-	NavigationBar.defaultProps = {
-	  user: {
-	    id: 1,
-	    name: 'A User'
-	  }
-	};
 	exports.default = NavigationBar;
 
 /***/ },
@@ -56591,19 +56593,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _NavigationBar = __webpack_require__(427);
-
-	var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	//var React = require('react');
-	//var NavigationBar = require('./NavigationBar');
 	/**
 	*
 	 This class converts US currency into a foreign currency (currently, EUR, JPY, BPD).
@@ -56614,6 +56603,10 @@
 	*
 	*/
 
+	//import React from 'react';
+	//import NavigationBar from './NavigationBar';
+	var React = __webpack_require__(1);
+	var NavigationBar = __webpack_require__(427);
 	var fx = __webpack_require__(480);
 	var $ = __webpack_require__(481);
 	//Not using yet - var accounting = require("accounting");
@@ -56693,7 +56686,7 @@
 	This component handles the data displays the user interface for this page
 	*/
 
-	var ExchangeRates = _react2.default.createClass({
+	var ExchangeRates = React.createClass({
 	  displayName: 'ExchangeRates',
 
 	  getInitialState: function getInitialState() {
@@ -56749,82 +56742,82 @@
 
 	    var description = "Below is an example of a currency converter which converts US dollars into a foreign currency.";
 
-	    return _react2.default.createElement(
+	    return React.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(_NavigationBar2.default, null),
-	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(
+	      React.createElement(NavigationBar, null),
+	      React.createElement('br', null),
+	      React.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
+	        React.createElement(
 	          'h3',
 	          { style: styles.title },
 	          'Currency Exchange'
 	        ),
-	        _react2.default.createElement(
+	        React.createElement(
 	          'p',
 	          { style: styles.descript },
 	          ' ',
 	          description
 	        )
 	      ),
-	      _react2.default.createElement(
+	      React.createElement(
 	        'div',
 	        { style: styles.outerBox },
-	        _react2.default.createElement(
+	        React.createElement(
 	          'div',
 	          { style: styles.exchangeBox },
-	          _react2.default.createElement(
+	          React.createElement(
 	            'form',
 	            null,
-	            _react2.default.createElement(
+	            React.createElement(
 	              'fieldset',
 	              null,
-	              _react2.default.createElement(
+	              React.createElement(
 	                'label',
 	                null,
 	                ' Enter US Price Here'
 	              ),
-	              _react2.default.createElement('br', null),
-	              _react2.default.createElement('input', { type: 'text', id: 'money',
+	              React.createElement('br', null),
+	              React.createElement('input', { type: 'text', id: 'money',
 	                defaultValue: this.state.USDvalue, onChange: this.setAmount }),
-	              _react2.default.createElement(
+	              React.createElement(
 	                'br',
 	                null,
 	                ' '
 	              ),
-	              _react2.default.createElement(
+	              React.createElement(
 	                'select',
 	                { id: 'selection', style: styles.dropMenu, defaultValue: this.state.rtname,
 	                  onChange: this.calculateRates },
-	                _react2.default.createElement(
+	                React.createElement(
 	                  'option',
 	                  { value: '' },
 	                  'select currency'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                  'option',
 	                  { value: 'EUR' },
 	                  'US-Euro'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                  'option',
 	                  { value: 'GBP' },
 	                  'US-Pound'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                  'option',
 	                  { value: 'JPY' },
 	                  'US-Yuan'
 	                )
 	              ),
-	              _react2.default.createElement(
+	              React.createElement(
 	                'br',
 	                null,
 	                ' '
 	              ),
-	              _react2.default.createElement('input', { type: 'text', id: 'foreign', value: this.state.convertedCurrency })
+	              React.createElement('input', { type: 'text', id: 'foreign', value: this.state.convertedCurrency })
 	            )
 	          )
 	        )

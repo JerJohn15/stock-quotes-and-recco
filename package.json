@@ -42,7 +42,7 @@
     "webpack": "^1.12.2"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require test/setup.js --compilers js:babel-register",
     "start": "webpack && node server.js;"
   },
   "repository": {

@@ -176,7 +176,7 @@ return (
       defaultValue = {this.state.USDvalue} onChange = {this.setAmount}>
     </input>
     <br> </br>
-      <select id ="selection" style = {styles.dropMenu}defaultValue ={this.state.rtname}
+      <select id ="selection" style = {styles.dropMenu} defaultValue ={this.state.rtname}
          onChange={this.calculateRates}>
           <option value = "">select currency</option>
       <option value = "EUR">US-Euro</option>

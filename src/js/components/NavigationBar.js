@@ -28,7 +28,6 @@ styles.activeLink = {
 }
 
 class NavigationBar extends React.Component {
-
   static defaultProps = {
     user: {
       id: 1,
@@ -42,7 +41,7 @@ class NavigationBar extends React.Component {
   }
 
   logOut() {
-    alert('log out')
+    alert('log out');
   }
 
   render() {
