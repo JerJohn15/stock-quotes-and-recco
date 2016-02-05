@@ -10,8 +10,6 @@ The exchange rates are taken from the open exchange rates API. - https://openexc
 
 import React from 'react';
 import NavigationBar from './NavigationBar';
-//var React = require('react');
-//var NavigationBar = require('./NavigationBar');
 var fx = require("money");
 var $ = require("jquery");
 //Not using yet - var accounting = require("accounting");
@@ -160,8 +158,7 @@ var description = "Below is an example of a currency converter which converts US
 return (
   <div>
 <NavigationBar/>
-<br>
-</br>
+<div><br/></div>
 <div>
   <h3 style = {styles.title}>Currency Exchange</h3>
 
@@ -175,7 +172,7 @@ return (
     <input  type = "text" id = "money"
       defaultValue = {this.state.USDvalue} onChange = {this.setAmount}>
     </input>
-    <br> </br>
+    <div><br/></div>
       <select id ="selection" style = {styles.dropMenu} defaultValue ={this.state.rtname}
          onChange={this.calculateRates}>
           <option value = "">select currency</option>
@@ -183,8 +180,11 @@ return (
           <option value = "GBP">US-Pound</option>
               <option value = "JPY">US-Yuan</option>
                   </select>
-                  <br> </br>
-<input type ="text" id = "foreign" value = {this.state.convertedCurrency}></input>
+                <div><br/></div>
+<input type ="text" id = "foreign"
+  value = {this.state.convertedCurrency}
+  readOnly = {true}>
+</input>
     </fieldset>
   </form>
   </div>

@@ -2,7 +2,7 @@
 
 Live demo app available at: http://rkiouak.com
 
-Test your own version at: http://localhost:8080
+link to run demo on your local browser: http://localhost:8080
 
 
 #Description
@@ -48,8 +48,39 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 **Note**: You'll need to run the above command each time you want to test out changes you've made to the project.  
 
-Tests can be run with mocha installed via the cmd 'mocha' in the root directory of the project.
+###Running Tests
 
+I've recently added a file in the test folder for testing components, but in order for them to work you will need to install the latest version of babel 6 and its presets: es2015, react, and stage-0. You'll also need to update your version of react (some of the peer dependencies require the latest version), and perhaps mocha as well.
+
+```
+
+//install babel 6
+npm install babel-core --save-dev
+
+//install support for es6
+npm install babel-preset-es2015 --save-dev
+
+//install  support for jsx
+npm install babel-preset-react --save-dev
+
+// install es7 features
+npm install babel-preset-stage-0 --save-dev
+
+// install react. (do the same for mocha)
+npm install react
+
+//once done, to run tests run this command from root of project:
+mocha --require test/setup.js --compilers js:babel-register
+
+```  
+
+**References:**
+
+- [Installing Babel 6 for mocha](https://babeljs.io/docs/setup/#mocha)
+- [Testing in ES6](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
+- [Testing with mocha](http://www.benjanecke.com/2015/11/30/so-you-want-to-test-your-react-code-with-mocha.html)
+
+Also see **note** under *release v1.2* in the *Releases* section below.
 #Layout of Project
 
 Below is the layout of the main parts of the project.
@@ -74,15 +105,29 @@ test/
 
 New Release features will be updated here.
 
+###Release v1.2
+- Added tests for the 'ExchangeRates' component (see ComponentsTest in test folder).
+  -  Changed test command in package.json
+  - Added setup.js file and ComponetsTest files to test folder
+  - Added babelrc file
+- Made second input field in *ExchangeRates* file read only.
+- Fixed <br> error in *ExchangeRates* file.
+
+**Note:** I had to make some major changes to the project in order for me to test components. In particular, I needed to install jsdom, and upgrade to babel 6. See top of page for instructions on installing babel 6. Having to install JSdom was a result of [this](http://stackoverflow.com/questions/33383146/test-with-reactjs-renderintodocument-keep-failed-due-to-required-dom) error while Babel 6 was a result of [this method](http://stackoverflow.com/questions/31278901/inconsistent-unexpected-token/31279942#31279942) not working for me).
+
+I'm using the expect package to run my assertions, so you'll also need to install that.
+
+**Screenshot of test**
+
+
+![componentsTest](http://s10.postimg.org/b5cfd4yyh/Untitled_picture.png)
+
 ###Release v1.1
 - Added a test with mocha, for checking data from open exchange rates api (see bottom
   of serverTest.js file).
 
-![exrates test1](http://s14.postimg.org/4dm6wj3fl/exchange_Rates_test1_Passed.png)
+[exrates test1](http://s14.postimg.org/4dm6wj3fl/exchange_Rates_test1_Passed.png)
 
-
-**Note:** Future tests as described in *Mocha Tests#2* are coming in a future update.
-An unfinished version can be seen in the *tests* folder.  
 
 ###Release v1
 - **Update:** Working version of currency converter is up. ([view demo](http://i.giphy.com/l2JIbDg204EtIA33W.gif)).
@@ -96,11 +141,5 @@ An unfinished version can be seen in the *tests* folder.
 
 -Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
 
+- Create automated tests
 - Add some flux or redux
-- Update tests using mocha
- * Perform tests for the Exchange Rate's component using mocha and the recent Babel 6 release.
-
- *Mocha Tests#2*
- 1) A value has been inputted in the *input field*.
- 2) A value has been selected from the selection menu.
- 3) Data from the API has been displayed on the screen.
