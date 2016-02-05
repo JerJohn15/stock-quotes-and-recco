@@ -31,13 +31,13 @@ You can use any software you want to code this project in, but I recommend the t
 2) Install webpack globally:``` npm install webpack -g```
 
 3)  Then, from terminal/command line 'cd' to your desired project location and run:
-```npm
+```javascript
 git clone https://github.com/Rkiouak/stock-quotes-and-recco.git
 
 cd stock-quotes-and-recco
 ```
 **Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. (For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) )
-```npm
+```javascript
 npm install && npm start
 ```
 
@@ -52,7 +52,7 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 I've recently added a file in the test folder for testing components, but in order for them to work you will need to install the latest version of babel 6 and its presets: es2015, react, and stage-0. You'll also need to update your version of react (some of the peer dependencies require the latest version), and perhaps mocha as well.
 
-```
+```javascript
 
 //install babel 6
 npm install babel-core --save-dev
@@ -111,7 +111,7 @@ New Release features will be updated here.
   - Added setup.js file and ComponetsTest files to test folder
   - Added babelrc file
 - Made second input field in *ExchangeRates* file read only.
-- Fixed <br> error in *ExchangeRates* file.
+- Fixed br error in *ExchangeRates* file.
 
 **Note:** I had to make some major changes to the project in order for me to test components. In particular, I needed to install jsdom, and upgrade to babel 6. See top of page for instructions on installing babel 6. Having to install JSdom was a result of [this](http://stackoverflow.com/questions/33383146/test-with-reactjs-renderintodocument-keep-failed-due-to-required-dom) error while Babel 6 was a result of [this method](http://stackoverflow.com/questions/31278901/inconsistent-unexpected-token/31279942#31279942) not working for me).
 
@@ -125,8 +125,6 @@ I'm using the expect package to run my assertions, so you'll also need to instal
 ###Release v1.1
 - Added a test with mocha, for checking data from open exchange rates api (see bottom
   of serverTest.js file).
-
-[exrates test1](http://s14.postimg.org/4dm6wj3fl/exchange_Rates_test1_Passed.png)
 
 
 ###Release v1
