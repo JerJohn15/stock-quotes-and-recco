@@ -87,23 +87,48 @@ Below is the layout of the main parts of the project.
 
 ```javascript
 stock-quotes-and-recco
-js/
----- components/
--------- App.js//Home page
+src/
+---js/
+-------- components/
+-----Views/ //These contain the views for each individual page
+----Account/
+--------CreateAccoun.js//registration page
+--------Login.js//login page
+----Pages/
 --------ExchangeRates.js//a currency converter
---------NavigationBar.js//Menu for the website
+--------Home.js//the home page
 --------StockList.js//buy and sell stocks
 --------StudyTracker.js//logs amount of hours spent studying
-app.js//routing paths for each component
+--App.js//Backend for rendering each page
+--NavigationBar.js//Navigation Bar for navigating each page
+-app.js//routing paths for each component
 index.html
 test/
---------exchangeTest.js//tests for exchange rates
---------serverTest.js//tests for server
+--ComponentsTest.js//tests for components
+--serverTest.js//tests for server
+--setup.js//jsdom configuration for ComponentsTest
+.babelrc//required babel 6 file to run tests with mocha  
 ```
 
 #Releases
 
 New Release features will be updated here.
+
+###Release v2.0
+- Added demo 1 of Login / Registration Feature (Login and Registration views within a modal)
+- Converted 'NavigationBar' and 'App' components to JSX (from ES6).
+- Placed the Home page title and description from 'App' component into its own
+component 'Home' (more on this in my upcoming [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki).
+- Added IndexRouting  to app.js
+- Updated test, in 'serverTest.js', to reflect new title on home page.
+- Reorganized Project Directory js files (see *Layout of Project* section)
+
+To view demo of this feature go [here](http://giphy.com/gifs/xT0BKmlPnq0sxa0qpa).(buttons don't work yet, only the abilities to close the modal) 
+
+**Note:**
+- In order to run this recent update, you will need to install the most recent version of
+react-router (currently 2.0.0).
+- A wiki will be created soon to explain in detail how I implemented part one of the login and registration feature, to clarify any confusion within the code.
 
 ###Release v1.2
 - Added tests for the 'ExchangeRates' component (see ComponentsTest in test folder).
@@ -133,11 +158,29 @@ I'm using the expect package to run my assertions, so you'll also need to instal
 
 ####Todo List
 
--1st stage/initial to-do build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
+**Stocks**
+-1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
 
--2nd stage query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
+-2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
 
 -Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
 
-- Create automated tests
-- Add some flux or redux
+**Login/ Registration**
+
+- [X] 1st Demo: A modal, that opens up a login or registration page whenever the "login"
+or "register" button is clicked from within the Navigation Menu.
+
+- [ ] 2nd Demo: Display "login" and "register" buttons, when a user hasn't logged in (view 1), and "[user's name]" and "logout" buttons, once a user has logged in (view 2). The logout button should change the view back to the default view.
+
+- [ ] 3rd Demo: Build a database (either mongodb or mysql) to store a user's profile and
+credentials.
+
+- [ ] 4th Demo: Add GUI to make modal and menus look better.
+
+- [ ] Other: Create Tests for Login and Registration Features.
+
+
+**Other**
+
+- [ ] Create automated tests
+- [ ] Add some flux or redux

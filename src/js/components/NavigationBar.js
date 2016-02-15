@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 
 const blue = '#337ab7'
@@ -27,41 +28,42 @@ styles.activeLink = {
   color: blue
 }
 
-class NavigationBar extends React.Component {
-  static defaultProps = {
-    user: {
-      id: 1,
-     name: 'A User'
+var NavigationBar = React.createClass ({
+  getDefaultProps: function() {
+    return {
+      user: {
+        id: 1,
+        name: 'A User'
+      }
     }
-  };
+  },
 
-  constructor(props, context) {
-    super(props, context)
-    this.logOut = this.logOut.bind(this)
-  }
-
-  logOut() {
+  logOut: function () {
     alert('log out');
-  }
+  },
 
   render() {
-    const { user } = this.props
-
+    const { user } = this.props;
     return (
       <div style={styles.wrapper}>
         <div style={{ float: 'left' }}>
           <Link to="/" style={styles.link}>Home</Link>{' '}
-          <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
-            <Link to="/study" style={styles.link} activeStyle={styles.activeLink}>Study</Link>{' '}
-          <Link to="/ExRates" style={styles.link} activeStyle={styles.activeLink}>Exchange Rates</Link>{' '}
+            <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
+              <Link to="/study" style={styles.link} activeStyle={styles.activeLink}>Study</Link>{' '}
+                <Link to="/ExRates" style={styles.link} activeStyle={styles.activeLink}>Exchange Rates</Link>{' '}
+                </div>
+                <div style={{ float: 'right' }}>
+                  <Link style={styles.link} to="/profile">{user.name}</Link>
+                    <button  id="login"
+                      onClick = {this.props.onLogin}>log in</button>
 
-        </div>
-        <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logOut}>log in</button>
-        </div>
-      </div>
-    )
-  }
-}
+                    <button id ="register"
+                      onClick = {this.props.onRegister} >register</button>
+                </div>
+              </div>
+            )
+          }
+        })
 
-export default NavigationBar
+
+        export default NavigationBar

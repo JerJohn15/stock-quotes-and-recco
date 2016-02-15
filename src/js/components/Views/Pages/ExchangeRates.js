@@ -9,7 +9,6 @@ The exchange rates are taken from the open exchange rates API. - https://openexc
 */
 
 import React from 'react';
-import NavigationBar from './NavigationBar';
 var fx = require("money");
 var $ = require("jquery");
 //Not using yet - var accounting = require("accounting");
@@ -157,7 +156,6 @@ var description = "Below is an example of a currency converter which converts US
 
 return (
   <div>
-<NavigationBar/>
 <div><br/></div>
 <div>
   <h3 style = {styles.title}>Currency Exchange</h3>

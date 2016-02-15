@@ -2,7 +2,6 @@ import React from "react";
 import request from "superagent";
 import { Button, ButtonToolbar, Accordion, Panel, Table, PageHeader } from 'react-bootstrap';
 import Sparkline from 'd3-react-sparkline';
-import NavigationBar from './NavigationBar';
 
 var StockList = React.createClass({
 
@@ -61,7 +60,6 @@ var StockList = React.createClass({
 
     return (
       <div>
-        <NavigationBar/>
         <div style={{ padding: 20, paddingTop:10 }}>
         <h3 style={{fontFamily:'Abril Fatface'}}>Stock List</h3>
         <input type="text" ref="buySymbol"></input>

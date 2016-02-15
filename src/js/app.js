@@ -1,21 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import StockList from "./components/StockList";
-import ExchangeRates from "./components/ExchangeRates";
-import {Router, Route, IndexRoute} from 'react-router';
-import StudyTracker from "./components/StudyTracker";
+import Home from "./components/Views/Pages/Home"
+import StockList from "./components/Views/Pages/StockList";
+import ExchangeRates from "./components/Views/Pages/ExchangeRates";
+import StudyTracker from "./components/Views/Pages/StudyTracker";
 import App from './components/App';
-/**
-*@author - JerJohn15
-@details - Added in routing for exchange rates page.
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
+/**
+*@author - JerJohn15, Matt
+@details - Added in routing for exchange rates page.
+Added IndexRoute for Home. (So, now when App is rendered the Home component
+is also rendered, as its child).
 */
+
+
 ReactDOM.render(
-  <Router>
-    <Route path="/" component={App}/>
+  <Router history = {hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component = {Home}/>
       <Route path="stocks" component={StockList} />
       <Route path="study" component={StudyTracker} />
-        <Route path = "ExRates" component={ExchangeRates} />
-
+      <Route path = "ExRates" component={ExchangeRates} />
+      </Route>
 
   </Router>, document.getElementById('root'));

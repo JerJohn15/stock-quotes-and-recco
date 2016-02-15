@@ -1,48 +1,79 @@
 import React from 'react'
 import NavigationBar from './NavigationBar'
-
+import Login from './Views/Account/Login';
+import CreateAccount from './Views/Account/CreateAccount';
 /**
-*
-Placed CSS elements in classes.
-*Added in a body text.
-*Changed title name 
-@author - JerJohn15
-*/
+@Details - Displays the views for each component.
+The navigation bar and  home page is rendered by default(see Home.js).
+If user clicks a link from the navigation bar, that component is displayed
+here (the "contentView" variable stores the props from the children that is set by the
+IndexRouting technique in React-Router - (see app.js file)).
 
-var bodyText = "Welcome! Please Login or create an account here.";
+**/
 
-const styles = {}
+var App =  React.createClass ({
 
-styles.titleBox = {
-  padding: '20px',
-  paddingTop:'10px'
-}
 
-styles.title = {
-fontFamily:'Abril Fatface'
-}
+  getInitialState: function(){
+    return { showLogin: false, showRegister: false};
+  },
 
-styles.body =
-{
-  marginLeft: '80px',
-  fontFamily: 'cursive'
-}
-
-class App extends React.Component {
   render() {
+    //props.children extracts all of the child components of App depending on what
+    //the user clicks in the navigation bar
+    var contentView = this.props.children;
+
     return (
       <div>
-        <NavigationBar />
-        <div style={styles.titleBox}>
-          {this.props.children}
-          <h3 style={styles.title}> Matt Rkiouak && Jeremiah Johnson</h3>
-        </div>,
-        <div style = {styles.body}>{bodyText}</div>
+        <div className ="NavBar">
+          <NavigationBar onLogin = {this.openLogin}
+            onRegister = {this.openRegister}/>
+        </div>
+        <div className = "Modals">
+          {this.state.showLogin ?
+            <Login openModal = {this.state.showLogin}
+              closeModal = {this.closeLogin}/>   : null}
 
-      </div>
+              {this.state.showRegister ?
+                <CreateAccount openModal = {this.state.showRegister}
+                  closeModal = {this.closeRegister} />  : null}
+                </div>
+                <div className = "Content">
+                  {contentView}
+                </div>
+              </div>
 
-    )
-  }
-}
+            )
+          },//The setters which monitor whether or not the modal is active
+          openLogin: function(){
+            this.setState(
+              {  showLogin: true  }
+            );
 
-export default App
+          },
+
+          openRegister: function(){
+            this.setState(
+              {  showRegister: true  }
+            );
+
+          },
+
+          closeLogin: function(){
+
+            this.setState(
+              {  showLogin: false  }
+            );
+
+          },
+          closeRegister: function(){
+
+            this.setState(
+              {  showRegister: false  }
+            );
+
+          }
+
+
+        })
+        export default App

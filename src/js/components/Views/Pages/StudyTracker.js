@@ -1,6 +1,5 @@
 import React from "react";
 import request from "superagent";
-import NavigationBar from './NavigationBar';
 import {Button} from 'react-bootstrap';
 
 var StudyTracker = React.createClass({
@@ -20,7 +19,6 @@ var StudyTracker = React.createClass({
 
     return (
       <div>
-      <NavigationBar/>
       <div style={{margin:10}}>
        <h1>Hours spent studying:</h1>
        <h2> {this.state.hoursStudying} </h2>

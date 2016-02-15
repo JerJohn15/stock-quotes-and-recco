@@ -23,7 +23,7 @@ describe('/', function () {
     });
   });
 
-  it('title should be Stock Toy', function (done) {
+  it('title should be "Stock Quotes and Recco Toy App"', function (done) {
     http.get('http://localhost:8080', function (res) {
       var data = '';
 
@@ -32,7 +32,7 @@ describe('/', function () {
       });
 
       res.on('end', function () {
-        assert(data.indexOf("Stock Toy")!=-1);
+        assert(data,"Stock Quotes and Recco Toy App");
         done();
       });
     });

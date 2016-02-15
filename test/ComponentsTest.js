@@ -10,22 +10,28 @@
 */
 
 import React from 'react';
+import {Modal} from 'react-bootstrap';
 //var request = require('supertest');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
-import ExchangeRates from '../src/js/components/ExchangeRates.js';
+import ExchangeRates from '../src/js/components/Views/Pages/ExchangeRates.js';
+import Login from '../src/js/components/Views/Account/Login.js';
+import CreateAccount from '../src/js/components/Views/Account/CreateAccount.js';
+import App from '../src/js/components/App.js';
+
+var component = null;
 
 //Component Tests for ExchangeRates Component
 describe('Testing Exchange Rates component...', function(){
 
 it('should render ExchangeRates component', function(){
 
- this.exRates = TestUtils.renderIntoDocument(
+ component = TestUtils.renderIntoDocument(
   <ExchangeRates />
  );
 
-expect(this.exRates).toExist();
+expect(component).toExist();
 
 
 });
@@ -34,12 +40,12 @@ expect(this.exRates).toExist();
 it('should have a drop-down menu and 4 option values', function(){
 
 this.select = TestUtils.findRenderedDOMComponentWithTag(
-  this.exRates, "select"
+   component, "select"
 );
 
 this.options = TestUtils.scryRenderedDOMComponentsWithTag(
 
-  this.exRates, "option"
+   component, "option"
 );
 
 expect(this.select).toExist();
@@ -50,7 +56,7 @@ expect(this.options.length).toEqual(4);
 it('values of drop down menu should be EUR, GBP, and JPY',function(){
 
   this.select = TestUtils.scryRenderedDOMComponentsWithTag(
-    this.exRates, "option"
+   component, "option"
   );
 
 //Its unecessary to check all of the values  but I wanted to learn the ternary op
@@ -77,7 +83,7 @@ it('input should exist and have two input fields', function(){
 
   this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
 
-    this.exRates, "input"
+     component, "input"
   );
 
   expect(this.inputs).toExist();
@@ -88,7 +94,7 @@ it('input should exist and have two input fields', function(){
 it('should save US currency input', function(){
 
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
-  this.exRates, "input"
+   component, "input"
 );
 //gets the first input field value
 var inputBox = this.inputs[0];
@@ -102,7 +108,7 @@ expect(inputValue).toEqual(123.45);
 //tests the converted currency
 it('converted currency should be a number', function(){
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
-  this.exRates, "input"
+   component, "input"
 );
 var inputBox = this.inputs[1];
 var inputValue = ReactDOM.findDOMNode(inputBox).value = 3652.23;
@@ -111,7 +117,5 @@ TestUtils.Simulate.change(inputValue);
 //check if input value is null or not a string
 expect(inputValue).toNotBeA('string');
 });
-
-
 
 });
