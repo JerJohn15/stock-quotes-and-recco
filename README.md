@@ -123,7 +123,7 @@ component 'Home' (more on this in my upcoming [wiki section](https://github.com/
 - Updated test, in 'serverTest.js', to reflect new title on home page.
 - Reorganized Project Directory js files (see *Layout of Project* section)
 
-To view demo of this feature go [here](http://giphy.com/gifs/xT0BKmlPnq0sxa0qpa).(buttons don't work yet, only the abilities to close the modal) 
+To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif).(*buttons don't work yet, only the abilities to close the modal*) 
 
 **Note:**
 - In order to run this recent update, you will need to install the most recent version of
