@@ -51848,10 +51848,7 @@
 	  //sends out the request from the API and retrieves its data
 	  handleRequest: function handleRequest(type) {
 
-	    //want to get the object from a json string
-	    $.getJSON(
-	    //  using yahoo finance api
-	    'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c', function (data) {
+	    $.getJSON('https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c', function (data) {
 	      // Check money.js has finished loading:
 	      if (typeof fx !== "undefined" && fx.rates) {
 	        //setting rates and base values

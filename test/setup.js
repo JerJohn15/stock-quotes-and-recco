@@ -1,7 +1,7 @@
 /**
 *@author - JerJohn15
-@details - This file contains the configurations necessary to
-run tests on each individual component in the ComponentsTest file. 
+@details - This file contains the configurations for generating a fake dom
+to test within each individual component in the ComponentsTest file. 
 */
 //jsdom is called before using react
 import jsdom from 'jsdom';
