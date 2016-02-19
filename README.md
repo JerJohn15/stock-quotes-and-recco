@@ -4,12 +4,10 @@ Live demo app available at: http://rkiouak.com
 
 link to run demo on your local browser: http://localhost:8080
 
-
+To read wiki go [here](https://github.com/JerJohn15/stock-quotes-and-recco/wiki)
 #Description
 
-A portfolio application designed to showcase features utilizing React JS and Node JS.
-
-Current features include:
+A portfolio application designed to showcase features utilizing React JS and Node JS. Current features include:
 - A Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
 
 - A currency converter using the [Open Exchange Rates Data REST API](https://openexchangerates.org/) with [money js](https://www.npmjs.com/package/money)
@@ -21,7 +19,9 @@ Current features include:
 
 This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
 
-You can use any software you want to code this project in, but I recommend the text-editor,  [Atom](https://atom.io/).
+If you desire a software to develop this project in, I suggest using the text-editor,  [Atom](https://atom.io/). You can customize whatever features you want to fit your development needs. I recommend the [tree-symbol-view](https://atom.io/packages/symbols-tree-view), [browser-plus](https://atom.io/packages/browser-plus)
+, [react](https://atom.io/packages/react), and
+[project-switcher](https://atom.io/packages/project-switcher) plugins.
 
 
 #Project Setup
@@ -38,7 +38,8 @@ cd stock-quotes-and-recco
 ```
 **Note** If your forking a version of this project, replace both the above URL and folder name with your specific name. (For syncing your fork with the Matt's master repo, please refer to [syncing a fork](https://help.github.com/articles/syncing-a-fork/) )
 ```javascript
-npm install && npm start
+npm install
+ npm start
 ```
 
 **Note**: Windows users might have to run 'webpack && node server.js', as an alternative,  instead of 'npm start', if you get
@@ -50,7 +51,7 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 ###Running Tests
 
-I've recently added a file in the test folder for testing components, but in order for them to work you will need to install the latest version of babel 6 and its presets: es2015, react, and stage-0. You'll also need to update your version of react (some of the peer dependencies require the latest version), and perhaps mocha as well.
+I've recently added a file in the test folder for testing components, but in order for them to work you will need to install the latest version of babel 6 and its presets: es2015, react, and stage-0. You'll also need to update your version of react (some of the peer dependencies require the latest version). There's a chance you will need to update mocha as well (I'm using version 2.4.5).
 
 ```javascript
 
@@ -92,7 +93,7 @@ src/
 -------- components/
 -----Views/ //These contain the views for each individual page
 ----Account/
---------CreateAccoun.js//registration page
+--------CreateAccount.js//registration page
 --------Login.js//login page
 ----Pages/
 --------ExchangeRates.js//a currency converter
@@ -101,7 +102,7 @@ src/
 --------StudyTracker.js//logs amount of hours spent studying
 --App.js//Backend for rendering each page
 --NavigationBar.js//Navigation Bar for navigating each page
--app.js//routing paths for each component
+-Routes.js//routing paths for each component
 index.html
 test/
 --ComponentsTest.js//tests for components
@@ -114,21 +115,26 @@ test/
 
 New Release features will be updated here.
 
+###Release v2.1
+- Renamed 'app.js' to 'Routes.js'
+- Updated readme
+- Created [wiki](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration) for Demo 1 of  Login / Registration Feature
+
 ###Release v2.0
 - Added demo 1 of Login / Registration Feature (Login and Registration views within a modal)
 - Converted 'NavigationBar' and 'App' components to JSX (from ES6).
 - Placed the Home page title and description from 'App' component into its own
 component 'Home' (more on this in my upcoming [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki).
-- Added IndexRouting  to app.js
+- Added IndexRoute  to Routes.js
 - Updated test, in 'serverTest.js', to reflect new title on home page.
 - Reorganized Project Directory js files (see *Layout of Project* section)
 
-To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif).(*buttons don't work yet, only the abilities to close the modal*) 
+To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif).(*buttons don't work yet, only the abilities to close the modal*)
 
 **Note:**
 - In order to run this recent update, you will need to install the most recent version of
 react-router (currently 2.0.0).
-- A wiki will be created soon to explain in detail how I implemented part one of the login and registration feature, to clarify any confusion within the code.
+- I've created a wiki which explains how I implemented this demo. You can read about it [here](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration).
 
 ###Release v1.2
 - Added tests for the 'ExchangeRates' component (see ComponentsTest in test folder).
@@ -145,7 +151,7 @@ I'm using the expect package to run my assertions, so you'll also need to instal
 **Screenshot of test**
 
 
-![componentsTest](http://s10.postimg.org/b5cfd4yyh/Untitled_picture.png)
+[componentsTest](http://s10.postimg.org/b5cfd4yyh/Untitled_picture.png)
 
 ###Release v1.1
 - Added a test with mocha, for checking data from open exchange rates api (see bottom
@@ -156,7 +162,7 @@ I'm using the expect package to run my assertions, so you'll also need to instal
 - **Update:** Working version of currency converter is up. ([view demo](http://i.giphy.com/l2JIbDg204EtIA33W.gif)).
 
 
-####Todo List
+#Todo List
 
 **Stocks**
 -1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
@@ -182,5 +188,5 @@ credentials.
 
 **Other**
 
-- [ ] Create automated tests
+- [ ] Create automated tests using selenium-webdriver and mocha
 - [ ] Add some flux or redux

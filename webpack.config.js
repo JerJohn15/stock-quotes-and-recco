@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var config = {
   context: __dirname + "/src",
   entry: {
-    javascript: "./js/app.js",
+    javascript: "./js/Routes.js",
     html: "./index.html",
   },
   output: {
