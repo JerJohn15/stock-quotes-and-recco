@@ -60,12 +60,12 @@ If you desire a software to develop this project in, I suggest using the text-ed
 
 2) Install webpack globally:``` npm install webpack -g```
 
-3)  Go ahead and make a forked repository of the [original](https://github.com/Rkiouak/stock-quotes-and-recco) project. Then copy the link that link, 'cd' to your desired project location and run the following:
+3)  Go ahead and make a forked repository of the [original](https://github.com/Rkiouak/stock-quotes-and-recco) project. Then copy the link, 'cd' to your desired project location, and run the following:
 
 ```javascript
-git clone https://github.com/[your profile name]/stock-quotes-and-recco.git
+git clone [your forked link]
 
-cd [your profile name]stock-quotes-and-recco
+cd [name of project]
 
 npm install
 
