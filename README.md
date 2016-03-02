@@ -15,6 +15,9 @@ A portfolio application designed to showcase features utilizing React JS and Nod
 
 - A study tracker that increments the amount of hours spent studying upon clicking a button.
 
+See **ToDo List** for upcoming features or issues.
+
+
 #Layout of Project
 
 Below is the layout of the main parts of this project.
@@ -38,9 +41,11 @@ src/
 -Routes.js//routing paths for each component
 index.html
 test/
+--autoTests.js//automated tests with Selenium Webdriver
 --ComponentsTest.js//tests for components
---serverTest.js//tests for server
 --setup.js//jsdom configuration for ComponentsTest
+tests/
+----serverTest.js//tests for server
 .babelrc//required babel 6 file to run tests with mocha  
 ```
 
@@ -76,7 +81,7 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 **Note**: Windows users might get thrown an error about node not being able to find the 'server.js' file. As an alternative, you can run **'webpack && node server.js'**.
 
--If you want to sync your fork with the master repo, read [syncing a fork](https://help.github.com/articles/syncing-a-fork/).
+If you want to sync your fork with the master repo, read [syncing a fork](https://help.github.com/articles/syncing-a-fork/).
 
 
 
@@ -114,13 +119,37 @@ mocha --require test/setup.js --compilers js:babel-register
 
 Also see **note** under 'Release v1.2' in the **Releases** section below.
 
+**Updated:**
+
+Since Release v2.2, I've added in automated tests with Selenium Webdriver. To install
+Selenium, run:
+
+```javascript
+npm install selenium-webdriver
+
+```
+
 #Releases
 
 New Release features will be updated here.
 
+###Release v2.2
+- Added more tests this time with Selenium !!! (*see autoTest.js in Test folder*)
+- Added **className** and **ID** tag names for the input, button, and link fields within the *Exchange Rates*, *StockList*, *NavigationBar*, ..., etc. files (These are needed to perform some of the tests).
+- Removed some of the routing paths in 'Routes.js'.
+- Removed 'register' button from **Login** file.
+
+**Note:** I've kept the TDD tests just for those who want to see them. Will probably remove them in a future release.
+
+Regarding the routing paths, I found out that each page can be navigated with the path names removed (Probably overlooked something. Will need to look through source code).
+
+Currently, the selenium tests performed just navigate to each page from the Navigation Bar from a closed web browser (FireFox). These tests will be enhanced in future releases. 
+
+
+
 ###Release v2.1
 - Renamed 'app.js' to 'Routes.js'
-- Updated readme
+- Updated README
 - Created [wiki](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration) for Demo 1 of  Login / Registration Feature
 
 ###Release v2.0
@@ -140,12 +169,12 @@ react-router (currently 2.0.0).
 - I've created a wiki which explains how I implemented this demo. You can read about it [here](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration).
 
 ###Release v1.2
-- Added tests for the 'ExchangeRates' component (see ComponentsTest in test folder).
+- Added tests for the 'ExchangeRates' component (see **ComponentsTest** in test folder).
   -  Changed test command in package.json
-  - Added 'setup.js' file and 'ComponentsTest.js' to test folder
-  - Added 'babelrc' file
+  - Added **'setup.js'** file and **'ComponentsTest.js'** to test folder
+  - Added **'babelrc'** file
 - Made second input field in *ExchangeRates* file read only.
-- Fixed <br> error in *ExchangeRates* file.
+- Fixed **br** error in *ExchangeRates* file.
 
 **Note:** In order to test components, you'll need to install [JSdom](http://stackoverflow.com/questions/33383146/test-with-reactjs-renderintodocument-keep-failed-due-to-required-dom) and [Babel 6](http://stackoverflow.com/questions/31278901/inconsistent-unexpected-token/31279942#31279942). (*See top of page for instructions on installing babel 6.*)
 
@@ -167,11 +196,12 @@ react-router (currently 2.0.0).
 #Todo List
 
 **Stocks**
--1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
 
--2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
+- [ ] 1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
 
--Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
+- [ ] 2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
+
+- [ ] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
 
 **Login/ Registration**
 
@@ -185,10 +215,12 @@ credentials.
 
 - [ ] 4th Demo: Add GUI to make modal and menus look better.
 
-- [ ] Other: Create Tests for Login and Registration Features.
+- [ ] Other: Create/ Update Tests for Login and Registration Features.
 
 
 **Other**
 
-- [ ] Create automated tests using selenium-webdriver and mocha
+- [X] Create automated tests using selenium-webdriver and mocha
+- [ ] Redo tag names used for testing with Selenium.
+- [ ] Add the ability to run tests with an open web browser.
 - [ ] Add some flux or redux

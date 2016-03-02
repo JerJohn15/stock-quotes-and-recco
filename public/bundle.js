@@ -92,8 +92,11 @@
 	    _reactRouter.Route,
 	    { path: "/", component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	    "//  ",
 	    _react2.default.createElement(_reactRouter.Route, { path: "stocks", component: _StockList2.default }),
+	    "//  ",
 	    _react2.default.createElement(_reactRouter.Route, { path: "study", component: _StudyTracker2.default }),
+	    "//  ",
 	    _react2.default.createElement(_reactRouter.Route, { path: "ExRates", component: _ExchangeRates2.default })
 	  )
 	), document.getElementById('root'));
@@ -19862,7 +19865,7 @@
 
 	    return _react2.default.createElement(
 	      "div",
-	      null,
+	      { className: "Stocks" },
 	      _react2.default.createElement(
 	        "div",
 	        { style: { padding: 20, paddingTop: 10 } },
@@ -19871,10 +19874,10 @@
 	          { style: { fontFamily: 'Abril Fatface' } },
 	          "Stock List"
 	        ),
-	        _react2.default.createElement("input", { type: "text", ref: "buySymbol" }),
+	        _react2.default.createElement("input", { id: "stockInput", type: "text", ref: "buySymbol" }),
 	        _react2.default.createElement(
 	          _reactBootstrap.Button,
-	          { type: "submit", style: { marginLeft: '3px' }, onClick: this.handleBuy, bsSize: "xsmall", bsStyle: "success" },
+	          { id: "stockButton", type: "submit", style: { marginLeft: '3px' }, onClick: this.handleBuy, bsSize: "xsmall", bsStyle: "success" },
 	          "Buy"
 	        ),
 	        _react2.default.createElement(
@@ -19888,12 +19891,12 @@
 	          this.state.stocks.map(function (stock) {
 	            return _react2.default.createElement(
 	              _reactBootstrap.Button,
-	              { bsSize: "small", style: { marginBottom: '2px' }, key: stock, onClick: function onClick() {
+	              { id: "stocksButton", bsSize: "small", style: { marginBottom: '2px' }, key: stock, onClick: function onClick() {
 	                  _this.getSymbolDetails(stock);
 	                } },
 	              _react2.default.createElement(
 	                "a",
-	                null,
+	                { className: stock + "Ref" },
 	                stock
 	              )
 	            );
@@ -19907,12 +19910,16 @@
 	          null,
 	          _react2.default.createElement(
 	            _reactBootstrap.Button,
-	            { bsStyle: "danger", bsSize: "xsmall",
+	            { className: "sellButton", bsStyle: "danger", bsSize: "xsmall",
 	              onClick: function onClick() {
 	                _this.removeSymbol(_this.state.selectedStockSymbol);
 	              },
 	              style: { marginBottom: '4px' } },
-	            "Sell"
+	            _react2.default.createElement(
+	              "a",
+	              { className: "sellRef" },
+	              "Sell"
+	            )
 	          ),
 	          _react2.default.createElement(
 	            "h5",
@@ -19922,18 +19929,22 @@
 	        ) : this.state.stocks.map(function (stock, count) {
 	          return _this.state.selectedStockInfo.symbol == stock ? _react2.default.createElement(
 	            _reactBootstrap.Panel,
-	            { header: stock, key: stock, style: { width: 820, fontFamily: 'Abril Fatface' } },
+	            { className: "stock_header", header: stock, key: stock, style: { width: 820, fontFamily: 'Abril Fatface' } },
 	            _react2.default.createElement(
 	              "div",
 	              null,
 	              _react2.default.createElement(
 	                _reactBootstrap.Button,
-	                { bsStyle: "danger", bsSize: "xsmall",
+	                { className: "sellButton", bsStyle: "danger", bsSize: "xsmall",
 	                  onClick: function onClick() {
 	                    _this.removeSymbol(stock);
 	                  },
 	                  style: { marginBottom: '4px' } },
-	                "Sell"
+	                _react2.default.createElement(
+	                  "a",
+	                  { className: "sellRef" },
+	                  "Sell"
+	                )
 	              ),
 	              _react2.default.createElement(
 	                _reactBootstrap.Table,
@@ -19946,17 +19957,17 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      "th",
-	                      null,
+	                      { className: "Issuer" },
 	                      "Issuer"
 	                    ),
 	                    _react2.default.createElement(
 	                      "th",
-	                      null,
+	                      { className: "Symbol" },
 	                      "Symbol"
 	                    ),
 	                    _react2.default.createElement(
 	                      "th",
-	                      null,
+	                      { className: "Price" },
 	                      "Price"
 	                    )
 	                  )
@@ -19967,15 +19978,15 @@
 	                  _react2.default.createElement(
 	                    "tr",
 	                    null,
-	                    _react2.default.createElement("td", { dangerouslySetInnerHTML: { __html: _this.state.selectedStockInfo.issuer } }),
+	                    _react2.default.createElement("td", { id: "IssuerData", dangerouslySetInnerHTML: { __html: _this.state.selectedStockInfo.issuer } }),
 	                    _react2.default.createElement(
 	                      "td",
-	                      null,
+	                      { id: "SymbolData" },
 	                      _this.state.selectedStockInfo.symbol
 	                    ),
 	                    _react2.default.createElement(
 	                      "td",
-	                      null,
+	                      { id: "PriceData" },
 	                      _this.state.selectedStockInfo.price
 	                    )
 	                  )
@@ -51924,7 +51935,7 @@
 	                " Enter US Price Here"
 	              ),
 	              _react2.default.createElement("br", null),
-	              _react2.default.createElement("input", { type: "text", id: "money",
+	              _react2.default.createElement("input", { type: "text", id: "USDvalue",
 	                defaultValue: this.state.USDvalue, onChange: this.setAmount }),
 	              _react2.default.createElement(
 	                "div",
@@ -51961,7 +51972,7 @@
 	                null,
 	                _react2.default.createElement("br", null)
 	              ),
-	              _react2.default.createElement("input", { type: "text", id: "foreign",
+	              _react2.default.createElement("input", { type: "text", id: "Foreignvalue",
 	                value: this.state.convertedCurrency,
 	                readOnly: true })
 	            )
@@ -61411,6 +61422,11 @@
 	        { style: { margin: 10 } },
 	        _react2.default.createElement(
 	          "h1",
+	          { style: { fontFamily: 'Abril Fatface' } },
+	          "Study Tracker"
+	        ),
+	        _react2.default.createElement(
+	          "h3",
 	          null,
 	          "Hours spent studying:"
 	        ),
@@ -61428,7 +61444,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _reactBootstrap.Button,
-	          { bsSize: "medium",
+	          { id: "trackerButton", bsSize: "medium",
 	            onClick: function onClick() {
 	              _this.setState({ hoursStudying: _this.state.hoursStudying + 1 });
 	            },
@@ -61598,6 +61614,8 @@
 	  logOut: function logOut() {
 	    alert('log out');
 	  },
+	  //this should be used in the 2nd button view
+	  //                  <Link style={styles.link} to="/profile">{user.name}</Link>
 
 	  render: function render() {
 	    var user = this.props.user;
@@ -61610,26 +61628,26 @@
 	        { style: { float: 'left' } },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/', style: styles.link },
+	          { activeClassName: 'HomePage', to: '/', style: styles.link },
 	          'Home'
 	        ),
 	        ' ',
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/stocks', style: styles.link, activeStyle: styles.activeLink },
+	          { activeClassName: 'StocksPage', to: '/stocks', style: styles.link, activeStyle: styles.activeLink },
 	          'Stocks'
 	        ),
 	        ' ',
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/study', style: styles.link, activeStyle: styles.activeLink },
+	          { activeClassName: 'StudyPage', to: '/study', style: styles.link, activeStyle: styles.activeLink },
 	          'Study'
 	        ),
 	        ' ',
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
-	          'Exchange Rates'
+	          { activeClassName: 'ExRatesPage', to: '/ExRates', style: styles.link, activeStyle: styles.activeLink },
+	          'Currency Converter'
 	        ),
 	        ' '
 	      ),
@@ -61637,19 +61655,14 @@
 	        'div',
 	        { style: { float: 'right' } },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { style: styles.link, to: '/profile' },
-	          user.name
-	        ),
-	        _react2.default.createElement(
 	          'button',
-	          { id: 'login',
+	          { id: 'loginButton',
 	            onClick: this.props.onLogin },
 	          'log in'
 	        ),
 	        _react2.default.createElement(
 	          'button',
-	          { id: 'register',
+	          { id: 'registerButton',
 	            onClick: this.props.onRegister },
 	          'register'
 	        )
@@ -66844,7 +66857,7 @@
 	      null,
 	      _react2.default.createElement(
 	        _reactBootstrap.Modal,
-	        { show: this.props.openModal, onHide: this.props.closeModal },
+	        { dialogClassName: 'loginModal', show: this.props.openModal, onHide: this.props.closeModal },
 	        _react2.default.createElement(
 	          _reactBootstrap.Modal.Header,
 	          { closeButton: true },
@@ -66883,11 +66896,6 @@
 	            'button',
 	            { id: 'login' },
 	            ' Login  '
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { id: 'register' },
-	            ' Register  '
 	          )
 	        )
 	      )
@@ -66936,7 +66944,7 @@
 	      null,
 	      _react2.default.createElement(
 	        _reactBootstrap.Modal,
-	        { show: this.props.openModal, onHide: this.props.closeModal },
+	        { dialogClassName: 'registerModal', show: this.props.openModal, onHide: this.props.closeModal },
 	        _react2.default.createElement(
 	          _reactBootstrap.Modal.Header,
 	          { closeButton: true },

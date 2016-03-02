@@ -18,7 +18,7 @@ var CreateAccount = React.createClass ({
     return(
       <div>
 
-        <Modal show= {this.props.openModal} onHide={this.props.closeModal}>
+        <Modal dialogClassName = "registerModal" show= {this.props.openModal} onHide={this.props.closeModal}>
           <Modal.Header closeButton>
             <Modal.Title>Registration </Modal.Title>
           </Modal.Header>

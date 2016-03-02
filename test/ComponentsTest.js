@@ -11,7 +11,6 @@
 
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-//var request = require('supertest');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
@@ -21,6 +20,8 @@ import CreateAccount from '../src/js/components/Views/Account/CreateAccount.js';
 import App from '../src/js/components/App.js';
 
 var component = null;
+
+var modal = null;
 
 //Component Tests for ExchangeRates Component
 describe('Testing Exchange Rates component...', function(){

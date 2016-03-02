@@ -1,5 +1,10 @@
 var server = require('../server');
-
+/**
+@author - Matt R, JerJohn15
+Contains server tests. To run, move this into the 'test' folder,
+move the autoTests file to this folder,
+and launch the test command from 'package.json' file.
+**/
 describe('server', function () {
   before(function () {
     server.listen(8080);

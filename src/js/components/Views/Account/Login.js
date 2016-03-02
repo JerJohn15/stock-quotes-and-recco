@@ -11,10 +11,9 @@ var Login = React.createClass({
 
   render: function(){
 
-
     return(
       <div>
-        <Modal show= {this.props.openModal} onHide={this.props.closeModal}>
+        <Modal dialogClassName = "loginModal" show= {this.props.openModal} onHide={this.props.closeModal}>
           <Modal.Header closeButton>
             <Modal.Title>Login </Modal.Title>
           </Modal.Header>
@@ -32,7 +31,6 @@ var Login = React.createClass({
               <br/>
             </div>
             <button id= "login"> Login  </button>
-            <button id= "register"> Register  </button>
           </Modal.Body>
         </Modal>
       </div>

@@ -19,9 +19,9 @@ ReactDOM.render(
   <Router history = {hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component = {Home}/>
-      <Route path="stocks" component={StockList} />
-      <Route path="study" component={StudyTracker} />
-      <Route path = "ExRates" component={ExchangeRates} />
+    //  <Route path="stocks" component={StockList} />
+    //  <Route path="study" component={StudyTracker} />
+    //  <Route path = "ExRates" component={ExchangeRates} />
       </Route>
 
   </Router>, document.getElementById('root'));

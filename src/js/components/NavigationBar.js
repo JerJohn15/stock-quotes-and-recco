@@ -29,6 +29,7 @@ styles.activeLink = {
 }
 
 var NavigationBar = React.createClass ({
+
   getDefaultProps: function() {
     return {
       user: {
@@ -41,23 +42,24 @@ var NavigationBar = React.createClass ({
   logOut: function () {
     alert('log out');
   },
+  //this should be used in the 2nd button view
+//                  <Link style={styles.link} to="/profile">{user.name}</Link>
 
   render() {
     const { user } = this.props;
     return (
       <div style={styles.wrapper}>
         <div style={{ float: 'left' }}>
-          <Link to="/" style={styles.link}>Home</Link>{' '}
-            <Link to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
-              <Link to="/study" style={styles.link} activeStyle={styles.activeLink}>Study</Link>{' '}
-                <Link to="/ExRates" style={styles.link} activeStyle={styles.activeLink}>Exchange Rates</Link>{' '}
+          <Link activeClassName = "HomePage" to="/" style={styles.link}>Home</Link>{' '}
+            <Link activeClassName = "StocksPage" to="/stocks" style={styles.link} activeStyle={styles.activeLink}>Stocks</Link>{' '}
+              <Link activeClassName = "StudyPage" to="/study" style={styles.link} activeStyle={styles.activeLink}>Study</Link>{' '}
+                <Link activeClassName = "ExRatesPage" to="/ExRates" style={styles.link} activeStyle={styles.activeLink}>Currency Converter</Link>{' '}
                 </div>
                 <div style={{ float: 'right' }}>
-                  <Link style={styles.link} to="/profile">{user.name}</Link>
-                    <button  id="login"
+                    <button  id="loginButton"
                       onClick = {this.props.onLogin}>log in</button>
 
-                    <button id ="register"
+                    <button id ="registerButton"
                       onClick = {this.props.onRegister} >register</button>
                 </div>
               </div>

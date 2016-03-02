@@ -110,7 +110,7 @@ setAmount: function(event){
 handleRequest: function(type){
 
   $.getJSON(
-      
+
          'https://openexchangerates.org/api/latest.json?app_id=f7beb6b41bde4fabaa01f5bd5e459d8c',
         function(data) {
               // Check money.js has finished loading:
@@ -166,7 +166,7 @@ return (
   <form>
     <fieldset>
       <label > Enter US Price Here</label><br></br>
-    <input  type = "text" id = "money"
+    <input  type = "text" id = "USDvalue"
       defaultValue = {this.state.USDvalue} onChange = {this.setAmount}>
     </input>
     <div><br/></div>
@@ -178,7 +178,7 @@ return (
               <option value = "JPY">US-Yuan</option>
                   </select>
                 <div><br/></div>
-<input type ="text" id = "foreign"
+<input type ="text" id = "Foreignvalue"
   value = {this.state.convertedCurrency}
   readOnly = {true}>
 </input>
