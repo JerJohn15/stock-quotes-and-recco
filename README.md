@@ -127,7 +127,12 @@ Also see **note** under **Release v1.2** in the [Old Releases](https://github.co
 
 #Releases
 
-New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/docs).
+New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs).
+
+###Release v2.3
+- Changed syntax for searched elements in **autoTests**.
+- Added new docs sections for OLD RELEASES
+- Updated Wiki
 
 ###Release v2.2
 - Added more tests this time with Selenium !!! (*see autoTest.js in Test folder*)
