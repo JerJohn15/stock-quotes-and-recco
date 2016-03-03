@@ -43,7 +43,7 @@
 
   it('Home Page should be navigated to.', function(){
 
-    pagetitle = driver.findElement(By.linkText('Stock Quotes and Recco Toy App'));
+    pagetitle = driver.findElement({linkText:'Stock Quotes and Recco Toy App'});
     expect(pagetitle).toExist();
 
   });
@@ -51,7 +51,7 @@
 
   it('header should be NavigationBar', function(){
 
-  var header = driver.findElement(By.className('NavBar'));
+  var header = driver.findElement({className: 'NavBar'});
 
   expect(header).toExist();
 
@@ -60,13 +60,13 @@
 
   it('StocksList Page should be navigated to and have title.', function(){
 
-   pagepath = driver.findElement(By.className('StocksPage'));
+   pagepath = driver.findElement({className: 'StocksPage'});
   driver.actions()
     .mouseMove(pagepath)
     .click()
     .perform();
 
-  expect(driver.findElement(By.className('Stocks'))).toExist();
+  expect(driver.findElement({className: 'Stocks'})).toExist();
 
   });
 
@@ -78,16 +78,16 @@
   var stock;
     it('page should have title.', function(){
 
-      pagetitle = driver.findElement(By.linkText('Stock List'));
+      pagetitle = driver.findElement({linkText: 'Stock List'});
 
       expect(pagetitle).toExist();
     });
 
     it('should have an input field, a button, and stocks', function(){
 
-      expect(driver.findElement(By.id('stockInput'))).toExist();
-      expect(driver.findElement(By.id('stockButton'))).toExist();
-      expect(driver.findElements(By.id('stocksButton'))).toExist();
+      expect(driver.findElement({id: 'stockInput'})).toExist();
+      expect(driver.findElement({id: 'stockButton'})).toExist();
+      expect(driver.findElements({id: 'stocksButton'})).toExist();
     });
 /**
 //This test currently does not work.
@@ -135,13 +135,13 @@
   **/
 
   it('should navigate to Study page', function(){
-    pagepath = driver.findElement(By.className('StudyPage'));
+    pagepath = driver.findElement({className: 'StudyPage'});
     driver.actions()
     .mouseMove(pagepath)
     .click()
     .perform();
 
-    pagetitle = driver.findElement(By.linkText('Study Tracker'));
+    pagetitle = driver.findElement({className: 'Study Tracker'});
 
     expect(pagetitle).toExist();
   });
@@ -154,18 +154,18 @@
 
     it('should have a button', function(){
 
-      expect(driver.findElement(By.id('trackerButton'))).toExist();
+      expect(driver.findElement({id: 'trackerButton'})).toExist();
     });
 
 
     it('should navigate to Exchange Rates page', function(){
-      pagepath = driver.findElement(By.className('ExRatesPage'));
+      pagepath = driver.findElement({className: 'ExRatesPage'});
       driver.actions()
       .mouseMove(pagepath)
       .click()
       .perform();
 
-      pagetitle = driver.findElement(By.linkText('Currency Exchange'));
+      pagetitle = driver.findElement({linkText: 'Currency Exchange'});
 
       expect(pagetitle).toExist();
     });
@@ -175,21 +175,21 @@
   describe('Exchange Rates Page', function(){
 
     it('should have a selection menu and two input fields', function(){
-      expect(driver.findElement(By.id('USDvalue'))).toExist();
-      expect(driver.findElement(By.id('selection'))).toExist();
-      expect(driver.findElement(By.id('Foreignvalue'))).toExist();
+      expect(driver.findElement({id: 'USDvalue'})).toExist();
+      expect(driver.findElement({id: 'selection'})).toExist();
+      expect(driver.findElement({id: 'Foreignvalue'})).toExist();
     });
 
 
 
     it('should navigate back to the Home page', function(){
-      pagepath = driver.findElement(By.className('HomePage'));
+      pagepath = driver.findElement({className: 'HomePage'});
       driver.actions()
       .mouseMove(pagepath)
       .click()
       .perform();
 
-      pagetitle = driver.findElement(By.linkText('Stock Quotes and Recco Toy App'));
+      pagetitle = driver.findElement({linkText: 'Stock Quotes and Recco Toy App'});
 
       expect(pagetitle).toExist();
     });

@@ -87,7 +87,9 @@ If you want to sync your fork with the master repo, read [syncing a fork](https:
 
 ###Running Tests
 
-I've recently added a file in the test folder for testing components, but to get it to work properly, you will need to install the latest version of babel 6 and its presets: es2015, react, and stage-0. Also you need to update to the latest version of React (some of the peer dependencies require it).
+I've recently added a file in the test folder for testing components, but to get it to work properly, you will need to install the latest version of babel 6, its presets (es2015, react, and stage-0), and the latest version of React (some of the peer dependencies require it). Since **Release v2.2** I've also included automated tests with Selenium-Webdriver so you'll need that too.  
+
+
 
 ```javascript
 
@@ -106,6 +108,9 @@ npm install babel-preset-stage-0 --save-dev
 // install react.
 npm install react
 
+//install selenium-webdriver
+npm install selenium-webdriver
+
 //once done, to run tests run this command from root of project:
 mocha --require test/setup.js --compilers js:babel-register
 
@@ -117,21 +122,12 @@ mocha --require test/setup.js --compilers js:babel-register
 - [Testing in ES6](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
 - [Testing with mocha](http://www.benjanecke.com/2015/11/30/so-you-want-to-test-your-react-code-with-mocha.html)
 
-Also see **note** under 'Release v1.2' in the **Releases** section below.
+Also see **note** under **Release v1.2** in the [Old Releases](https://github.com/JerJohn15/stock-quotes-and-recco/docs/releases.md) section.
 
-**Updated:**
-
-Since Release v2.2, I've added in automated tests with Selenium Webdriver. To install
-Selenium, run:
-
-```javascript
-npm install selenium-webdriver
-
-```
 
 #Releases
 
-New Release features will be updated here.
+New Release features will be updated here. To view past releases see [releases](https://github.com/JerJohn15/stock-quotes-and-recco/docs/releases.md).
 
 ###Release v2.2
 - Added more tests this time with Selenium !!! (*see autoTest.js in Test folder*)
@@ -139,11 +135,13 @@ New Release features will be updated here.
 - Removed some of the routing paths in 'Routes.js'.
 - Removed 'register' button from **Login** file.
 
+To view screenshot of passing tests go [here](http://s11.postimg.org/6vhiszr8z/selenium_tests_v2_2.png).
+
 **Note:** I've kept the TDD tests just for those who want to see them. Will probably remove them in a future release.
 
 Regarding the routing paths, I found out that each page can be navigated with the path names removed (Probably overlooked something. Will need to look through source code).
 
-Currently, the selenium tests performed just navigate to each page from the Navigation Bar from a closed web browser (FireFox). These tests will be enhanced in future releases. 
+Currently, the selenium tests performed just navigate to each page from the Navigation Bar from a closed web browser (FireFox). These tests will be enhanced in future releases.
 
 
 
@@ -151,6 +149,8 @@ Currently, the selenium tests performed just navigate to each page from the Navi
 - Renamed 'app.js' to 'Routes.js'
 - Updated README
 - Created [wiki](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration) for Demo 1 of  Login / Registration Feature
+
+To download this release go [here](http://www.megafileupload.com/apoF/v2.0stock-quotes-and-recco-master.zip).
 
 ###Release v2.0
 - Added demo 1 of Login / Registration Feature (Login and Registration views within a modal)
@@ -168,30 +168,6 @@ To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif
 react-router (currently 2.0.0).
 - I've created a wiki which explains how I implemented this demo. You can read about it [here](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration).
 
-###Release v1.2
-- Added tests for the 'ExchangeRates' component (see **ComponentsTest** in test folder).
-  -  Changed test command in package.json
-  - Added **'setup.js'** file and **'ComponentsTest.js'** to test folder
-  - Added **'babelrc'** file
-- Made second input field in *ExchangeRates* file read only.
-- Fixed **br** error in *ExchangeRates* file.
-
-**Note:** In order to test components, you'll need to install [JSdom](http://stackoverflow.com/questions/33383146/test-with-reactjs-renderintodocument-keep-failed-due-to-required-dom) and [Babel 6](http://stackoverflow.com/questions/31278901/inconsistent-unexpected-token/31279942#31279942). (*See top of page for instructions on installing babel 6.*)
-
-
-**Screenshot of test**
-
-
-[componentsTest](http://s10.postimg.org/b5cfd4yyh/Untitled_picture.png)
-
-###Release v1.1
-- Added a test with mocha, for checking data from open exchange rates api (see bottom
-  of serverTest.js file).
-
-
-###Release v1
-- **Update:** Working version of currency converter is up. ([view demo](http://i.giphy.com/l2JIbDg204EtIA33W.gif)).
-
 
 #Todo List
 
@@ -201,7 +177,7 @@ react-router (currently 2.0.0).
 
 - [ ] 2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
 
-- [ ] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with npm start.
+- [ ] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with 'npm start' or 'webpack && node server.js'.
 
 **Login/ Registration**
 
@@ -221,6 +197,6 @@ credentials.
 **Other**
 
 - [X] Create automated tests using selenium-webdriver and mocha
-- [ ] Redo tag names used for testing with Selenium.
+- [ ] Add Action Sequences, or event changes, to Selenium tests.
 - [ ] Add the ability to run tests with an open web browser.
-- [ ] Add some flux or redux
+- [ ] Add more features and incorporate an advanced application architecture (flux, redux, ..., etc.) in place of the current one.
