@@ -146,7 +146,7 @@ To view screen shot of revised test cases go [here](http://s8.postimg.org/qdocic
 - Removed some of the routing paths in 'Routes.js'.
 - Removed 'register' button from **Login** file.
 
-To view screenshot of passing tests go [here](http://s11.postimg.org/6vhiszr8z/selenium_tests_v2_2.png).
+~~To view screenshot of passing tests go [here](http://s11.postimg.org/6vhiszr8z/selenium_tests_v2_2.png).~~
 
 **Note:** I've kept the TDD tests just for those who want to see them. Will probably remove them in a future release.
 
@@ -172,7 +172,7 @@ component 'Home' (more on this in my upcoming [wiki section](https://github.com/
 - Updated test, in 'serverTest.js', to reflect new title on home page.
 - Reorganized Project Directory js files (see *Layout of Project* section)
 
-To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif).(*buttons don't work yet, only the abilities to close the modal*)
+To view demo of this feature go [here](http://i.giphy.com/xT0BKmlPnq0sxa0qpa.gif). (*buttons don't work yet, only the abilities to close the modal*)
 
 **Note:**
 - In order to run this recent update, you will need to install the most recent version of
