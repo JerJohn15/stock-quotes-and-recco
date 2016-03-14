@@ -131,6 +131,9 @@ New Release features will be updated here. To view past releases see [old releas
 
 ###Release v2.4
 - Improved wording for each test case in autoTest and ComponentsTest
+- Made composite tests out of cases where multiple assertions were declared
+
+To view screen shot of revised test cases go [here](http://s8.postimg.org/qdocicuqt/selenium_v2_4.png)
 
 ###Release v2.3
 - Changed syntax for searched elements in **autoTests**.
