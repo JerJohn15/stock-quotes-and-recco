@@ -24,9 +24,9 @@ var component = null;
 var modal = null;
 
 //Component Tests for ExchangeRates Component
-describe('Testing Exchange Rates component...', function(){
+describe('Exchange Rates Tests', function(){
 
-it('should render ExchangeRates component', function(){
+it('check for a rendered Exchange Rates component', function(){
 
  component = TestUtils.renderIntoDocument(
   <ExchangeRates />
@@ -38,29 +38,37 @@ expect(component).toExist();
 });
 
 //tests for drop down menu
-it('should have a drop-down menu and 4 option values', function(){
+it('check for a selection menu', function(){
 
 this.select = TestUtils.findRenderedDOMComponentWithTag(
    component, "select"
 );
 
-this.options = TestUtils.scryRenderedDOMComponentsWithTag(
-
-   component, "option"
-);
-
 expect(this.select).toExist();
-expect(this.options.length).toEqual(4);
 
 });
-//check for all values within the menu
-it('values of drop down menu should be EUR, GBP, and JPY',function(){
+
+it('check that this selection menu has four options', function(){
+
+  this.options = TestUtils.scryRenderedDOMComponentsWithTag(
+
+     component, "option"
+  );
+
+
+  expect(this.options.length).toEqual(4);
+
+
+});
+
+
+it('check that values of drop down menu are EUR, GBP, and JPY',function(){
 
   this.select = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "option"
   );
 
-//Its unecessary to check all of the values  but I wanted to learn the ternary op
+
 var target = ' ';
 var options = this.select;
 for( var i = 0; i<options.length;i++)
@@ -79,20 +87,20 @@ expect(optionValue).toEqual(target);
 
 });
 
-//tests for input fields
-it('input should exist and have two input fields', function(){
+
+it('search for two  input fields', function(){
 
   this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
 
      component, "input"
   );
 
-  expect(this.inputs).toExist();
   expect(this.inputs.length).toEqual(2);
 });
 
+
 //checks for US currency input
-it('should save US currency input', function(){
+it('check that a US currency value is entered in the first input field', function(){
 
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "input"
@@ -107,7 +115,7 @@ expect(inputValue).toEqual(123.45);
 });
 
 //tests the converted currency
-it('converted currency should be a number', function(){
+it('check that a converted currency value is a number', function(){
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "input"
 );

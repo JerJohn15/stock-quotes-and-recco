@@ -41,7 +41,7 @@
 
   describe('HomePage Tests', function(){
 
-  it('Home Page should be navigated to.', function(){
+  it('Search for the HomePage Title', function(){
 
     pagetitle = driver.findElement({linkText:'Stock Quotes and Recco Toy App'});
     expect(pagetitle).toExist();
@@ -49,7 +49,7 @@
   });
 
 
-  it('header should be NavigationBar', function(){
+  it('Search for existing Navigation Bar header by searching div, NavBar', function(){
 
   var header = driver.findElement({className: 'NavBar'});
 
@@ -58,7 +58,7 @@
   });
 
 
-  it('StocksList Page should be navigated to and have title.', function(){
+  it('Navigate to StocksPage by clicking on link StockPage and checking for Stocks className.', function(){
 
    pagepath = driver.findElement({className: 'StocksPage'});
   driver.actions()
@@ -76,17 +76,22 @@
 
   describe('Stock List Page', function(){
   var stock;
-    it('page should have title.', function(){
+    it('Check for StockList page title.', function(){
 
       pagetitle = driver.findElement({linkText: 'Stock List'});
 
       expect(pagetitle).toExist();
     });
 
-    it('should have an input field, a button, and stocks', function(){
-
+    it('search for a input field by its tag id', function(){
       expect(driver.findElement({id: 'stockInput'})).toExist();
+    });
+
+    it('search for a button by its tag id', function(){
       expect(driver.findElement({id: 'stockButton'})).toExist();
+    });
+
+    it('search for all stock options by its tag id ', function(){
       expect(driver.findElements({id: 'stocksButton'})).toExist();
     });
 /**
@@ -134,7 +139,7 @@
     });
   **/
 
-  it('should navigate to Study page', function(){
+  it('Navigate to Study Page by clicking on its link and checking for its title ', function(){
     pagepath = driver.findElement({className: 'StudyPage'});
     driver.actions()
     .mouseMove(pagepath)
@@ -152,13 +157,13 @@
   describe('Study Tracker Page', function(){
 
 
-    it('should have a button', function(){
+    it('find a button by searching its tag id', function(){
 
       expect(driver.findElement({id: 'trackerButton'})).toExist();
     });
 
 
-    it('should navigate to Exchange Rates page', function(){
+    it('Navigate to the Exchange Rates Page by clicking on its link and checking for its title', function(){
       pagepath = driver.findElement({className: 'ExRatesPage'});
       driver.actions()
       .mouseMove(pagepath)
@@ -174,15 +179,20 @@
 
   describe('Exchange Rates Page', function(){
 
-    it('should have a selection menu and two input fields', function(){
-      expect(driver.findElement({id: 'USDvalue'})).toExist();
+    it('search for a selection menu by its tag id', function(){
       expect(driver.findElement({id: 'selection'})).toExist();
+    });
+
+    it('search for a input field for US currency by its tag id', function(){
+      expect(driver.findElement({id: 'USDvalue'})).toExist();
+    });
+
+    it('search for a input field for foreign currency by its tag id', function(){
+
       expect(driver.findElement({id: 'Foreignvalue'})).toExist();
     });
 
-
-
-    it('should navigate back to the Home page', function(){
+    it('Navigate back to the Home Page by clicking on its link and checking for its title', function(){
       pagepath = driver.findElement({className: 'HomePage'});
       driver.actions()
       .mouseMove(pagepath)
