@@ -58,7 +58,7 @@
   });
 
 
-  it('Navigate to StocksPage by clicking on link StockPage and checking for Stocks className.', function(){
+  it('Navigate to StocksPage by clicking on link, StockPage, and checking for Stocks className.', function(){
 
    pagepath = driver.findElement({className: 'StocksPage'});
   driver.actions()

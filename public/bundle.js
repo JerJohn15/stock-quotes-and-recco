@@ -19896,7 +19896,7 @@
 	                } },
 	              _react2.default.createElement(
 	                "a",
-	                { className: stock + "Ref" },
+	                { className: stock + "_ref" },
 	                stock
 	              )
 	            );

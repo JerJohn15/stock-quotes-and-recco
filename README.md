@@ -11,7 +11,7 @@ To read wiki go [here](https://github.com/JerJohn15/stock-quotes-and-recco/wiki)
 A portfolio application designed to showcase features utilizing React JS and Node JS. Current features include:
 - A Toy app for interacting with Yahoo Finance undocumented RESTful api (e.g. http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail)
 
-- A currency converter using the [Open Exchange Rates Data REST API](https://openexchangerates.org/) with [money js](https://www.npmjs.com/package/money)
+- A [currency converter](http://s28.postimg.org/je9n6zsz1/Currency_Converter.gif) using the [Open Exchange Rates Data REST API](https://openexchangerates.org/) with [money js](https://www.npmjs.com/package/money)
 
 - A study tracker that increments the amount of hours spent studying upon clicking a button.
 
@@ -128,6 +128,9 @@ Also see **note** under **Release v1.2** in the [Old Releases](https://github.co
 #Releases
 
 New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs).
+
+##Release v2.5
+- Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section). 
 
 ###Release v2.4
 - Improved wording for each test case in autoTest and ComponentsTest
