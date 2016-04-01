@@ -43,9 +43,8 @@ index.html
 test/
 --autoTests.js//automated tests with Selenium Webdriver
 --ComponentsTest.js//tests for components
---setup.js//jsdom configuration for ComponentsTest
-tests/
 ----serverTest.js//tests for server
+--setup.js//jsdom configuration for ComponentsTest
 .babelrc//required babel 6 file to run tests with mocha  
 ```
 
@@ -129,8 +128,16 @@ Also see **note** under **Release v1.2** in the [Old Releases](https://github.co
 
 New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs).
 
+##Release v2.51
+- Moved *serverTests.js* back into **test** folder.
+- Updated README *ToDo List*.
+
+**Note:** The *serverTests.js* file will eventually be removed in a future release, as the tests performed within it are no longer necessary now that Selenium is being used.
+
+To [here](http://s17.postimg.org/uh7fshz33/selenium_v2_51.png) to view a screenshot of the tests with the included *serverTest.js* file.  
+
 ##Release v2.5
-- Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section). 
+- Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section).
 
 ###Release v2.4
 - Improved wording for each test case in autoTest and ComponentsTest
@@ -191,7 +198,7 @@ react-router (currently 2.0.0).
 
 - [ ] 2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
 
-- [ ] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with 'npm start' or 'webpack && node server.js'.
+- ~~[X] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with 'npm start' or 'webpack && node server.js'.~~
 
 **Login/ Registration**
 
@@ -206,6 +213,12 @@ credentials.
 - [ ] 4th Demo: Add GUI to make modal and menus look better.
 
 - [ ] Other: Create/ Update Tests for Login and Registration Features.
+
+
+**Bugs**
+- [ ] Convert relevant tests in *serverTests.js* inside *autoTests.js* and remove *serverTests.js* folder.
+- [ ] Add the ability to run tests with an open web browser.
+
 
 
 **Other**
