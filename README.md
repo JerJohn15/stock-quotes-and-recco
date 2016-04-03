@@ -134,7 +134,7 @@ New Release features will be updated here. To view past releases see [old releas
 
 **Note:** The *serverTests.js* file will eventually be removed in a future release, as the tests performed within it are no longer necessary now that Selenium is being used.
 
-To [here](http://s17.postimg.org/uh7fshz33/selenium_v2_51.png) to view a screenshot of the tests with the included *serverTest.js* file.  
+Go [here](http://s17.postimg.org/uh7fshz33/selenium_v2_51.png) to view a screenshot of the tests with the included *serverTest.js* file.  
 
 ##Release v2.5
 - Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section).
