@@ -7,8 +7,10 @@
 
   2) Check for existing elements on page (button, input, ... etc)
 
-  3) Perform Action Sequences
+  3) Go to the next page and repeat process.
 
+   Note: Each page is verified to exist by checking for, either its div classname or id.
+  , or its page title.
   Tests are performed from within FireFox web browser.
   */
   var expect = require('expect');
@@ -58,7 +60,7 @@
   });
 
 
-  it('Navigate to StocksPage by clicking on link, StockPage, and checking for Stocks className.', function(){
+  it('Navigate to StocksPage by clicking on link, StockPage.', function(){
 
    pagepath = driver.findElement({className: 'StocksPage'});
   driver.actions()
@@ -83,15 +85,15 @@
       expect(pagetitle).toExist();
     });
 
-    it('search for a input field by its tag id', function(){
+    it('Locate the input field', function(){
       expect(driver.findElement({id: 'stockInput'})).toExist();
     });
 
-    it('search for a button by its tag id', function(){
+    it('Locate the BUY button', function(){
       expect(driver.findElement({id: 'stockButton'})).toExist();
     });
 
-    it('search for all stock options by its tag id ', function(){
+    it('Locate all stock options', function(){
       expect(driver.findElements({id: 'stocksButton'})).toExist();
     });
 /**
@@ -139,14 +141,14 @@
     });
   **/
 
-  it('Navigate to Study Page by clicking on its link and checking for its title ', function(){
+  it('Navigate to Study Page by clicking on its link', function(){
     pagepath = driver.findElement({className: 'StudyPage'});
     driver.actions()
     .mouseMove(pagepath)
     .click()
     .perform();
 
-    pagetitle = driver.findElement({className: 'Study Tracker'});
+    pagetitle = driver.findElement({className: 'StudyTracker'});
 
     expect(pagetitle).toExist();
   });
@@ -157,13 +159,13 @@
   describe('Study Tracker Page', function(){
 
 
-    it('find a button by searching its tag id', function(){
+    it('Locate the button', function(){
 
       expect(driver.findElement({id: 'trackerButton'})).toExist();
     });
 
 
-    it('Navigate to the Exchange Rates Page by clicking on its link and checking for its title', function(){
+    it('Navigate to the Exchange Rates Page by clicking on its link', function(){
       pagepath = driver.findElement({className: 'ExRatesPage'});
       driver.actions()
       .mouseMove(pagepath)
@@ -179,20 +181,20 @@
 
   describe('Exchange Rates Page', function(){
 
-    it('search for a selection menu by its tag id', function(){
+    it('Locate the selection menu', function(){
       expect(driver.findElement({id: 'selection'})).toExist();
     });
 
-    it('search for a input field for US currency by its tag id', function(){
+    it('Locate the input field for US currency', function(){
       expect(driver.findElement({id: 'USDvalue'})).toExist();
     });
 
-    it('search for a input field for foreign currency by its tag id', function(){
+    it('Locate the input field for foreign currency', function(){
 
       expect(driver.findElement({id: 'Foreignvalue'})).toExist();
     });
 
-    it('Navigate back to the Home Page by clicking on its link and checking for its title', function(){
+    it('Navigate back to the Home Page by clicking on its link', function(){
       pagepath = driver.findElement({className: 'HomePage'});
       driver.actions()
       .mouseMove(pagepath)

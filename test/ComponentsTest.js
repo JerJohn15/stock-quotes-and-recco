@@ -26,7 +26,7 @@ var modal = null;
 //Component Tests for ExchangeRates Component
 describe('Exchange Rates Tests', function(){
 
-it('check for a rendered Exchange Rates component', function(){
+it('check for an existing Exchange Rates page', function(){
 
  component = TestUtils.renderIntoDocument(
   <ExchangeRates />
@@ -62,7 +62,7 @@ it('check that this selection menu has four options', function(){
 });
 
 
-it('check that values of drop down menu are EUR, GBP, and JPY',function(){
+it('check that values of drop-down menu are EUR, GBP, and JPY',function(){
 
   this.select = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "option"
@@ -100,7 +100,7 @@ it('search for two  input fields', function(){
 
 
 //checks for US currency input
-it('check that a US currency value is entered in the first input field', function(){
+it('Enter a US currency value  on the first input field', function(){
 
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "input"
@@ -115,7 +115,7 @@ expect(inputValue).toEqual(123.45);
 });
 
 //tests the converted currency
-it('check that a converted currency value is a number', function(){
+it('check that the converted currency value is a number', function(){
 this.inputs = TestUtils.scryRenderedDOMComponentsWithTag(
    component, "input"
 );

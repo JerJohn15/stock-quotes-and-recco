@@ -18,7 +18,7 @@ var StudyTracker = React.createClass({
     var date = new Date()
 
     return (
-      <div>
+      <div className = "StudyTracker">
       <div style={{margin:10}}>
         <h1 style = {{fontFamily:'Abril Fatface'}}>Study Tracker</h1>
        <h3>Hours spent studying:</h3>
