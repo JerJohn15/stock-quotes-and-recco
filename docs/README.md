@@ -1,7 +1,7 @@
 #Old Releases
 
 
-###Release v1.2
+###Release v.012
 - Added tests for the 'ExchangeRates' component (see **ComponentsTest** in test folder).
   -  Changed test command in package.json
   - Added **'setup.js'** file and **'ComponentsTest.js'** to test folder
@@ -17,10 +17,10 @@
 
 [componentsTest](http://s10.postimg.org/b5cfd4yyh/Untitled_picture.png)
 
-###Release v1.1
+###Release v.011
 - Added a test with mocha, for checking data from open exchange rates api (see bottom
   of serverTest.js file).
 
 
-###Release v1
+###Release v.010
 - **Update:** Working version of currency converter is up. ([view demo](http://i.giphy.com/l2JIbDg204EtIA33W.gif)).

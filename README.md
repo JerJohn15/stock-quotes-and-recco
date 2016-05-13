@@ -86,7 +86,7 @@ If you want to sync your fork with the master repo, read [syncing a fork](https:
 
 ###Running Tests
 
-I've recently added a file in the test folder for testing components, but to get it to work properly, you will need to install the latest version of babel 6, its presets (es2015, react, and stage-0), and the latest version of React (some of the peer dependencies require it). Since **Release v2.2** I've also included automated tests with Selenium-Webdriver so you'll need that too.  
+I've recently added a file in the test folder for testing components, but to get it to work properly, you will need to install the latest version of babel 6, its presets (es2015, react, and stage-0), and the latest version of React (some of the peer dependencies require it). Since **Release v.022** I've also included automated tests with Selenium-Webdriver so you'll need that too.  
 
 
 
@@ -121,14 +121,14 @@ mocha --require test/setup.js --compilers js:babel-register
 - [Testing in ES6](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
 - [Testing with mocha](http://www.benjanecke.com/2015/11/30/so-you-want-to-test-your-react-code-with-mocha.html)
 
-Also see **note** under **Release v1.2** in the [Old Releases](https://github.com/JerJohn15/stock-quotes-and-recco/docs/releases.md) section.
+Also see **note** under **Release v.012** in the [Old Releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs) section.
 
 
 #Releases
 
 New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs).
 
-##Release v2.51
+##Release v.026
 - Moved *serverTests.js* back into **test** folder.
 - Updated README *ToDo List*.
 
@@ -136,21 +136,21 @@ New Release features will be updated here. To view past releases see [old releas
 
 Go [here](http://s17.postimg.org/uh7fshz33/selenium_v2_51.png) to view a screenshot of the tests with the included *serverTest.js* file.  
 
-##Release v2.5
+##Release v.025
 - Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section).
 
-###Release v2.4
+###Release v.024
 - Improved wording for each test case in autoTest and ComponentsTest
 - Made composite tests out of cases where multiple assertions were declared
 
 To view screen shot of revised test cases go [here](http://s8.postimg.org/qdocicuqt/selenium_v2_4.png)
 
-###Release v2.3
+###Release v.023
 - Changed syntax for searched elements in **autoTests**.
 - Added new docs sections for OLD RELEASES
 - Updated Wiki
 
-###Release v2.2
+###Release v.022
 - Added more tests this time with Selenium !!! (*see autoTest.js in Test folder*)
 - Added **className** and **ID** tag names for the input, button, and link fields within the *Exchange Rates*, *StockList*, *NavigationBar*, ..., etc. files (These are needed to perform some of the tests).
 - Removed some of the routing paths in 'Routes.js'.
@@ -166,14 +166,14 @@ Currently, the selenium tests performed just navigate to each page from the Navi
 
 
 
-###Release v2.1
+###Release v.021
 - Renamed 'app.js' to 'Routes.js'
 - Updated README
 - Created [wiki](https://github.com/JerJohn15/stock-quotes-and-recco/wiki/Login-and-Registration) for Demo 1 of  Login / Registration Feature
 
 To download this release go [here](http://www.megafileupload.com/apoF/v2.0stock-quotes-and-recco-master.zip).
 
-###Release v2.0
+###Release v.020
 - Added demo 1 of Login / Registration Feature (Login and Registration views within a modal)
 - Converted 'NavigationBar' and 'App' components to JSX (from ES6).
 - Placed the Home page title and description from 'App' component into its own
