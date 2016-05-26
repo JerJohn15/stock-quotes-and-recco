@@ -51,7 +51,7 @@ test/
 
 #Required Tools
 
-This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/).
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/) (Note: Node JS is used via your command line, or terminal for Linux users, so having some prior knowledge in using the command line interface is expected).
 
 If you desire a software to develop this project in, I suggest using the text-editor,  [Atom](https://atom.io/). You can customize whatever features you want to fit your development needs. I recommend the plugins: [tree-symbol-view](https://atom.io/packages/symbols-tree-view), [browser-plus](https://atom.io/packages/browser-plus)
 , [react](https://atom.io/packages/react), and
