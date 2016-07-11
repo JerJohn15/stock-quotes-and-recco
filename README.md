@@ -10,7 +10,7 @@ Formerly known as "stock-quotes-and-recco", this project acts as a portfolio to 
 
 - A study logger that increments the amount of hours spent studying when clicking a button.
 
-See the **ToDo List** for upcoming features. Also, checkout the **Issues** section for current unresolved issues. I have also created a [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki) which currently consists of a test plan, and a design plan of future features. 
+See the **ToDo List** for upcoming features. Also, checkout the **Issues** section for current unresolved issues. In addition, there is a [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki) which currently consists of a test plan, and a design plan of future features. 
 
 To view the live demo of the original app use this link: http://rkiouak.com
 Refer to the **Project Setup** section for launching the application from a local server.
@@ -48,12 +48,7 @@ test/
 
 #Required Tools
 
-This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/) (Note: Node JS is used via your command line, or terminal for Linux users, so having some prior knowledge in using the command line interface is expected).
-
-If you desire a software to develop this project in, I suggest using the text-editor,  [Atom](https://atom.io/). You can customize whatever features you want to fit your development needs. I recommend the plugins: [tree-symbol-view](https://atom.io/packages/symbols-tree-view), [browser-plus](https://atom.io/packages/browser-plus)
-, [react](https://atom.io/packages/react), and
-[project-switcher](https://atom.io/packages/project-switcher).
-
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/) (Note: Node JS is used via your command line or terminal, for Linux users, so having some prior knowledge in using the command line is expected).
 
 #Project Setup
 
