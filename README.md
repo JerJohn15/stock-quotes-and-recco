@@ -48,7 +48,7 @@ test/
 
 #Required Tools
 
-This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  [node ] (https://nodejs.org/en/) (Note: Node JS is used via your command line or terminal, for Linux users, so having some prior knowledge in using the command line is expected).
+This project currently supports the following languages: Javascript, React JS, Node JS, HTML, and CSS. In order to use Node JS you will have to install  the latest version of [node ] (https://nodejs.org/en/) .
 
 #Project Setup
 
