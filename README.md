@@ -4,13 +4,13 @@
 
 Formerly known as "stock-quotes-and-recco", this project acts as a portfolio to showcase features utilizing the React JS library and Node JS server tools. Current features include:
 
--  A sample stock purchasing application using the [Yahoo Finance undocumented RESTful api]( http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail) to retrieve stock data. 
+-  A sample stock purchasing application using the [Yahoo Finance undocumented RESTful api]( http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail) to retrieve stock data.
 
-- A [currency converter](http://s28.postimg.org/je9n6zsz1/Currency_Converter.gif) which converts a US currency into it's foriegn equivalent. (Uses  the [Open Exchange Rates Data REST API](https://openexchangerates.org/), to retrieve exchange rates, and  [money js](https://www.npmjs.com/package/money), to convert currencies.) 
+- A [currency converter](http://s28.postimg.org/je9n6zsz1/Currency_Converter.gif) which converts a US currency into it's foriegn equivalent. (Uses  the [Open Exchange Rates Data REST API](https://openexchangerates.org/), to retrieve exchange rates, and  [money js](https://www.npmjs.com/package/money), to convert currencies.)
 
 - A study logger that increments the amount of hours spent studying when clicking a button.
 
-See the **ToDo List** for upcoming features. Also, checkout the **Issues** section for current unresolved issues. In addition, there is a [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki) which currently consists of a test plan, and a design plan of future features. 
+See the **ToDo List** for upcoming features. Also, checkout the **Issues** section for current unresolved issues. In addition, there is a [wiki section](https://github.com/JerJohn15/stock-quotes-and-recco/wiki) which currently consists of a test plan, and a design plan of future features.
 
 To view the live demo of the original app use this link: http://rkiouak.com
 Refer to the **Project Setup** section for launching the application from a local server.
@@ -120,7 +120,11 @@ Also see **note** under **Release v.012** in the [Old Releases](https://github.c
 
 New Release features will be updated here. To view past releases see [old releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs).
 
-##Release v.026
+~~###Release v.07
+- added browser-sync plugin to webpack.config.js file (refreshes the browser whenever new code is added)
+- placed repetitive css code in a single file (see 'Project Directory')~~
+
+###Release v.026
 - Moved *serverTests.js* back into **test** folder.
 - Updated README *ToDo List*.
 
@@ -128,7 +132,7 @@ New Release features will be updated here. To view past releases see [old releas
 
 Go [here](http://s17.postimg.org/uh7fshz33/selenium_v2_51.png) to view a screenshot of the tests with the included *serverTest.js* file.  
 
-##Release v.025
+###Release v.025
 - Added Screenshot of the Currency Converter feature (see hyperlink in *Description* section).
 
 ###Release v.024
@@ -210,7 +214,7 @@ credentials.
 **Bugs**
 - [ ] Convert relevant tests in *serverTests.js* inside *autoTests.js* and remove *serverTests.js* folder.
 - [ ] Add the ability to run tests with an open web browser.
-
+- [ ] Make old css files work
 
 
 **Other**
@@ -219,6 +223,8 @@ credentials.
 - [ ] Add Action Sequences, or event changes, to Selenium tests.
 - [ ] Add the ability to run tests with an open web browser.
 - [ ] Add more features and incorporate an advanced application architecture (flux, redux, ..., etc.) in place of the current one.
+- [ ] Place repetitive css code inside a file and call it within components
+- [ ] Launch a new web browser that auto syncs current changes made (using BrowserSync)
 
 ###Contributors:
 

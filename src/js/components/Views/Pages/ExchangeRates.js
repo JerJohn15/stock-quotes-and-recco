@@ -11,59 +11,9 @@ The exchange rates are taken from the open exchange rates API. - https://openexc
 import React from 'react';
 var fx = require("money");
 var $ = require("jquery");
+import styles from '../../../../css/main.css';
 //Not using yet - var accounting = require("accounting");
 
-// CSS for Exchange Rates page
-const styles = {}
-
-styles.outerBox = {
-  paddingTop: '100px',
-  paddingBottom: '200px',
-  paddingRight: '900px',
-  paddingLeft: '100px'
-
-}
-
-styles.exchangeBox = {
-
-margin: 'auto',
-position: 'fixed',
-width: '250px',
-paddingLeft: '50px',
-paddingRight: '50px',
-height: '180px',
-border: '1px solid black',
-backgroundColor: '#C0C0C0'
-
-}
-
-styles.body = {
-
-  backgroundcolor: '#00ff00'
-}
-
-styles.title  = {
-
-  fontFamily:'Abril Fatface',
-  textAlign: 'left',
-  paddingLeft: '30px',
-  paddingTop:'10px',
-}
-
-styles.descript = {
-
-fontFamily: 'fantasy, cursive, Arial',
-textAlign: 'left',
-padding: '20px',
-paddingTop:'10px'
-}
-
-styles.dropMenu = {
-
-paddingLeft: '15px',
- paddingRight: '15px'
-
-}
 /**
 Money JS settings for the base currency and rates
 */
@@ -157,12 +107,12 @@ return (
   <div>
 <div><br/></div>
 <div>
-  <h3 style = {styles.title}>Currency Exchange</h3>
+  <h3 className = {styles.title}>Currency Exchange</h3>
 
-    <p style = {styles.descript}> {description}</p>
+    <p className = {styles.descript}> {description}</p>
 </div>
-<div style = {styles.outerBox}>
-  <div  style = {styles.exchangeBox}>
+<div className = {styles.outerBox}>
+  <div  className = {styles.exchangeBox}>
   <form>
     <fieldset>
       <label > Enter US Price Here</label><br></br>
@@ -170,7 +120,7 @@ return (
       defaultValue = {this.state.USDvalue} onChange = {this.setAmount}>
     </input>
     <div><br/></div>
-      <select id ="selection" style = {styles.dropMenu} defaultValue ={this.state.rtname}
+      <select id ="selection" className = {styles.dropMenu} defaultValue ={this.state.rtname}
          onChange={this.calculateRates}>
           <option value = "">select currency</option>
       <option value = "EUR">US-Euro</option>

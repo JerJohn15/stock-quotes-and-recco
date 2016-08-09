@@ -1,8 +1,10 @@
-var path = require('path')
+var path = require('path');
 var webpack = require('webpack');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
-  context: __dirname + "/src",
+  context: path.join(__dirname + "/src"),
   entry: {
     javascript: "./js/Routes.js",
     html: "./index.html",
@@ -27,13 +29,19 @@ var config = {
         query:{presets:['es2015','react', 'stage-0']}
       },
       {
+       test: /\.css$/,
+       loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'),
+       include: path.join(__dirname + '/src'),
+
+     },
+      {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",
       },
       { test: /\.json$/, loader: 'json-loader' }
     ],
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.jsx', '.css']
     },
     node: {
       console: 'true',
@@ -41,9 +49,16 @@ var config = {
       net: 'empty',
       tls: 'empty'
     }
-  },
-  plugins:[]
-}
+  },//JerJohn15 - added BrowserSyncPlugin
+  plugins:[
+    new ExtractTextPlugin("main.css"),
+    new BrowserSyncPlugin({
+         host: 'localhost',
+         port: 8080,
+         proxy: 'http://localhost:8080/'
+     })
+  ]
+};
 
 // config.devtool = 'eval'; // Speed up incremental builds
 // config.plugins.unshift(new webpack.HotModuleReplacementPlugin());

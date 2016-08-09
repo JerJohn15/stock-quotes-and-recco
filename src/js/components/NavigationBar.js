@@ -68,4 +68,4 @@ var NavigationBar = React.createClass ({
         })
 
 
-        export default NavigationBar
+export default NavigationBar

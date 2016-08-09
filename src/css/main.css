@@ -1,0 +1,84 @@
+/* JerJohn15- This page stores all of the CSS code*/
+
+/* main styles */
+
+.body  {
+
+  margin-left: 80px;
+  font-family: cursive;
+}
+
+.title   {
+
+  font-family: Abril Fatface;
+  text-align: left;
+  padding-left: 30px;
+  padding-top:10px;
+}
+
+.titleBox  {
+  padding: 20px;
+}
+
+.descript  {
+
+font-family: fantasy, cursive, Arial;
+text-align: left;
+padding: 20px;
+}
+
+
+
+
+/*styles for links */
+
+.link  {
+  padding: 11;
+  color: #fff;
+  font-weight: 200;
+}
+
+.activeLink  {
+  padding: 11;
+  color: #fff;
+  font-weight: 200;
+  background: #fff;
+  color: #337ab7;
+}
+
+.wrapper  {
+  padding: 10px, 20px;
+  overflow: hidden;
+  background: #337ab7;
+  color: #fff;
+}
+
+/*styles for exchange rates page */
+
+.outerBox  {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  padding-right: 900px;
+  padding-left: 100px;
+
+}
+
+.exchangeBox  {
+
+margin: auto;
+position: fixed;
+width: 250px;
+padding-left: 50px;
+padding-right: 50px;
+height: 180px;
+border: 1px solid black;
+background-color: #C0C0C0;
+
+}
+
+.dropMenu  {
+
+padding-left: 15px;
+ padding-right: 15px;
+
+}
