@@ -18,8 +18,8 @@ render(){
     <div>
        <div id = "Home" className={styles.titleBox}>
          <div>
-           <h3 className={styles.title}> Stock Quotes and Recco Toy App</h3>
-           <h5 className = {styles.title}>Contributors: Matt Rkiouak && Jeremiah Johnson</h5>
+           <h3 className={styles.titleHome}> Stock Quotes and Recco Toy App</h3>
+           <h5 className = {styles.titleHome}>Contributors: Matt Rkiouak && Jeremiah Johnson</h5>
          </div>
          <div>
            <br/>

@@ -16,6 +16,10 @@
   padding-top:10px;
 }
 
+.titleHome {
+  font-family: Abril FatFace;
+}
+
 .titleBox  {
   padding: 20px;
 }
@@ -43,11 +47,10 @@ padding: 20px;
   color: #fff;
   font-weight: 200;
   background: #fff;
-  color: #337ab7;
 }
 
 .wrapper  {
-  padding: 10px, 20px;
+  padding: 10px 20px;
   overflow: hidden;
   background: #337ab7;
   color: #fff;
@@ -56,21 +59,17 @@ padding: 20px;
 /*styles for exchange rates page */
 
 .outerBox  {
-  padding-top: 100px;
-  padding-bottom: 200px;
-  padding-right: 900px;
-  padding-left: 100px;
-
+  padding: 100px 900px 200px 100px;
 }
 
 .exchangeBox  {
 
 margin: auto;
 position: fixed;
-width: 250px;
+
 padding-left: 50px;
 padding-right: 50px;
-height: 180px;
+
 border: 1px solid black;
 background-color: #C0C0C0;
 
