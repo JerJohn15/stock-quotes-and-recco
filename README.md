@@ -65,12 +65,12 @@ cd [name of project]
 
 npm install
 
-npm start
+npm start #or type webpack && node server.js
 ```
 
 Give the server a few minutes to download npm dependencies depending on your connection speed, you will eventually see a message saying 'Example app available at: http://localhost:8080'. This means you've pulled the project successfully and you can check the app at http://localhost:8080 from your browser.
 
-**Note**: Windows users might get thrown an error about node not being able to find the 'server.js' file. As an alternative, you can run **'webpack && node server.js'**.
+**Note**: Windows users might get thrown an error about node not being able to find the 'server.js' file. As an alternative, you can run ```bash **'webpack && node server.js'**.```
 
 If you want to sync your fork with the master repo, read [syncing a fork](https://help.github.com/articles/syncing-a-fork/).
 
