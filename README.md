@@ -58,7 +58,7 @@ This project currently supports the following languages: Javascript, React JS, N
 
 3)  Go ahead and make a forked repository of the [original](https://github.com/Rkiouak/stock-quotes-and-recco) project. Then copy the link, 'cd' to your desired project location, and run the following:
 
-```javascript
+```bash
 git clone [your forked link]
 
 cd [name of project]
@@ -74,46 +74,25 @@ Give the server a few minutes to download npm dependencies depending on your con
 
 If you want to sync your fork with the master repo, read [syncing a fork](https://help.github.com/articles/syncing-a-fork/).
 
-
-
 ###Running Tests
 
-I've recently added a file in the test folder for testing components, but to get it to work properly, you will need to install the latest version of babel 6, its presets (es2015, react, and stage-0), and the latest version of React (some of the peer dependencies require it). Since **Release v.022** I've also included automated tests with Selenium-Webdriver so you'll need that too.  
+Since **Release v.022** I've added automated tests using  selenium web driver, so you'll need to install it in order to properly
+run tests:  
 
+```bash
 
-
-```javascript
-
-//install babel 6
-npm install babel-core --save-dev
-
-//install support for es6
-npm install babel-preset-es2015 --save-dev
-
-//install  support for jsx
-npm install babel-preset-react --save-dev
-
-// install es7 features
-npm install babel-preset-stage-0 --save-dev
-
-// install react.
+# first install react.
 npm install react
 
-//install selenium-webdriver
+# then install selenium-webdriver
 npm install selenium-webdriver
 
-//once done, to run tests run this command from root of project:
+# once done, to run tests run this command from root of project:
 mocha --require test/setup.js --compilers js:babel-register
 
 ```  
 
-**References:**
-
-- [Installing Babel 6 for mocha](https://babeljs.io/docs/setup/#mocha)
-- [Testing in ES6](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
-- [Testing with mocha](http://www.benjanecke.com/2015/11/30/so-you-want-to-test-your-react-code-with-mocha.html)
-
-Also see **note** under **Release v.012** in the [Old Releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs) section.
+For reference, see  **note** under **Release v.012** in the [Old Releases](https://github.com/JerJohn15/stock-quotes-and-recco/tree/master/docs) section.
 
 
 #Releases
