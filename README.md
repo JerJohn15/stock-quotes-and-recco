@@ -2,11 +2,11 @@
 
 #Description
 
-Formerly known as "stock-quotes-and-recco", this project acts as a portfolio to showcase features utilizing the React JS library and Node JS server tools. Current features include:
+Formerly known as "stock-quotes-and-recco", this project is a portfolio to showcase ideas created using the React JS library on the front-end side. The server side currently used Node.js Current features include:
 
 -  A sample stock purchasing application using the [Yahoo Finance undocumented RESTful api]( http://finance.yahoo.com/webservice/v1/symbols/AAPL/quote?format=json&view=detail) to retrieve stock data. 
 
-- A [currency converter](http://s28.postimg.org/je9n6zsz1/Currency_Converter.gif) which converts a US currency into it's foriegn equivalent. (Uses  the [Open Exchange Rates Data REST API](https://openexchangerates.org/), to retrieve exchange rates, and  [money js](https://www.npmjs.com/package/money), to convert currencies.) 
+- A [currency converter](http://s28.postimg.org/je9n6zsz1/Currency_Converter.gif) which converts a US currency into it's foriegn equivalent. (Uses  the [Open Exchange Rates Data REST API](https://openexchangerates.org/), to retrieve exchange rates, and  the [money js](https://www.npmjs.com/package/money) external library, to convert currencies.) 
 
 - A study logger that increments the amount of hours spent studying when clicking a button.
 
