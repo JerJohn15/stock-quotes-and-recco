@@ -165,11 +165,11 @@ react-router (currently 2.0.0).
 
 **Stocks**
 
-- [ ] 1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
+- [X] 1st stage: Build single page with form + results display that allows for querying stocks by symbol, issuer_name and various date ranges, eventually bring in d3 graphing of historical data.
 
 - [ ] 2nd stage: Query google news for recent news articles, allow news link sharing and different timespan horizon recommendations (day/week, few months, long-term hold)
 
-- ~~[X] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with 'npm start' or 'webpack && node server.js'.~~
+- [X] Run tests from root directory with Mocha, run express server (e.g. local dev mode) with 'npm start' or 'webpack && node server.js'.
 
 **Login/ Registration**
 
@@ -201,5 +201,5 @@ credentials.
 
 ###Contributors:
 
--[JerJohn15](https://github.com/JerJohn15)
+- [JerJohn15](https://github.com/JerJohn15)
 - [Rkiouak](https://github.com/Rkiouak)
